@@ -22,5 +22,5 @@ export function init_lot(levels, bays) {
         }
         spaces.push(parking_spot); // Add to the array
     }
-    return spaces;
+    return spaces; // Return spaces
 }
