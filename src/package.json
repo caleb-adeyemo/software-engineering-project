@@ -1,0 +1,12 @@
+{
+  "name": "my_space",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "parking management system",
+  "main": "test-resrv.js",
+  "scripts": {
+    "test": "test-resrv.js"
+  },
+  "author": "",
+  "license": "GPL-3.0"
+}
