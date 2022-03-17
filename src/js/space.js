@@ -1,10 +1,11 @@
+module.exports.space = space;
+module.exports.init_lot = init_lot;
 // Creates Space object
-export function space(level, bay) {
+function space(level, bay) {
     return { level: level, bay: bay };
 }
-
 // Inistialsie the parking lot 
-export function init_lot(levels, bays) {
+function init_lot(levels, bays) {
     let spaces = [];
     let level = 'A';
     let bay_count = 0;

@@ -1,12 +1,11 @@
 {
   "name": "software-engineering-project",
-  "type": "module",
   "version": "1.0.0",
   "description": "included NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "test": "node  src/js/test-resrv.js",
+    "start": "node   app.js"
   },
   "author": "",
   "license": "ISC",
