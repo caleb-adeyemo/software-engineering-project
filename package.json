@@ -1,21 +1,21 @@
 {
-    "name": "software-engineering-project",
-    "version": "1.0.0",
-    "description": "included NodeJS",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon app.js"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "bootstrap": "^5.0.2",
-        "ejs": "^3.1.6",
-        "express": "^4.17.3",
-        "express-ejs-layouts": "^2.5.1"
-    },
-    "devDependencies": {
-        "nodemon": "^2.0.15"
-    }
+  "name": "software-engineering-project",
+  "version": "1.0.0",
+  "description": "included NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "node src/js/test-resrv.js",
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.0.2",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
