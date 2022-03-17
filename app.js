@@ -7,9 +7,8 @@ const port = process.env.PORT || 8000;
 
 // Static Files
 app.use(express.static("public"));
-// app.use("/dist", express.static(__dirname + "public/dist"));
-app.use("/js", express.static(__dirname + "public/js"));
-app.use('/img', express.static(__dirname + 'public/img'))
+app.use("/js", express.static(__dirname + "src/js"));
+app.use('/img', express.static(__dirname + 'src/img'))
 
 // Set Views | Templating Engine
 app.use(expressLayouts);
