@@ -8,7 +8,7 @@ const port = process.env.PORT || 8000;
 // Static Files
 app.use(express.static("public"));
 app.use("/js", express.static(__dirname + "src/js"));
-app.use('/img', express.static(__dirname + 'src/img'))
+app.use("/img", express.static(__dirname + "src/img"));
 
 // Set Views | Templating Engine
 app.use(expressLayouts);
@@ -21,7 +21,9 @@ app.get("", (req, res) => {
 });
 
 // Listen on port 8000
-const server = app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
+const server = app.listen(port, () =>
+	console.log(`Listening at http://localhost:${port}`)
+);
 
 // npm install ejs express express-ejs-layouts
 // npm start

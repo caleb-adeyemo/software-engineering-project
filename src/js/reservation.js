@@ -40,7 +40,6 @@ export function time(_start, _dur) {
 
 		return res;
 	}
-
 	return { start: start, overlap: overlap };
 }
 
@@ -58,5 +57,5 @@ export function is_valid(res_arr, new_resrv) {
 			return util.Result(TIME_COLL, "space already booked", null);
 		}
 	}
-	return util.Result(RES_OK, "resvation made successfully", null);
+	return util.Result(RES_OK, "reservation made successfully", null);
 }
