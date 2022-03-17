@@ -1,7 +1,10 @@
 // imports
-const express = require("express");
-const expressLayouts = require("express-ejs-layouts");
+import express from 'express';
+import expressLayouts  from 'express-ejs-layouts';
+import {dirname} from 'path';
+import {fileURLToPath} from 'url';
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = process.env.PORT || 8000;
 

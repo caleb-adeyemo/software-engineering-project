@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "included NodeJS",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "node  src/js/test-resrv.js",
     "start": "node   app.js"

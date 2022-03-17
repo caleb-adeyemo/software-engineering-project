@@ -1,8 +1,8 @@
-const reservations = require("./reservation.js");
-const space = require("./space.js");
-const user = require("./user.js");
-const assert = require("assert");
-const util = require("./dbms.js");
+import * as reservations from "./reservation.js"; 
+import * as space from "./space.js";
+import * as user from "./user.js";
+import assert from 'assert/strict';
+import * as util from "./dbms.js";
 
 const d0 = new Date("March 2,2022 10:20");
 const d1 = new Date("March 3,2022 10:20");
