@@ -4,7 +4,7 @@
   "description": "included NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node src/js/test-resrv.js",
     "start": "nodemon app.js"
   },
   "author": "",
