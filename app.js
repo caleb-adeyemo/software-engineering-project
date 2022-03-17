@@ -7,7 +7,7 @@ const port = process.env.PORT || 4000;
 
 // Static Files
 app.use(express.static("public"));
-app.use("/dist", express.static(__dirname + "public/dist"));
+// app.use("/dist", express.static(__dirname + "public/dist"));
 app.use("/js", express.static(__dirname + "public/js"));
 app.use('/img', express.static(__dirname + 'public/img'))
 
