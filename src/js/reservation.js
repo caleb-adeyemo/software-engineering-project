@@ -1,3 +1,4 @@
+
 const assert = require('assert/strict');
 const util = require ('./dbms.js');
 
@@ -13,6 +14,7 @@ module.exports.INV_USER = INV_USER;
 module.exports.RES_OK = RES_OK; 
    
 // Ensures the input duration are whole nubers not floating points (i.e. 1.5hrs)
+
 function duration(hr, min) {
     assert.deepEqual(Number.isInteger(hr), true, 'hours must be a whole number');
     assert.deepEqual(Number.isInteger(min), true, 'minutes must be a whole number');
@@ -64,4 +66,3 @@ function reservation(time, space, user, number_plate) {
     }
     return util.Result(RES_OK, 'resvation made successfully', null);
 }
-
