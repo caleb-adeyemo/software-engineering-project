@@ -4,8 +4,8 @@
   "description": "included NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "node src/js/test-resrv.js",
-    "start": "nodemon app.js"
+    "test": "node  src/js/test-resrv.js",
+    "start": "node   app.js"
   },
   "author": "",
   "license": "ISC",

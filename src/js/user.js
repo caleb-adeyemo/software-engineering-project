@@ -1,4 +1,5 @@
+module.exports.User = User;
 // Create users object
-export function User(username, name, email) {
+function User(username, name, email) {
     return { username: username, name: name, email: email };
 }

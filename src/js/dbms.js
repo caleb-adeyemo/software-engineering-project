@@ -1,4 +1,4 @@
-
-export function Result(code,msg,unwrap){
+module.exports.Result = Result;
+function Result(code,msg,unwrap){
    return {code,msg,unwrap};
 }
