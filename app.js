@@ -18,7 +18,7 @@ app.set("view engine", "ejs");
 
 // Navigation | Route
 app.get("", (req, res) => {
-	res.render("index", { title: "Home" });
+	res.render("index", { title: "MySpace - Home" });
 });
 
 // Listen on port 8000
