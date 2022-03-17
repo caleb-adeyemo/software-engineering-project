@@ -4,7 +4,8 @@
     "sources": [
         "style.scss",
         "_variables.scss",
-        "_globals.scss"
+        "_globals.scss",
+        "_navbar.scss"
     ],
     "names": [],
     "file": "style.css"
