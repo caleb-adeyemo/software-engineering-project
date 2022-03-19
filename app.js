@@ -15,16 +15,24 @@ app.use('/img', express.static(__dirname + 'src/img'))
 
 // Set Views | Templating Engine
 app.use(expressLayouts);
-app.set("layout", "./pages/home");
+app.set("layout", "./pages/_landing");
 app.set("view engine", "ejs");
 
 // Navigation | Route
 app.get("", (req, res) => {
-	res.render("index", { title: "MySpace - Home" });
+	res.render("landing", { title: "MySpace - Home" });
+});
+app.get('/login', (req, res) => {
+  res.render('login', { layout: './pages/_login', title: 'Login' })
+});
+app.get('/signup', (req, res) => {
+  res.render('signup', { layout: './pages/_signup', title: 'Sign Up' })
+});
+app.get('/myAccount', (req, res) => {
+  res.render('myAccount', { layout: './pages/_myAccount', title: 'My Account' })
 });
 
 // Listen on port 8000
 const server = app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
 
-// npm install ejs express express-ejs-layouts
 // npm start
