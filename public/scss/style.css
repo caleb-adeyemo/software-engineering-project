@@ -13,7 +13,8 @@ header {
   width: 100%;
   height: 3.5rem;
   background-color: #003049;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
 
@@ -72,5 +73,61 @@ label {
 input,
 label {
   margin: .1rem .1rem;
+}
+
+.heading {
+  margin: 3rem auto;
+  font-size: 2.25rem;
+  color: #003049;
+  text-align: center;
+}
+
+.form {
+  width: 25rem;
+  padding: 5rem;
+  margin: auto;
+  background-color: black;
+  text-align: center;
+  border-radius: 1.5rem;
+}
+
+.form input[type="email"], .form input[type="password"] {
+  border: 2px solid #003049;
+  background: none;
+  display: block;
+  margin: 1em auto;
+  text-align: center;
+  padding: 0.875rem 0.625rem;
+  width: 14rem;
+  border-radius: 2rem;
+  outline: none;
+  color: white;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.form input[type="email"]:focus, .form input[type="password"]:focus {
+  width: 16rem;
+  border-color: #FCBF49;
+}
+
+.form input[type="submit"] {
+  border: 2px solid #003049;
+  background: none;
+  display: block;
+  margin: 1em auto;
+  text-align: center;
+  padding: 0.875rem 3rem;
+  border-radius: 2rem;
+  outline: none;
+  color: #FCBF49;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.form input[type="submit"]:hover {
+  color: white;
+  background-color: #FCBF49;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
