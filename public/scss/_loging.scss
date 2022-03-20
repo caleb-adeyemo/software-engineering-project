@@ -1,0 +1,51 @@
+.heading {
+    margin: 3rem auto;
+    font-size: $font-xlg;
+    color: $darkBlue;
+    text-align: center;
+}
+
+.form{
+    width: 25rem;
+    padding: 5rem;
+    margin: auto;
+    background-color:$black;
+    text-align: center;
+    border-radius: 1.5rem;
+}
+
+
+.form input[type = "email"], .form input[type= "password"]{
+    border: 2px solid $darkBlue;
+    background: none;
+    display: block;
+    margin: 1em auto;
+    text-align: center;
+    padding: 0.875rem 0.625rem;
+    width: 14rem;
+    border-radius: 2rem;
+    outline: none;
+    color: white;
+    transition: 0.25s;
+}
+.form input[type = "email"]:focus, .form input[type= "password"]:focus{
+    width: 16rem;
+    border-color: $yellow;
+}
+.form input[type= "submit"]{
+    border: 2px solid $darkBlue;
+    background: none;
+    display: block;
+    margin: 1em auto;
+    text-align: center;
+    padding: 0.875rem 3rem;
+    border-radius: 2rem;
+    outline: none;
+    color: $yellow;
+    transition: 1s;
+}
+.form input[type= "submit"]:hover{
+    color: white;
+    background-color: $yellow;
+    cursor: pointer;
+}
