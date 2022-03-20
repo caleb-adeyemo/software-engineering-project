@@ -10,18 +10,9 @@ $lightYellow: #EAE2B7;
 $font-sm: 0.875rem; // 14px
 $font-med: 1.125rem; // 18px
 $font-lg: 1.25rem;
-$font-xlg: 2.25rem;
+$font-xlg: 3.25rem;
 
 // Font Family
-$font-fam-1: 'Gill Sans',
-'Gill Sans MT',
-Calibri,
-'Trebuchet MS',
-sans-serif; // main body
-$font-fam-2: 'Uchen',
-serif; // for short words or phrases
-$font-fam-3: 'Beth Ellen',
-cursive; // cursive
-$font-fam-4: 'Allerta',
-sans-serif; // for spaced fonts or sentences
-@import url('https://fonts.googleapis.com/css2?family=Allerta&family=Beth+Ellen&family=Uchen&display=swap');
+$font-fam-1: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; // main body
+$font-fam-2: 'Uchen', serif; 
+$font-fam-3: 'DM Serif Text', serif;
