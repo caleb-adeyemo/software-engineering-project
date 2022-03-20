@@ -1,6 +1,51 @@
 .top-landing {
-    margin: 3rem auto;
-    font-size: $font-xlg;
-    color: $darkBlue;
-    text-align: center;
+  margin: 3rem auto 2rem auto;
+  font-family: $font-fam-1;
+  text-align: center;
+}
+
+.top-landing h1 {
+  font-size: $font-xlg;
+  color: $darkBlue;
+}
+
+div.destination:hover {
+  border-top: 2px solid $yellow;
+}
+
+.destination {
+  background-color: $yellow;
+  margin: 0.5rem;
+  border-radius: 1px;
+}
+
+.destination h4 {
+  text-align: center;
+  padding: 1rem;
+}
+  
+.dropdown-menu-right {
+  background: none;
+  min-width: 90%;
+  text-align: center;
+  margin: 0 2rem;
+  border: none;
+}
+
+.destination a.dropdown-item:hover {
+  font-weight: bold;
+  background-color: rgba(0, 0, 255, 0);
+}
+
+.arrival {
+  margin-left: .5rem;
+}
+
+label {
+  font-size: $font-med;
+}
+
+input,
+label {
+  margin: .1rem .1rem;
 }

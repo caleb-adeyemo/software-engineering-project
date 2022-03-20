@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Allerta&family=Beth+Ellen&family=Uchen&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 body {
@@ -19,29 +19,58 @@ header {
 
 .navbar-nav {
   position: fixed;
-  top: 1rem;
   right: 1rem;
 }
 
-.navbar a {
-  color: #FCBF49;
-  padding: 0.4rem;
-  font-size: 0.875rem;
-  text-decoration: none;
-}
-
-.navbar .active {
-  font-weight: bold;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 .top-landing {
-  margin: 3rem auto;
-  font-size: 2.25rem;
-  color: #003049;
+  margin: 3rem auto 2rem auto;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   text-align: center;
+}
+
+.top-landing h1 {
+  font-size: 3.25rem;
+  color: #003049;
+}
+
+div.destination:hover {
+  border-top: 2px solid #FCBF49;
+}
+
+.destination {
+  background-color: #FCBF49;
+  margin: 0.5rem;
+  border-radius: 1px;
+}
+
+.destination h4 {
+  text-align: center;
+  padding: 1rem;
+}
+
+.dropdown-menu-right {
+  background: none;
+  min-width: 90%;
+  text-align: center;
+  margin: 0 2rem;
+  border: none;
+}
+
+.destination a.dropdown-item:hover {
+  font-weight: bold;
+  background-color: rgba(0, 0, 255, 0);
+}
+
+.arrival {
+  margin-left: .5rem;
+}
+
+label {
+  font-size: 1.125rem;
+}
+
+input,
+label {
+  margin: .1rem .1rem;
 }
 /*# sourceMappingURL=style.css.map */
