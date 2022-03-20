@@ -1,20 +1,22 @@
-.navbar {
-  position: fixed; 
-  top: 1rem; 
-  right: 1rem;
+.nav-logo {}
+
+.navbar-nav {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
 }
 
 .navbar a {
-  color: $darkBlue;
-  padding: 0.4rem;
-  font-size: $font-sm;
-  text-decoration: none;
+    color: $yellow;
+    padding: 0.4rem;
+    font-size: $font-sm;
+    text-decoration: none;
 }
 
 .navbar .active {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
