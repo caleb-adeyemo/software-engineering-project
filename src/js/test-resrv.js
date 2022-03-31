@@ -1,7 +1,8 @@
 import * as reservations from "./reservation.js"; 
 import * as space from "./space.js";
 import * as user from "./user.js";
-import assert from 'assert/strict';
+import { strict as assert } from 'assert';
+// import assert from 'assert/strict';
 import * as util from "./dbms.js";
 
 const d0 = new Date("March 2,2022 10:20");
