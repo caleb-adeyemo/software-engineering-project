@@ -1,12 +1,27 @@
 // imports
 import express from 'express';
 import expressLayouts  from 'express-ejs-layouts';
+import bodyParser from 'body-parser';
 import {dirname} from 'path';
 import {fileURLToPath} from 'url';
+import * as util from './src/js/dbms.js'
+import * as user from './src/js/user.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = process.env.PORT || 8000;
+let urlEncodedParser = bodyParser.urlencoded({extended: false});
+const USER_TABLE_PATH = 'users.json';
+let user_table = null;
+
+// initialise databases
+let result = util.load_from_file(USER_TABLE_PATH);
+if(result.code === util.OK){
+   user_table = result.unwrap;  
+}else{
+   console.log('creating new table from scratch');
+   user_table = util.Table(USER_TABLE_PATH);
+}
 
 // Static Files
 app.use(express.static("public"));
@@ -30,6 +45,30 @@ app.get('/signup', (req, res) => {
 });
 app.get('/myAccount', (req, res) => {
   res.render('myAccount', { layout: './pages/_myAccount', title: 'My Account' })
+});
+
+app.post('/login',urlEncodedParser,(req,res)=>{
+   console.log("--email--");
+   console.log(req.body.email); 
+   console.log("--password--");
+   console.log(req.body.password);
+   let result = user.handle_login(user_table,req.body.email,req.body.password); 
+   res.send(result.msg);
+});
+
+app.post('/signup',urlEncodedParser,(req,res)=>{
+   console.log("--email--");
+   console.log(req.body.email); 
+   console.log("--password--");
+   console.log(req.body.password);
+   let result = user.handle_signup(
+      user_table,
+      req.body.username,
+      req.body.name,
+      req.body.email,
+      req.body.password
+   );
+   res.send(result.msg);
 });
 
 // Listen on port 8000

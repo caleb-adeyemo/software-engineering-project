@@ -1,9 +1,10 @@
 import * as fs from 'fs'; 
 
-export const SOME = Symbol("query result is not empty");
-export const NONE = Symbol("query result is empty,maybe null");
+export const OK   = Symbol("query was successful");
+export const ERR  = Symbol("query result is erronous,maybe null");
+export const NONE = Symbol("query result is empty");
 export function Result(code,msg,unwrap){
-   return {code,msg,unwrap};
+   return {code:code,msg:msg,unwrap:unwrap};
 }
 
 export function Table(filename){
@@ -72,9 +73,12 @@ function deserialise(path,string){
    }
    return new_table;
 }
+
 export function load_from_file(path){
+   if(!fs.existsSync(path)){
+      return Result(ERR,'file ['+ path + '] does not exist',null);
+   }
    const data = fs.readFileSync(path,'utf8'); 
-   return deserialise(path,data);
-   return data; 
+   return Result(OK,'file exists',deserialise(path,data));
 }
 
