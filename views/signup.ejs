@@ -2,21 +2,21 @@
 
     <body>
         <div class="container">
-            <form class="form" id="createAccount">
+            <form class="form" id="createAccount" method="POST" action="/signup">
                 <h1 class="form_title">Create Account</h1>
                 <div class="form_message form_message-error"></div>
                 <div class="form_input-group">
-                    <input type="text" class="form_input" autofocus placeholder="Email">
+                    <input type="text" class="form_input" name="email"  autofocus placeholder="Email">
                     <div class="form_input-error-message"></div>
                 </div>
 
                 <div class="form_input-group">
-                    <input type="password" class="form_input" autofocus placeholder="Password">
+                    <input type="password" class="form_input" name="password" autofocus placeholder="Password">
                     <div class="form_input-error-message"></div>
                 </div>
 
                 <div class="form_input-group">
-                    <input type="password" class="form_input" autofocus placeholder="Confirm Password">
+                    <input type="password" class="form_input" name="confirm password" autofocus placeholder="Confirm Password">
                     <div class="form_input-error-message"></div>
                 </div>
                 <button class="form_button" type="submit">Continue</button>

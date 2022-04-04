@@ -47,7 +47,8 @@ function test_table(){
    //console.log(entries);
    user_table.save_to_file(entries);
 
-   let deserialised_table = util.load_from_file(path);
+   let result = util.load_from_file(path);
+   let deserialised_table = result.unwrap;
    console.log(deserialised_table);
 
    assert.deepEqual(deserialised_table.contains(u0.key()),true,'table members are deserialised properly');
