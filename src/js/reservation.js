@@ -51,9 +51,6 @@ export function reservation(time,  user, number_plate) {
 
 // checks to see if reservations clashes/vaild
 export function is_valid(res_arr, new_resrv) {
-      if(res_arr.length === 0){
-         return util.Result(RES_OK, "resvation made successfully", true);
-      }
 	for (let i = 0; i < res_arr.length; i++) {
 		if (res_arr[i].time.overlap(new_resrv.time) === true) {
 			console.log(TIME_COLL);
