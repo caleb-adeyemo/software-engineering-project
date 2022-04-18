@@ -4,7 +4,6 @@ import * as util from './dbms.js';
 export const TIME_COLL = Symbol("times overlap"); 
 export const INV_USER = Symbol("invalid user"); 
 export const RES_OK = Symbol("reservation is vaild");
-//
 // Ensures the input duration are whole nubers not floating points (i.e. 1.5hrs)
 
 export function duration(hr, min) {
@@ -33,7 +32,7 @@ export function time(_start, _dur) {
 		console.log("t1: " + JSON.stringify(t1));
 		start.setHours(start.getHours() + _dur.hr);
 		start.setMinutes(start.getMinutes() + _dur.min);
-		let res = start > t1.start;
+		let res = start >= t1.start;
 		console.log("t0 > t1: " + res + "\n");
 		//reset start
 		start.setHours(start.getHours() - _dur.hr);
@@ -46,18 +45,20 @@ export function time(_start, _dur) {
 }
 
 // Creates reservation object
-export function reservation(time, space, user, number_plate) {
-	return { time: time, space: space, user: user, number_plate };
+export function reservation(time,  user, number_plate) {
+	return {time: time, user: user,number_plate: number_plate};
 }
 
 // checks to see if reservations clashes/vaild
 export function is_valid(res_arr, new_resrv) {
-	const collisions = res_arr.filter((col) => col.space === new_resrv.space);
-	for (let i = 0; i < collisions.length; i++) {
-		if (collisions[i].time.overlap(new_resrv.time) === true) {
+      if(res_arr.length === 0){
+         return util.Result(RES_OK, "resvation made successfully", true);
+      }
+	for (let i = 0; i < res_arr.length; i++) {
+		if (res_arr[i].time.overlap(new_resrv.time) === true) {
 			console.log(TIME_COLL);
-			return util.Result(TIME_COLL, "space already booked", null);
+			return util.Result(TIME_COLL, "space already booked", false);
 		}
 	}
-	return util.Result(RES_OK, "resvation made successfully", null);
+	return util.Result(RES_OK, "resvation made successfully", true);
 }

@@ -7,6 +7,14 @@ export function Result(code,msg,unwrap){
    return {code:code,msg:msg,unwrap:unwrap};
 }
 
+export function init_reservation(levels, bay){
+   let bookings = new Map();
+   let spaces = init_lot(levels,bay); 
+   for(let i = 0; i < spaces.length; i++){
+       
+   }
+}
+
 export function Table(filename){
    let entries = new Map();
    const name = filename;

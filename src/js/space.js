@@ -1,6 +1,12 @@
-// Creates Space object
+import * as reservations from "./reservation.js"; 
+import * as util from "./dbms.js"; 
+
 export function space(level, bay) {
-	return { level: level, bay: bay };
+   function key(){
+      return level + bay;  
+   }
+   let reservations = []; 
+   return { level: level, bay: bay, key: key, reservations};
 }
 // Inistialsie the parking lot
 export function init_lot(levels, bays) {
@@ -22,4 +28,14 @@ export function init_lot(levels, bays) {
 		spaces.push(parking_spot); // Add to the array
 	}
 	return spaces;
+}
+
+// checks if reservation is valid before inserting
+export function add_reservation(space,new_resrv){
+   let result = reservations.is_valid(space.reservations,new_resrv);
+
+   if(result.code === reservations.RES_OK){
+      space.reservations.push(new_resrv);
+   }
+   return result; 
 }
