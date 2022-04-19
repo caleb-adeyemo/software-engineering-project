@@ -1,16 +1,17 @@
 import * as reservations from "./reservation.js"; 
 import * as space from "./space.js";
 import * as user from "./user.js";
+import * as TM from "./time.js"; 
 import { strict as assert } from 'assert';
 import * as util from "./dbms.js";
 
 const d0 = new Date("March 2,2022 10:20");
 const d1 = new Date("March 3,2022 10:20");
 const d2 = new Date("March 2,2022,10:40");
-const one_hr = reservations.duration(1, 0);
-const t0 = reservations.time(d0, one_hr);
-const t1 = reservations.time(d1, one_hr);
-const t2 = reservations.time(d2, one_hr);
+const one_hr = TM.duration(1, 0);
+const t0 = TM.time(d0, one_hr);
+const t1 = TM.time(d1, one_hr);
+const t2 = TM.time(d2, one_hr);
 
 function test_reservations() {
    console.log("====TEST RESERVATIONS====");
@@ -19,7 +20,7 @@ function test_reservations() {
    console.log("key " + test_space.key());
    let test_user = user.User("foo", "bar", "foobar@gmail.com");
    let test_vID = "ABCDEF6";
-   let test_time = reservations.time(d0, one_hr);
+   let test_time = TM.time(d0, one_hr);
    let resrv_arr = [];
    let test_resrv = reservations.reservation(
          test_time,
@@ -28,7 +29,7 @@ function test_reservations() {
    );
    resrv_arr.push(test_resrv);
    console.log("====BASIC RESRV TEST====");
-   let test_time1 = reservations.time(d1, one_hr);
+   let test_time1 = TM.time(d1, one_hr);
    let test_resrv1 = reservations.reservation(
          test_time1,
          test_user,
