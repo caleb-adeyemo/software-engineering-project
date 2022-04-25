@@ -5,6 +5,7 @@ import * as TM from './time.js';
 export const TIME_COLL = Symbol("times overlap"); 
 export const INV_USER = Symbol("invalid user"); 
 export const RES_OK = Symbol("reservation is vaild");
+
 // Creates reservation object
 export function reservation(time,  user, number_plate) {
    function serialise(){

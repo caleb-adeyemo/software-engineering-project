@@ -28,9 +28,9 @@
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="/">Home</a>
           <a class="nav-item nav-link" href="/login">Login</a>
-          <a class="nav-item nav-link active" href="/signup">Sign Up</a>
+          <a class="nav-item nav-link" href="/signup">Sign Up</a>
           <a class="nav-item nav-link" href="/myAccount">My Account</a>
-          <a class="nav-item nav-link"  href="/admin">Admin</a>
+          <a class="nav-item nav-link active"  href="/admin">Admin</a>
         </div>
       </div>
       </div>
@@ -39,6 +39,7 @@
   <main>
     <%- body %>
   </main>
+
   <!-- optional and required tags -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -49,6 +50,21 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+    <script>
+      // function displayDate(){
+      //   document.getElementById(info_name).innerHTML = this.innerHTML;
+      //   console.log(this.innerHTML)
+      // }
+      document.querySelectorAll('.space').forEach(item => {
+        item.addEventListener('click', event => {
+          document.getElementById("info_name").innerHTML = item.innerHTML;
+          console.log(this.innerHTML)
+        })
+        })
+      function displayDate(obj){
+        
+      }
+    </script>
 </body>
 
 </html>

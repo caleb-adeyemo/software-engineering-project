@@ -46,6 +46,9 @@ app.get('/signup', (req, res) => {
 app.get('/myAccount', (req, res) => {
   res.render('myAccount', { layout: './pages/_myAccount', title: 'My Account' })
 });
+app.get('/admin', (req, res) => {
+   res.render('admin', { layout: './pages/_admin', title: 'Admin' })
+ });
 
 app.post('/login',urlEncodedParser,(req,res)=>{
    console.log("--email--");

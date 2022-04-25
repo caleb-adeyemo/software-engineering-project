@@ -16,8 +16,7 @@
   border-radius: 1rem;
 }
 
-.form input[type="email"],
-.form input[type="password"] {
+.form input {
   border: 2px solid white;
   background: none;
   display: block;
@@ -31,8 +30,7 @@
   transition: 0.25s;
 }
 
-.form input[type="email"]:focus,
-.form input[type="password"]:focus {
+.form input:focus {
   width: 16rem;
   border-color: $yellow;
 }

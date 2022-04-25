@@ -1,6 +1,6 @@
 import * as util from './dbms.js';
 // Create users object
-export function User(username, name, email,password) {
+export function User(username, name, email, password) {
       function key(){
          return email;
       }
