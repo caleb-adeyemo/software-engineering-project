@@ -4,9 +4,8 @@ import * as util from './dbms.js';
 export const TIME_COLL = Symbol("times overlap"); 
 export const INV_USER = Symbol("invalid user"); 
 export const RES_OK = Symbol("reservation is vaild");
-//
-// Ensures the input duration are whole nubers not floating points (i.e. 1.5hrs)
 
+// Ensures the input duration are whole nubers not floating points (i.e. 1.5hrs)
 export function duration(hr, min) {
 	assert.deepEqual(Number.isInteger(hr), true, "hours must be a whole number");
 	assert.deepEqual(

@@ -20,7 +20,7 @@ header {
 }
 
 .navbar-nav {
-  position: fixed;
+  position: absolute;
   right: 1rem;
 }
 
@@ -94,8 +94,7 @@ label {
   border-radius: 1rem;
 }
 
-.form input[type="email"],
-.form input[type="password"] {
+.form input {
   border: 2px solid white;
   background: none;
   display: block;
@@ -110,8 +109,7 @@ label {
   transition: 0.25s;
 }
 
-.form input[type="email"]:focus,
-.form input[type="password"]:focus {
+.form input:focus {
   width: 16rem;
   border-color: #FCBF49;
 }
@@ -153,6 +151,7 @@ label {
 
 .form_title {
   text-align: center;
+  color: white;
 }
 
 .form_input {
@@ -216,5 +215,142 @@ label {
 .guest_button:active {
   -webkit-transform: scale(0.98);
           transform: scale(0.98);
+}
+
+#timeLine {
+  width: 100%;
+  background-color: gray;
+  height: 20px;
+  z-index: 200;
+}
+
+.wrapper {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.time-axis {
+  height: 100vh;
+  width: 5%;
+}
+
+.space-col {
+  height: 100vh;
+  width: 9.4%;
+}
+
+#block {
+  background-color: black;
+  height: 5vh;
+}
+
+.lots {
+  height: 5vh;
+  border: 1px solid black;
+  background-color: #c8a2c8;
+}
+
+.time {
+  height: 4vh;
+  background-color: aqua;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black;
+}
+
+.space {
+  height: 4vh;
+  border: 1px solid black;
+  background-color: #d6d6d6;
+}
+
+.space:hover {
+  background-color: #c7c7c7;
+  cursor: pointer;
+}
+
+#info_block {
+  width: 20%;
+  height: 100%;
+  padding: 3rem;
+  margin: auto;
+  background-color: #003049;
+  text-align: center;
+  display: inline-block;
+  border: 4px solid #FCBF49;
+  border-radius: 1rem;
+  color: white;
+}
+
+.heading {
+  margin: 3rem auto;
+  font-size: 3.25rem;
+  color: #003049;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.form {
+  width: 100%;
+  height: 100%;
+  padding: 3rem;
+  margin: auto;
+  background-color: #003049;
+  text-align: center;
+  border: 4px solid #FCBF49;
+  border-radius: 1rem;
+  color: white;
+}
+
+.form input {
+  border: 2px solid white;
+  background: none;
+  display: block;
+  margin: 1em auto;
+  text-align: center;
+  padding: 0.875rem 0.625rem;
+  width: 100%;
+  border-radius: 2rem;
+  outline: none;
+  color: white;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.form input:focus {
+  width: 16rem;
+  border-color: #FCBF49;
+}
+
+.form input[type="submit"] {
+  color: #FCBF49;
+  text-align: center;
+  border: 2px solid white;
+  background: none;
+  display: block;
+  margin: 1em auto;
+  padding: 0.875rem 3rem;
+  border-radius: 2rem;
+  outline: none;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.form input[type="submit"]:hover {
+  color: white;
+  border: 2px solid #FCBF49;
+  background-color: #FCBF49;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
