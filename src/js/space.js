@@ -6,7 +6,22 @@ export function space(level, bay) {
       return level + bay;  
    }
    let reservations = []; 
-   return { level: level, bay: bay, key: key, reservations};
+
+   function serialise(){
+      return util.to_str(level,bay,reservations);
+   }
+   return { level: level, bay: bay, key: key, reservations, serialise};
+}
+
+export function deserialise(deserialised_arr){
+   let [dsrl_lvl,dsrl_bay,dsrl_arr] = deserialised_arr.map(str => JSON.parse(str));
+   let new_space = space(dsrl_lvl,dsrl_bay); 
+
+   for(let i = 0; i < dsrl_arr.length; i++){
+      let initialised_reservation = reservations.deserialise(dsrl_arr[i]); 
+      new_space.reservations.push(initialised_reservation);
+   }
+   return new_space; 
 }
 // Inistialsie the parking lot
 export function init_lot(levels, bays) {
@@ -39,3 +54,4 @@ export function add_reservation(space,new_resrv){
    }
    return result; 
 }
+

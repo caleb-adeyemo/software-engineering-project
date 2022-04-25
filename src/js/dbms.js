@@ -7,12 +7,20 @@ export function Result(code,msg,unwrap){
    return {code:code,msg:msg,unwrap:unwrap};
 }
 
+export  function to_str(...args){
+   return args.map(str => JSON.stringify(str));
+}
+
 export function init_reservation(levels, bay){
    let bookings = new Map();
    let spaces = init_lot(levels,bay); 
    for(let i = 0; i < spaces.length; i++){
        
    }
+}
+
+export function Tuple(a,b){
+   return [a,b];
 }
 
 export function Table(filename){
