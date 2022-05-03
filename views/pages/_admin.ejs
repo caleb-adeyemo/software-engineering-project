@@ -96,6 +96,7 @@
     let infoEmail = document.getElementById("info_email");
     //Get Form
     let form = document.getElementById("info_block");
+    let radio = document.getElementsByClassName("radio");
 
     //============================== Get DOM elements ==================================
 
@@ -127,13 +128,14 @@
     //============================== Display info to info screen ==================================
     spaces.forEach(space => {
       space.addEventListener('click', event => {
-        if (space.firstChild != null) {
+        if (space.firstChild != null) { //If booking space is not empty
           let obj = JSON.parse(space.firstChild.innerHTML);
           form.elements.name.value = obj.name;
           form.elements.phoneNumber.value = obj.phoneNumber;
           form.elements.email.value = obj.email + " " + obj.time;
+          radio.checked = true;
         }
-        else {
+        else { //Display nothing if space is empty 
           form.elements.name.value = "";
           form.elements.phoneNumber.value = ``;
           form.elements.email.value = "";
