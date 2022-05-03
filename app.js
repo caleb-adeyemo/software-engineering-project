@@ -6,6 +6,7 @@ import {dirname} from 'path';
 import {fileURLToPath} from 'url';
 import * as util from './src/js/dbms.js'
 import * as user from './src/js/user.js'
+import { space } from './src/js/space.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -51,6 +52,7 @@ app.get('/admin', (req, res) => {
  });
 
 app.post('/login',urlEncodedParser,(req,res)=>{
+   space.space(1,2)
    console.log("--email--");
    console.log(req.body.email); 
    console.log("--password--");

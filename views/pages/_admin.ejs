@@ -30,7 +30,7 @@
           <a class="nav-item nav-link" href="/login">Login</a>
           <a class="nav-item nav-link" href="/signup">Sign Up</a>
           <a class="nav-item nav-link" href="/myAccount">My Account</a>
-          <a class="nav-item nav-link active"  href="/admin">Admin</a>
+          <a class="nav-item nav-link active" href="/admin">Admin</a>
         </div>
       </div>
       </div>
@@ -50,21 +50,103 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-    <script>
-      // function displayDate(){
-      //   document.getElementById(info_name).innerHTML = this.innerHTML;
-      //   console.log(this.innerHTML)
-      // }
-      document.querySelectorAll('.space').forEach(item => {
-        item.addEventListener('click', event => {
-          document.getElementById("info_name").innerHTML = item.innerHTML;
-          console.log(this.innerHTML)
-        })
-        })
-      function displayDate(obj){
-        
+  <script>
+    //============================== Create Booking Object ==================================
+    class Booking {
+      constructor(name, phoneNumber, email, time) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.time = time;
       }
-    </script>
+    }
+    //============================== Create Booking Object ==================================
+
+
+    //============================== Create INFO ==================================
+    let array = [
+      new Booking("caleb test var", "07534877339", "calebadeyemo2@gmail.com", 4),
+      new Booking("caleb test var2", "07534877339", "calebadeyemo2@gmail.com", 4),
+      new Booking("Rosette", "07934877339", "Rosette@gmail.com", 4),
+      new Booking("kieran", "07934877339", "kieran@gmail.com", 6),
+      new Booking("Chidz", "07934877339", "Chidz@gmail.com", 4),
+      new Booking("Caleb", "07934877339", "Caleb@gmail.com", 10),
+      new Booking("Rose", "07934877339", "Rose@gmail.com", 10),
+      new Booking("Oba", "07934877339", "Oba@gmail.com", 4),
+      new Booking("Karan", "07934877339", "Karan@gmail.com", 6),
+      new Booking("Jass", "07934877339", "Jass@gmail.com", 6),
+      new Booking("Lewis", "07934877339", "Lewis@gmail.com", 6),
+      new Booking("Harpreet", "07934877339", "Harpreet@gmail.com", 4),
+      new Booking("Lucas", "07934877339", "Lucas@gmail.com", 10),
+      new Booking("Alice", "07934877339", "Alice@gmail.com", 4),
+      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 4),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 23),
+      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23),
+      new Booking("Uche3", "07934877339", "Uche3@gmail.com", 28),
+    ]
+    //============================== Create INFO ==================================
+
+    //============================== Get DOM elements ==================================
+    //Get spaces
+    let spaces = document.querySelectorAll(".space");
+    //Get display screen
+    let infoName = document.getElementById("info_name");
+    let infoNumber = document.getElementById("info_number");
+    let infoEmail = document.getElementById("info_email");
+    //Get Form
+    let form = document.getElementById("info_block");
+
+    //============================== Get DOM elements ==================================
+
+    //============================== function to add booking ==================================
+    function addBooking(obj, timeVariable){
+      //append div to space 
+      spaces[timeVariable].innerHTML = `<div class="booking" id="${obj.time}">${JSON.stringify(obj)}</div>`;
+
+      //change color of field
+      spaces[timeVariable].style.backgroundColor = 'lightblue';
+    }
+    //============================== function to add booking ==================================
+
+
+    //============================== Load objects into correct spaces ==================================
+    array.forEach(element => {
+      let timeVariable = element.time // Number to be used as index for class "spaces", i.e spaces[timeVariable]
+
+      while(spaces[timeVariable].innerHTML != ``){
+        timeVariable += 24;
+      }
+      addBooking(element, timeVariable);
+
+    })
+    //============================== Load objects into correct spaces ==================================
+
+
+
+    //============================== Display info to info screen ==================================
+    spaces.forEach(space => {
+      space.addEventListener('click', event => {
+        if (space.firstChild != null) {
+          let obj = JSON.parse(space.firstChild.innerHTML);
+          form.elements.name.value = obj.name;
+          form.elements.phoneNumber.value = obj.phoneNumber;
+          form.elements.email.value = obj.email + " " + obj.time;
+        }
+        else {
+          form.elements.name.value = "";
+          form.elements.phoneNumber.value = ``;
+          form.elements.email.value = "";
+
+        }
+      })
+    })
+    console.log()
+    //============================== Display info to info screen ==================================
+
+
+
+  </script>
 </body>
 
 </html>
