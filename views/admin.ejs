@@ -5,8 +5,6 @@
 </section>
 
 <section>
-  <div id="timeLine">
-  </div>
   <div class="wrapper">
     <div class="time-axis">
       <div class="time" id="block"></div>
@@ -37,10 +35,10 @@
     </div>
     <div class="space-col">
       <div class="lots">1</div>
-      <div class="space">Caleb</div>
-      <div class="space">Chidz</div>
-      <div class="space">Tai</div>
-      <div class="space">Carine</div>
+      <div class="space"></div>
+      <div class="space"></div>
+      <div class="space"></div>
+      <div class="space"></div>
       <div class="space"></div>
       <div class="space"></div>
       <div class="space"></div>
@@ -305,13 +303,16 @@
       <div class="space"></div>
       <div class="space"></div>
     </div>
-    <div id="info_block">
-      <label>Name: </label>
-      <div id="info_name"></div>
-      <label>Phone Number: </label>
-      <div></div>
-      <label>Email: </label>
-      <div></div>
+    <div>
+      <form id="info_block" method="POST" action="">
+        <input id="info_name" type="text" name="name" autocomplete="off" placeholder="Name">
+        <input type="email" name="email" autocomplete="off" placeholder="Email">
+        <input type="number" name="phoneNumber" autocomplete="off" placeholder="Phone Number" min="0">
+        <input type="time" name="arrival" placeholder="Time of Arrival">
+        <input type="submit" name="submit" value="Submit">
+        
+      </form>
+      
     </div>
   </div>
 </section>

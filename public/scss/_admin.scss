@@ -16,7 +16,7 @@
 }
 .space-col{
     height: 100vh;
-    width: 9.4%;
+    width: 13vh;
 }
 #block{
     background-color: black;
@@ -37,6 +37,7 @@
     border: 1px solid black;
 }
 .space{
+    width: 100%;
     height: 4vh;
     border: 1px solid black;
     background-color: rgb(214, 214, 214);
@@ -46,20 +47,6 @@
     cursor: pointer;
 }
 
-#info_block{
-    width: 20%;
-    height: 100%;
-    padding: 3rem;
-    margin: auto;
-    background-color: $darkBlue;
-    text-align: center;
-    display: inline-block;
-    border: 4px solid $yellow;
-    border-radius: 1rem;
-    color: white;
-}
-/////////////////////////////////////////////////////////////////////
-
 .heading {
     margin: 3rem auto;
     font-size: $font-xlg;
@@ -68,8 +55,8 @@
     text-decoration: underline;
   }
   
-  .form {
-    width: 100%;
+  #info_block {
+    width: 22rem;
     height: 100%;
     padding: 3rem;
     margin: auto;
@@ -77,29 +64,28 @@
     text-align: center;
     border: 4px solid $yellow;
     border-radius: 1rem;
-    color: white;
   }
   
-  .form input {
+  #info_block input {
     border: 2px solid white;
     background: none;
     display: block;
     margin: 1em auto;
     text-align: center;
     padding: 0.875rem 0.625rem;
-    width: 100%;
+    width: 14rem;
     border-radius: 2rem;
     outline: none;
     color: white;
     transition: 0.25s;
   }
   
-  .form input:focus {
+  #info_block input:focus {
     width: 16rem;
     border-color: $yellow;
   }
   
-  .form input[type="submit"] {
+  #info_block input[type="submit"] {
     color: $yellow;
     text-align: center;
     border: 2px solid white;
@@ -112,9 +98,20 @@
     transition: 1s;
   }
   
-  .form input[type="submit"]:hover {
+  #info_block input[type="submit"]:hover {
     color: white;
     border: 2px solid $yellow;
     background-color: $yellow;
     cursor: pointer;
   }
+
+  .booking{
+    visibility: hidden;
+    overflow-x: hidden;
+  }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
