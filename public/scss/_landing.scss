@@ -9,43 +9,23 @@
   color: $darkBlue;
 }
 
-div.destination:hover {
-  border-top: 2px solid $yellow;
-}
-
-.destination {
+.landing-selection {
+  font-size: $font-lg;
   background-color: $yellow;
-  margin: 0.5rem;
+  border: 2px solid $darkBlue;
   border-radius: 4px;
+  padding: 2rem 2rem 1rem 2rem;
+  margin: 0;
 }
 
-.destination h4 {
-  text-align: center;
-  padding: 1rem;
-}
-  
-.dropdown-menu-right {
-  background: none;
-  min-width: 90%;
-  text-align: center;
-  margin: 0 2rem;
+.dropdown-menu {
+  text-align: right;
   border: none;
+  background: #fcc04985;
+  margin-top: 2.1rem;
 }
 
 .destination a.dropdown-item:hover {
-  font-weight: bold;
+  text-decoration: underline;
   background-color: rgba(0, 0, 255, 0);
-}
-
-.arrival {
-  margin-left: .5rem;
-}
-
-label {
-  font-size: $font-med;
-}
-
-input,
-label {
-  margin: .1rem .1rem;
 }
