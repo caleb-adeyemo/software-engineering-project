@@ -117,8 +117,7 @@ header {
   margin: auto;
   padding: 2rem;
   border-radius: var(--border-radius);
-  -ms-grid-column-align: center;
-      justify-self: center;
+  justify-self: center;
 }
 
 .form_message {
