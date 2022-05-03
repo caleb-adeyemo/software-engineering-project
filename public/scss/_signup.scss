@@ -1,18 +1,12 @@
 .container {
     width: 400px;
     max-width: 400px;
-    margin: 1rem;
+    margin: auto;
     padding: 2rem;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
     border-radius: var(--border-radius);
+    justify-self: center;
 }
 
-//.form>*:first-child {
-//    margin-top: 0;
-//}
-////.form>*:last-child {
-//    margin-bottom: 0;
-//}
 .form_message {
     text-align: center;
 }
