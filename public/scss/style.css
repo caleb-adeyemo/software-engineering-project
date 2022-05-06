@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
@@ -13,7 +14,8 @@ header {
   width: 100%;
   height: 3.5rem;
   background-color: #003049;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
 
@@ -83,6 +85,7 @@ header {
   border-radius: 2rem;
   outline: none;
   color: white;
+  -webkit-transition: 0.25s;
   transition: 0.25s;
 }
 
@@ -101,6 +104,7 @@ header {
   padding: 0.875rem 3rem;
   border-radius: 2rem;
   outline: none;
+  -webkit-transition: 1s;
   transition: 1s;
 }
 
@@ -134,11 +138,13 @@ header {
   display: block;
   width: 100%;
   padding: 0.75rem;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: var(--border-radius);
   border: 1px solid purple;
   outline: none;
   background: pink;
+  -webkit-transition: background 0.2s, border-color 0.2s;
   transition: background 0.2s, border-color 0.2s;
 }
 
@@ -160,7 +166,8 @@ header {
 }
 
 .form_button:active {
-  transform: scale(0.98);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 .or {
@@ -186,7 +193,8 @@ header {
 }
 
 .guest_button:active {
-  transform: scale(0.98);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 #timeLine {
@@ -200,6 +208,8 @@ header {
   text-align: center;
   width: 100%;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -227,9 +237,15 @@ header {
 .time {
   height: 4vh;
   background-color: aqua;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 1px solid black;
 }
 
@@ -276,6 +292,7 @@ header {
   border-radius: 2rem;
   outline: none;
   color: white;
+  -webkit-transition: 0.25s;
   transition: 0.25s;
 }
 
@@ -294,6 +311,7 @@ header {
   padding: 0.875rem 3rem;
   border-radius: 2rem;
   outline: none;
+  -webkit-transition: 1s;
   transition: 1s;
 }
 
