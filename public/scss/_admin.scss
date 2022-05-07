@@ -1,115 +1,119 @@
-#timeLine{
-    width: 100%;
-    background-color: gray;
-    height: 20px;
-    z-index: 200;
-}
-.wrapper{
-    text-align: center;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-}
-.time-axis{
-    height: 100vh;
-    width: 5%;
-}
-.space-col{
-    height: 100vh;
-    width: 13vh;
-}
-#block{
-    background-color: black;
-    height: 5vh;
-}
-.lots{
-    height: 5vh;
-    border: 1px solid black;
-    background-color: #c8a2c8;
+#timeLine {
+  width: 100%;
+  background-color: gray;
+  height: 20px;
+  z-index: 200;
 }
 
-.time{
-    height: 4vh;
-    background-color: aqua;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
+.wrapper {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 }
-.space{
-    width: 100%;
-    height: 4vh;
-    border: 1px solid black;
-    background-color: rgb(214, 214, 214);
+
+.space-col {
+  min-width: 3rem;
+  width: 4rem;
 }
-.space:hover{
-    background-color: rgb(199, 199, 199);
-    cursor: pointer;
+
+#block {
+  background-color: black;
+  height: 2rem;
+}
+
+.lots {
+  height: 2rem;
+  border: 1px solid black;
+  background-color: #c8a2c8;
+}
+
+.time {
+  height: 4vh;
+  background-color: $yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.space {
+  width: 100%;
+  height: 4vh;
+  border: 1px solid black;
+  background-color: rgb(214, 214, 214);
+}
+
+.space:hover {
+  background-color: rgb(199, 199, 199);
+  cursor: pointer;
 }
 
 .heading {
-    margin: 3rem auto;
-    font-size: $font-xlg;
-    color: $darkBlue;
-    text-align: center;
-    text-decoration: underline;
-  }
-  
-  #info_block {
-    width: 22rem;
-    height: 100%;
-    padding: 3rem;
-    margin: auto;
-    background-color: $darkBlue;
-    text-align: center;
-    border: 4px solid $yellow;
-    border-radius: 1rem;
-    color: white;
-  }
-  
-  #info_block input {
-    border: 2px solid white;
-    background: none;
-    display: block;
-    margin: 1em auto;
-    text-align: center;
-    padding: 0.875rem 0.625rem;
-    width: 14rem;
-    border-radius: 2rem;
-    outline: none;
-    color: white;
-    transition: 0.25s;
-  }
-  
-  #info_block input:focus {
-    width: 16rem;
-    border-color: $yellow;
-  }
-  
-  #info_block input[type="submit"] {
-    color: $yellow;
-    text-align: center;
-    border: 2px solid white;
-    background: none;
-    display: block;
-    margin: 1em auto;
-    padding: 0.875rem 3rem;
-    border-radius: 2rem;
-    outline: none;
-    transition: 1s;
-  }
-  
-  #info_block input[type="submit"]:hover {
-    color: white;
-    border: 2px solid $yellow;
-    background-color: $yellow;
-    cursor: pointer;
-  }
+  margin: 3rem auto;
+  font-size: $font-xlg;
+  color: $darkBlue;
+  text-align: center;
+  text-decoration: underline;
+}
 
-  .booking{
-    visibility: hidden;
-    overflow-x: hidden;
-  }
+#info_block {
+  width: 20rem;
+  height: 100%;
+  padding: 3rem;
+  margin: auto;
+  margin-left: 1rem;
+  background-color: $darkBlue;
+  text-align: center;
+  border: 4px solid $yellow;
+  border-radius: 1rem;
+  color: white;
+}
+
+#info_block input {
+  border: 2px solid white;
+  background: none;
+  display: block;
+  margin: 1em auto;
+  text-align: center;
+  padding: 0.875rem 0.625rem;
+  width: 14rem;
+  border-radius: 2rem;
+  outline: none;
+  color: white;
+  transition: 0.25s;
+}
+
+#info_block input:focus {
+  width: 16rem;
+  border-color: $yellow;
+}
+
+#info_block input[type="submit"] {
+  color: $yellow;
+  text-align: center;
+  border: 2px solid white;
+  background: none;
+  display: block;
+  margin: 1em auto;
+  padding: 0.875rem 3rem;
+  border-radius: 2rem;
+  outline: none;
+  transition: 1s;
+}
+
+#info_block input[type="submit"]:hover {
+  color: white;
+  border: 2px solid $yellow;
+  background-color: $yellow;
+  cursor: pointer;
+}
+
+.booking {
+  visibility: hidden;
+  overflow-x: hidden;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
