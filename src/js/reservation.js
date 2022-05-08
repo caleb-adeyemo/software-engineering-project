@@ -14,6 +14,11 @@ export function reservation(time,  user, number_plate) {
       let other_info = util.to_str(user,number_plate); 
       str.push(other_info); 
    } 
+   function equals(other){
+      return time.equals(other.time)
+         && user.equals(other.user) 
+         && number_plate === other.number_plate;
+   }
    return {time: time, user: user,number_plate: number_plate};
 }
 

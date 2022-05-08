@@ -4,9 +4,8 @@ import expressLayouts  from 'express-ejs-layouts';
 import bodyParser from 'body-parser';
 import {dirname} from 'path';
 import {fileURLToPath} from 'url';
-import * as util from './src/js/dbms.js'
-import * as user from './src/js/user.js'
-import { space } from './src/js/space.js';
+import * as util from './src/js/dbms.js';
+import * as server from './src/js/server.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -52,12 +51,11 @@ app.get('/admin', (req, res) => {
  });
 
 app.post('/login',urlEncodedParser,(req,res)=>{
-   space.space(1,2)
    console.log("--email--");
    console.log(req.body.email); 
    console.log("--password--");
    console.log(req.body.password);
-   let result = user.handle_login(user_table,req.body.email,req.body.password); 
+   let result = server.handle_login(user_table,req.body.email,req.body.password); 
    res.send(result.msg);
 });
 
@@ -66,7 +64,7 @@ app.post('/signup',urlEncodedParser,(req,res)=>{
    console.log(req.body.email); 
    console.log("--password--");
    console.log(req.body.password);
-   let result = user.handle_signup(
+   let result = server.handle_signup(
       user_table,
       req.body.username,
       req.body.name,
@@ -77,6 +75,6 @@ app.post('/signup',urlEncodedParser,(req,res)=>{
 });
 
 // Listen on port 8000
-const server = app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
+const app_server = app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
 
 // npm start
