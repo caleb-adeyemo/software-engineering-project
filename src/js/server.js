@@ -52,7 +52,7 @@ export function handle_reservation_request(space,new_resrv){
 }
 
 export function remove_reservation(space,cur_resrv){
-   let match = space.reservations.findIndex(res => res.equals(cur_resrv); 
+   let match = space.reservations.findIndex(res => res.equals(cur_resrv)); 
    if(match === -1) return util.Result(util.ERR,'reservation does not exist',false);
    
    delete space.reservations[match];
