@@ -66,8 +66,8 @@
 
     //============================== Create INFO ==================================
     let array = [
-      new Booking("caleb test var", "07534877339", "calebadeyemo2@gmail.com", 4),
-      new Booking("caleb test var2", "07534877339", "calebadeyemo2@gmail.com", 4),
+      new Booking("caleb var", "07534877339", "calebadeyemo2@gmail.com", 4),
+      new Booking("caleb ", "07534877339", "calebadeyemo2@gmail.com", 4),
       new Booking("Rosette", "07934877339", "Rosette@gmail.com", 4),
       new Booking("kieran", "07934877339", "kieran@gmail.com", 6),
       new Booking("Chidz", "07934877339", "Chidz@gmail.com", 4),
@@ -85,7 +85,12 @@
       new Booking("Uche", "07934877339", "Uche@gmail.com", 23),
       new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23),
       new Booking("Uche3", "07934877339", "Uche3@gmail.com", 4),
+      new Booking("test", "07934877339", "Uche3@gmail.com", 4),
+      new Booking("test5", "07934877339", "Uche3@gmail.com", 6),
+
+
     ]
+    
     //============================== Create INFO ==================================
 
     //============================== Get DOM elements ==================================
@@ -99,7 +104,9 @@
     let form = document.getElementById("info_block");
     let radio = document.getElementsByClassName("radio");
     //Get submit button
-    // form.elements.store.style.visibility = "hidden" //hide extra form input
+    //hide extra form input
+    // form.elements.store.style.visibility = "hidden" 
+
 
 
     //============================== Get DOM elements ==================================
@@ -109,27 +116,89 @@
       obj.laneNumber = addLaneNumber;
       //append div to space 
       spaces[timeVariable].innerHTML = `<div>${obj.name}</div><div class="booking" id="${obj.time}">${JSON.stringify(obj)}</div>`;
-      console.log(spaces[timeVariable])
+      // console.log(spaces[timeVariable])
 
       //change color of field
       spaces[timeVariable].style.backgroundColor = 'lightblue';
 
-      
+
     }
     //============================== Add booking ==================================
 
+    // function to refrech the booings 
+    function refreash() {
+      spaces.forEach(space => {
+        space.innerHTML = "";
+        space.style.backgroundColor = "rgb(214, 214, 214)";
 
+      })
+    }
     //============================== Load Spaces ==================================
-    array.forEach(element => {
-      let timeVariable = element.time // Number to be used as index for class "spaces", i.e spaces[timeVariable]
-      let lane_no = 0;
-      while (spaces[timeVariable].innerHTML != ``) {
-        timeVariable += 24;
-        lane_no++;
-      }
-      addBooking(element, timeVariable, lane_no);
+    function loadSpaces() {
+      refreash()
+      array.forEach(element => {
+        let timeVariable = element.time // Number to be used as index for class "spaces", i.e spaces[timeVariable]
+        let lane_no = 0;
+        while (timeVariable < 240 && spaces[timeVariable].innerHTML != ``) {
+          timeVariable += 24;
+          lane_no++;
+        }
+        addBooking(element, timeVariable, lane_no);
+      })
+    }
+    // fake functions that load fake arrays to be deleted when back-end is done 
+    //============================== Fake Arrays ==================================
+    let arraySU = [
+      new Booking("SU Caleb", "07534877339", "calebadeyemo2@gmail.com", 3),
+      new Booking("SU Styles", "07534877339", "sytles@gmail.com", 3),
+      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 4),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 23),
+      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23),
+      new Booking("Uche3", "07934877339", "Uche3@gmail.com", 4),
+      new Booking("test", "07934877339", "Uche3@gmail.com", 4),
+      new Booking("test5", "07934877339", "Uche3@gmail.com", 6),
+    ]
 
-    })
+    let arrayUniversityVillage = [
+      new Booking("SU Caleb", "07534877339", "calebadeyemo2@gmail.com", 3),
+      new Booking("SU Styles", "07534877339", "sytles@gmail.com", 14),
+      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 23),
+      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23),
+      new Booking("test", "07934877339", "Uche3@gmail.com", 4),
+      new Booking("test5", "07934877339", "Uche3@gmail.com", 6),
+      new Booking("Chidz", "07934877339", "Chidz@gmail.com", 4),
+      new Booking("Caleb", "07934877339", "Caleb@gmail.com", 10),
+      new Booking("Oba", "07934877339", "Oba@gmail.com", 4),
+      new Booking("Karan", "07934877339", "Karan@gmail.com", 6),
+    ]
+    function loadSU() {
+      refreash()
+      arraySU.forEach(element => {
+        let timeVariable = element.time // Number to be used as index for class "spaces", i.e spaces[timeVariable]
+        let lane_no = 0;
+        while (spaces[timeVariable].innerHTML != ``) {
+          timeVariable += 24;
+          lane_no++;
+        }
+        addBooking(element, timeVariable, lane_no);
+      })
+    }
+    function loadArrayUniversityVillage() {
+      refreash()
+      arrayUniversityVillage.forEach(element => {
+        let timeVariable = element.time // Number to be used as index for class "spaces", i.e spaces[timeVariable]
+        let lane_no = 0;
+        while (spaces[timeVariable].innerHTML != ``) {
+          timeVariable += 24;
+          lane_no++;
+        }
+        addBooking(element, timeVariable, lane_no);
+      })
+    }
+    // Call loadSpaces Function by default 
+    loadSpaces()
     //============================== Load Spaces ==================================
 
     //============================== Move Bookings ==================================
@@ -152,11 +221,11 @@
     //============================== Delete bookings ==================================
     function deleteBooking(time, laneNumber) {
       let timeVariable = parseInt(time);
-        for (let i = 0; i < laneNumber; i++) {
-          timeVariable += 24;
-        }
-        spaces[timeVariable].style.backgroundColor = "rgb(214, 214, 214)";
-        spaces[timeVariable].innerHTML = ""
+      for (let i = 0; i < laneNumber; i++) {
+        timeVariable += 24;
+      }
+      spaces[timeVariable].style.backgroundColor = "rgb(214, 214, 214)";
+      spaces[timeVariable].innerHTML = ""
     }
     //============================== Delete bookings ==================================
 
@@ -166,14 +235,14 @@
       space.addEventListener('click', event => {
         if (space.firstChild != null) { //If booking space is not empty
           let obj = JSON.parse(space.childNodes[1].innerHTML);
-          console.log(obj)
+          // console.log(obj)
           form.elements.name.value = obj.name;
           form.elements.phoneNumber.value = obj.phoneNumber;
           form.elements.email.value = obj.email;
           form.elements.arrival.value = obj.time;
           radio[obj.laneNumber].checked = true;
           form.elements.store.value = JSON.stringify(obj);
-          
+
         }
         else { //Display nothing if space is empty 
           form.elements.name.value = "";
@@ -186,6 +255,32 @@
       })
     })
     //============================== Display info to info screen ==================================
+
+
+    //============================== Display Drop-down Links ==================================
+    function displayLinks() {
+      //Get drop-down links
+      let links = document.getElementById("myDropdown").classList.toggle("show");
+      // Close the dropdown menu if the user clicks outside of it
+      window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+
+      }
+    }
+    //============================== Display Drop-down Links ==================================
+
+    function testFunction() {
+      console.log("test function clicked")
+    }
   </script>
 </body>
 
