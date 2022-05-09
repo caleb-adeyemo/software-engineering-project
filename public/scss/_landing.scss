@@ -14,20 +14,42 @@
   background-color: $yellow;
   border: 2px solid $darkBlue;
   border-radius: 4px;
-  padding: 2rem 2rem 1rem 2rem;
+  padding: 2.5rem;
   margin: 0;
 }
 
-.container p:hover {
-  color: rgb(114, 114, 114);
+#dest-title, .arrival p, #time-title, #duration-title{
+  margin-bottom: 0;
 }
 
-.dropdown-menu {
-  text-align: right;
-  background: #fcc04985;
+select, #start {
+  font-size: $font-med;
+  padding: 3.8px 0 3.8px 0;
+  width: 100%;
+  cursor: pointer;
 }
 
-.destination a.dropdown-item:hover {
-  text-decoration: underline;
-  background-color: rgba(0, 0, 255, 0);
+#start {
+  padding: 0;
+}
+
+.landing-submit {
+  margin: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+#land-sub-button {
+  color: $yellow;
+  border: 2px solid $darkBlue;
+  padding: 0.875rem 3rem;
+  border-radius: 2rem;
+  background: none;
+  transition: 0.8s;
+  cursor: pointer;
+}
+
+#land-sub-button:hover {
+  color: $darkBlue;
+  background-color: $yellow;
 }
