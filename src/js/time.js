@@ -31,7 +31,13 @@ export function time(_start, _dur) {
 		return res;
 	}
 
+      function equals(other){
+         return start === other.start 
+            && duration.hr === other.duration.hr
+            && duration.min === other.duration.min;
+      }
 
-	return { start: start, duration: _dur, overlap: overlap };
+
+	return { start: start, duration: _dur, overlap: overlap ,equals: equals};
 }
 
