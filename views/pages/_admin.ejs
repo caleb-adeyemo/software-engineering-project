@@ -99,24 +99,27 @@
     let form = document.getElementById("info_block");
     let radio = document.getElementsByClassName("radio");
     //Get submit button
+    // form.elements.store.style.visibility = "hidden" //hide extra form input
 
 
     //============================== Get DOM elements ==================================
 
-    //============================== function to add booking ==================================
+    //============================== Add booking ==================================
     function addBooking(obj, timeVariable, addLaneNumber) {
+      obj.laneNumber = addLaneNumber;
+      //append div to space 
+      spaces[timeVariable].innerHTML = `<div>${obj.name}</div><div class="booking" id="${obj.time}">${JSON.stringify(obj)}</div>`;
+      console.log(spaces[timeVariable])
 
       //change color of field
       spaces[timeVariable].style.backgroundColor = 'lightblue';
-      obj.laneNumber = addLaneNumber;
 
-      //append div to space 
-      spaces[timeVariable].innerHTML = `<div class="booking" id="${obj.time}">${JSON.stringify(obj)}</div>`;
+      
     }
-    //============================== function to add booking ==================================
+    //============================== Add booking ==================================
 
 
-    //============================== Load objects into correct spaces ==================================
+    //============================== Load Spaces ==================================
     array.forEach(element => {
       let timeVariable = element.time // Number to be used as index for class "spaces", i.e spaces[timeVariable]
       let lane_no = 0;
@@ -127,65 +130,58 @@
       addBooking(element, timeVariable, lane_no);
 
     })
-    //============================== Load objects into correct spaces ==================================
+    //============================== Load Spaces ==================================
 
-    //============================== get active lot from form ==================================
+    //============================== Move Bookings ==================================
     function moveBooking() {
       document.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault();
         const data = Object.fromEntries(new FormData(e.target).entries());
-        // console.log(data)
         let timeVariable = parseInt(data.arrival);
         for (let i = 0; i < data.active_lot; i++) {
           timeVariable += 24;
         }
         let booking = new Booking(data.name, data.phoneNumber, data.email, data.arrival)
         addBooking(booking, timeVariable, data.active_lot);
+        deleteBooking(JSON.parse(data.store).time, JSON.parse(data.store).laneNumber)
+        form.reset()
       });
     }
-    //============================== get active lot from form ==================================
+    //============================== Move Bookings ==================================
 
-    //============================== move booking ==================================
+    //============================== Delete bookings ==================================
+    function deleteBooking(time, laneNumber) {
+      let timeVariable = parseInt(time);
+        for (let i = 0; i < laneNumber; i++) {
+          timeVariable += 24;
+        }
+        spaces[timeVariable].style.backgroundColor = "rgb(214, 214, 214)";
+        spaces[timeVariable].innerHTML = ""
+    }
+    //============================== Delete bookings ==================================
+
+
+    //============================== Display info to info screen ==================================
     spaces.forEach(space => {
       space.addEventListener('click', event => {
         if (space.firstChild != null) { //If booking space is not empty
-          let obj = JSON.parse(space.firstChild.innerHTML);
-
+          let obj = JSON.parse(space.childNodes[1].innerHTML);
+          console.log(obj)
           form.elements.name.value = obj.name;
           form.elements.phoneNumber.value = obj.phoneNumber;
           form.elements.email.value = obj.email;
           form.elements.arrival.value = obj.time;
           radio[obj.laneNumber].checked = true;
+          form.elements.store.value = JSON.stringify(obj);
+          
         }
         else { //Display nothing if space is empty 
           form.elements.name.value = "";
           form.elements.phoneNumber.value = ``;
           form.elements.email.value = "";
           form.elements.arrival.value = null;
-          // radio[obj.laneNumber].checked = false;
           $('.radio').prop('checked', false)
-        }
-      })
-    })
-    //============================== move booking ==================================
-
-    //============================== Display info to info screen ==================================
-    spaces.forEach(space => {
-      space.addEventListener('click', event => {
-        if (space.firstChild != null) { //If booking space is not empty
-          let obj = JSON.parse(space.firstChild.innerHTML);
-
-          form.elements.name.value = obj.name;
-          form.elements.phoneNumber.value = obj.phoneNumber;
-          form.elements.email.value = obj.email;
-          radio[obj.laneNumber].checked = true;
-        }
-        else { //Display nothing if space is empty 
-          form.elements.name.value = "";
-          form.elements.phoneNumber.value = ``;
-          form.elements.email.value = "";
-          // radio[obj.laneNumber].checked = false;
-          $('.radio').prop('checked', false)
+          form.elements.store.value = "";
         }
       })
     })
