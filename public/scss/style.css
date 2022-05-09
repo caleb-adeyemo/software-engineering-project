@@ -44,11 +44,13 @@ header {
   margin: 0;
 }
 
+.container p:hover {
+  color: #727272;
+}
+
 .dropdown-menu {
   text-align: right;
-  border: none;
   background: #fcc04985;
-  margin-top: 2.1rem;
 }
 
 .destination a.dropdown-item:hover {
@@ -121,8 +123,7 @@ header {
   margin: auto;
   padding: 2rem;
   border-radius: var(--border-radius);
-  -ms-grid-column-align: center;
-      justify-self: center;
+  justify-self: center;
 }
 
 .form_message {
@@ -211,34 +212,28 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.time-axis {
-  height: 100vh;
-  width: 5%;
+  justify-content: center;
 }
 
 .space-col {
-  height: 100vh;
-  width: 13vh;
+  min-width: 3rem;
+  width: 4rem;
 }
 
 #block {
   background-color: black;
-  height: 5vh;
+  height: 2rem;
 }
 
 .lots {
-  height: 5vh;
+  height: 2rem;
   border: 1px solid black;
   background-color: #c8a2c8;
 }
 
 .time {
   height: 4vh;
-  background-color: aqua;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  background-color: #FCBF49;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -270,10 +265,11 @@ header {
 }
 
 #info_block {
-  width: 22rem;
+  width: 20rem;
   height: 100%;
   padding: 3rem;
   margin: auto;
+  margin-left: 1rem;
   background-color: #003049;
   text-align: center;
   border: 4px solid #FCBF49;
