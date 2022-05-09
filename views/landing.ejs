@@ -18,53 +18,52 @@
           <option value="sci">New Science Building</option>
           <option value="into">INTO Building</option>
           <option value="sainsbury">Sainsbury Centre</option>
-          <option value="arts">Arts Building</option>
-          <option value="campuskitchen">The Campus Kitchen</option>
-          <option value="career">Career Central</option>
-          <option value="efry">The Elizabeth Fry Building</option>
-          <option value="tpaine">Thomas Paine Study Center</option>
         </select>
       </div>
       <div class="arrival col-sm">
         <p for="start">Arrival Date:</p>
         <input type="date" id="start" name="arrival-start" max="2032-12-31">
-        <!-- change minimum date to tdy -->
+        <!-- set minimum date to current day -->
+        <script>
+          document.getElementById('start').value = new Date().toISOString().substring(0, 10);
+          document.getElementById('start').min = new Date().toISOString().substring(0, 10);
+        </script>
       </div>
       <div class="arrival col-sm" id="arrive-date">
         <label id="time-title" for="arrive-time">Arrival Time:</label>
         <select name="destination" id="arrive-time">
           <option value="">--Please choose an option--</option>
-          <option value="">12am</option>
-          <option value="">1am</option>
-          <option value="">2am</option>
-          <option value="">3am</option>
-          <option value="">4am</option>
-          <option value="">5am</option>
-          <option value="">6am</option>
-          <option value="">7am</option>
-          <option value="">8am</option>
-          <option value="">9am</option>
-          <option value="">10am</option>
-          <option value="">11am</option>
-          <option value="">12pm</option>
-          <option value="">1pm</option>
-          <option value="">2pm</option>
-          <option value="">3pm</option>
-          <option value="">4pm</option>
-          <option value="">5pm</option>
-          <option value="">6pm</option>
-          <option value="">7pm</option>
-          <option value="">8pm</option>
-          <option value="">9pm</option>
-          <option value="">10pm</option>
-          <option value="">11pm</option>
+          <option value="0">12am</option>
+          <option value="1">1am</option>
+          <option value="2">2am</option>
+          <option value="3">3am</option>
+          <option value="4">4am</option>
+          <option value="5">5am</option>
+          <option value="6">6am</option>
+          <option value="7">7am</option>
+          <option value="8">8am</option>
+          <option value="9">9am</option>
+          <option value="10">10am</option>
+          <option value="11">11am</option>
+          <option value="12">12pm</option>
+          <option value="13">1pm</option>
+          <option value="14">2pm</option>
+          <option value="15">3pm</option>
+          <option value="16">4pm</option>
+          <option value="17">5pm</option>
+          <option value="18">6pm</option>
+          <option value="19">7pm</option>
+          <option value="20">8pm</option>
+          <option value="21">9pm</option>
+          <option value="22">10pm</option>
+          <option value="23">11pm</option>
         </select>
       </div>
       <div class="col-sm" id="arrive-time">
         <div class="duration">
           <label id="duration-title" for="duration-select">Duration:</label><br>
           <select name="destination" id="duration-select">
-            <option value="">--1hr minimum--</option>
+            <option value="1">--1hr minimum--</option>
             <option value="2">2 hours</option>
             <option value="3">3 hours</option>
             <option value="4">4 hours</option>
