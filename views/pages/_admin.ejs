@@ -119,7 +119,7 @@
     let submitButton = document.getElementById("submit");
     //hide extra form input
 
-    form.elements.store.style.visibility = "hidden";
+    // form.elements.store.style.visibility = "hidden";
 
     //============================== Get DOM elements ==================================
 
@@ -130,17 +130,16 @@
     //============================== Add booking ==================================
     function addBooking(obj, timeVariable, addLaneNumber, duration) {
       obj.laneNumber = addLaneNumber;
+      obj.duration = duration;
       //append first div with the name of the booking
       spaces[timeVariable].innerHTML = `<div>${obj.name}</div><div class="booking" id="${obj.time}">${JSON.stringify(obj)}</div>`;
       //change color of field
       spaces[timeVariable].style.backgroundColor = 'lightblue';
       //remove border bellow first field
       spaces[timeVariable].style.borderBottom = "none";
-
       for (let i = 1; i < duration; i++) {
         //append div to space 
         spaces[timeVariable + i].innerHTML = `<div></div><div class="booking" id="${obj.time}">${JSON.stringify(obj)}</div>`;
-
         //change color of field
         spaces[timeVariable + i].style.backgroundColor = 'lightblue';
         //remove border arround fields
@@ -148,7 +147,6 @@
         spaces[timeVariable + i].style.borderBottom = "none";
       }
       // //add border to the last field
-      // spaces[timeVariable + (duration-1)].style.backgroundColor = "lightgreen";
       spaces[timeVariable + (duration-1)].style.borderBottom = "1px solid black";
 
     }
@@ -320,9 +318,9 @@
           let booking = new Booking(data.name, data.phoneNumber, data.email, data.arrival)
 
           //Add booking        
-          addBooking(booking, timeVariable, data.active_lot);
+          addBooking(booking, timeVariable, data.active_lot, JSON.parse(data.store).duration);
           //Delete previous booking
-          deleteBooking(arrival, laneNumber)
+          deleteBooking(arrival, laneNumber, JSON.parse(data.store).duration)
         }
         else{
           console.log("no space")
@@ -342,13 +340,19 @@
 
 
     //============================== Delete bookings ==================================
-    function deleteBooking(time, laneNumber) {
+    function deleteBooking(time, laneNumber, duration) {
       let timeVariable = parseInt(time);
+      // go to the lane where the bookng is 
       for (let i = 0; i < laneNumber; i++) {
         timeVariable += 24;
       }
-      spaces[timeVariable].style.backgroundColor = "rgb(214, 214, 214)";
-      spaces[timeVariable].innerHTML = ""
+      for (let i = 0; i < duration; i++) {
+        spaces[timeVariable + i].style.backgroundColor = "rgb(214, 214, 214)";
+      spaces[timeVariable + i].innerHTML = ""
+      // //add border to the fields
+      spaces[timeVariable + i].style.border = "1px solid black";
+      }
+      
     }
     //============================== Delete bookings ==================================
 
