@@ -9,6 +9,17 @@
   color: $darkBlue;
 }
 
+@keyframes slideDrop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .landing-selection {
   font-size: $font-lg;
   background-color: $yellow;
@@ -16,6 +27,7 @@
   border-radius: 4px;
   padding: 2.5rem;
   margin: 0;
+  animation: 0.75s ease-in-out 0s slideDrop;
 }
 
 #dest-title, .arrival p, #time-title, #duration-title{
@@ -34,22 +46,62 @@ select, #start {
 }
 
 .landing-submit {
-  margin: 1.5rem;
+  margin: 2.5rem;
   display: flex;
   justify-content: center;
 }
 
-#land-sub-button {
-  color: $yellow;
-  border: 2px solid $darkBlue;
-  padding: 0.875rem 3rem;
-  border-radius: 2rem;
-  background: none;
-  transition: 0.8s;
-  cursor: pointer;
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
-#land-sub-button:hover {
-  color: $darkBlue;
-  background-color: $yellow;
+.landing-form {
+  width: 50%;
+  padding: 1rem;
+  margin: auto;
+  animation: 0.75s ease-in-out 0s slideIn;
+}
+
+.landing-form input {
+  border: 2px solid $darkBlue;
+  background: none;
+  display: block;
+  margin: 1rem auto;
+  text-align: center;
+  padding: 1rem 0.625rem;
+  min-width: 65%;
+  border-radius: 2rem;
+  outline: none;
+  color: $black;
+  transition: 0.25s;
+}
+
+.landing-form input:focus {
+  width: 16rem;
+  border-color: $yellow;
+}
+
+.landing-form input[type="submit"] {
+  color: $yellow;
+  text-align: center;
+  border: 2px solid $yellow;
+  background: none;
+  display: block;
+  margin: 1em auto;
+  padding: 0.875rem 3rem;
+  border-radius: 2rem;
+  outline: none;
+  transition: 0.25s;
+}
+
+.landing-form input[type="submit"]:hover {
+  color: white;
+  border: 2px solid $yellow;
+  background-color: $darkBlue;
+  cursor: pointer;
 }

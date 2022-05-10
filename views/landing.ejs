@@ -92,7 +92,12 @@
       </div>
     </div>
     <div class="landing-submit">
-      <input id="land-sub-button" type="submit" name="submit" value="Submit">
+      <form class ="landing-form" method="POST" action="/login">
+        <input type="text" name="name" required placeholder="Name:">
+        <input type="email" name="email" placeholder="Email: " required>
+        <input type="password" name="password" placeholder="Password: " required>
+        <input type="submit" name="submit" value="Submit">
+      </form>
     </div>
   </div>
 </section>
