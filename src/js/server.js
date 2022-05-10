@@ -2,6 +2,62 @@ import *  as util from './dbms.js';
 import * as USR from './user.js';
 import * as SPACE from './space.js';
 
+const LIBRARY = 'LIBRARY';
+const SU = 'SU';
+const VILLAGE = 'VILLAGE';
+const SPORTSPARK = 'SPORTSPARK';
+const NEW_SCI = 'NEW_SCI';
+const INTO = 'INTO';
+const SAINSBURY = 'SAINSBURY';
+
+
+export function init_server_db(){
+   let lot_map = new Map();
+   lot_map.put(LIBRARY,SPACE.init_lot(1,10));
+   lot_map.put(SU,SPACE.init_lot(1,10));
+   lot_map.put(VILLAGE,SPACE.init_lot(1,10));
+   lot_map.put(SPORTSPARK,SPACE.init_lot(1,10));
+   lot_map.put(NEW_SCI,SPACE.init_lot(1,10));
+   lot_map.put(INTO,SPACE.init_lot(1,10));
+   lot_map.put(SAINSBURY,SPACE.init_lot(1,10));
+   
+   return lot_map; 
+}
+function filter_year(resrv_list,year){
+   return resrv_list.filter(res => res.time.start.getYear() === year);
+}
+function filter_month(resrv_list,month){
+   return resrv_list.filter(res => res.time.start.getMonth() === month);
+}
+function filter_day(resrv_list,day){
+   return resrv_list.filter(res => res.time.start.getDay() === day);
+}
+function filter_hour(resrv_list,hr){
+   return resrv_list.filter(res => res.time.start.getHours() === hr);
+}
+
+export function init_server_queries(){
+   let query_map = new Map();
+   query_map.put('SELECT * WHERE YEAR',filter_year);
+   query_map.put('SELECT * WHERE MONTH',filter_month);
+   query_map.put('SELECT * WHERE DAY',filter_day);
+   query_map.put('SELECT * WHERE HOUR',filter_hour);
+   return query_map;
+}
+
+export function get_reservations(spaces_list,predicate){
+   let resrv_list = spaces_list.map(space => space.reservations);
+   let result = [];
+   //console.log(resrv_list);
+   for(let i = 0; i < resrv_list.length; i++){
+      let matches = resrv_list[i].filter(predicate);
+      if(matches){
+         result.push(matches);
+      }
+   }
+   return result.flat();
+}
+
 export function find_user_by_email(table,email){
    let user = table.get(email);
    if(user){
