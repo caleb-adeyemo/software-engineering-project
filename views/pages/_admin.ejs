@@ -56,7 +56,7 @@
 
     //============================== Create Booking Object ==================================
     class Booking {
-      constructor(name, phoneNumber, email, time) {
+      constructor (name, phoneNumber, email, time) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -115,7 +115,7 @@
     //Get submit button
     let submitButton = document.getElementById("submit");
     //hide extra form input
-    form.elements.store.style.visibility = "hidden" 
+    form.elements.store.style.visibility = "hidden"
     //============================== Get DOM elements ==================================
 
 
@@ -160,7 +160,7 @@
       array.forEach(booking => {
         // Number to be used as index for class "spaces", i.e spaces[timeVariable],...
         // ...starts @ arrival time and incremented by 24 to go to the next lane.
-        let timeVariable = booking.time 
+        let timeVariable = booking.time
         // the lane number of the booking
         let lane_no = 0;
         // while there is still a abooking in the position; go to the next lane
@@ -318,7 +318,7 @@
 
 
 
-    
+
 
 
     //============================== Display Drop-down Links ==================================

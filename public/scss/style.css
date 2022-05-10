@@ -141,8 +141,7 @@ select, #start {
   margin: auto;
   padding: 2rem;
   border-radius: var(--border-radius);
-  -ms-grid-column-align: center;
-      justify-self: center;
+  justify-self: center;
 }
 
 .form_message {
@@ -225,9 +224,7 @@ select, #start {
   width: 100%;
   height: 100vh;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .space-col {
@@ -252,8 +249,6 @@ select, #start {
 .time {
   height: 2.5rem;
   background-color: #FCBF49;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -346,11 +341,8 @@ input::-webkit-inner-spin-button {
 #dateToggle {
   background-color: lightblue;
   padding: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .dropbtn {
@@ -373,8 +365,7 @@ input::-webkit-inner-spin-button {
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
-  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
