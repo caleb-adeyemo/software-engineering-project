@@ -56,7 +56,11 @@
 
     //============================== Create Booking Object ==================================
     class Booking {
+<<<<<<< Updated upstream
       constructor(name, phoneNumber, email, time) {
+=======
+      constructor (name, phoneNumber, email, time, duration) {
+>>>>>>> Stashed changes
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -74,6 +78,7 @@
     //============================== Create INFO ==================================
     //Array of bookings. Note: this will be supplied by the back end server
     let array = [
+<<<<<<< Updated upstream
       new Booking("caleb var", "07534877339", "calebadeyemo2@gmail.com", 4),
       new Booking("caleb ", "07534877339", "calebadeyemo2@gmail.com", 4),
       new Booking("Rosette", "07934877339", "Rosette@gmail.com", 4),
@@ -95,6 +100,29 @@
       new Booking("Uche3", "07934877339", "Uche3@gmail.com", 4),
       new Booking("test", "07934877339", "Uche3@gmail.com", 4),
       new Booking("test5", "07934877339", "Uche3@gmail.com", 6),
+=======
+      new Booking("caleb ", "07534877339", "calebadeyemo2@gmail.com", 0, 2),
+      new Booking("caleb var", "07534877339", "calebadeyemo2@gmail.com", 0, 2),
+      new Booking("Rosette", "07934877339", "Rosette@gmail.com", 1, 2),
+      new Booking("kieran", "07934877339", "kieran@gmail.com", 6, 3),
+      new Booking("Chidz", "07934877339", "Chidz@gmail.com", 4, 4),
+      new Booking("Caleb", "07934877339", "Caleb@gmail.com", 10, 5),
+      new Booking("Rose", "07934877339", "Rose@gmail.com", 10, 6),
+      new Booking("Oba", "07934877339", "Oba@gmail.com", 4, 7),
+      new Booking("Karan", "07934877339", "Karan@gmail.com", 6, 8),
+      new Booking("Jass", "07934877339", "Jass@gmail.com", 6, 9),
+      new Booking("Lewis", "07934877339", "Lewis@gmail.com", 6, 10),
+      new Booking("Harpreet", "07934877339", "Harpreet@gmail.com", 4, 1),
+      new Booking("Lucas", "07934877339", "Lucas@gmail.com", 10, 0),
+      new Booking("Alice", "07934877339", "Alice@gmail.com", 4, 5),
+      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6, 7),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 4, 8),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 23, 0),
+      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23, 5),
+      new Booking("Uche3", "07934877339", "Uche3@gmail.com", 4, 2),
+      new Booking("test", "07934877339", "Uche3@gmail.com", 4, 0),
+      new Booking("test5", "07934877339", "Uche3@gmail.com", 6, 2),
+>>>>>>> Stashed changes
     ]
     //============================== Create INFO ==================================
 
@@ -115,13 +143,16 @@
     //Get submit button
     let submitButton = document.getElementById("submit");
     //hide extra form input
-    form.elements.store.style.visibility = "hidden" 
+    form.elements.store.style.visibility = "hidden";
     //============================== Get DOM elements ==================================
 
 
 
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
     //============================== Add booking ==================================
     function addBooking(obj, timeVariable, addLaneNumber) {
@@ -139,7 +170,8 @@
 
 
     //============================== Refresh all Booings  ==================================
-    function refreash() {
+    // clears all previous info
+    function refresh() {
       spaces.forEach(space => {
         space.innerHTML = "";
         space.style.backgroundColor = "rgb(214, 214, 214)";
@@ -148,30 +180,54 @@
     //============================== Refresh all Booings  ==================================
 
 
+<<<<<<< Updated upstream
 
+=======
+    function checkUnder(timeVariable, duration) {
+      let bool;
+      for (let i = 0; i < duration; i++) {
+        if (spaces[timeVariable + i].innerHTML != ``) {
+          return true
+        }
+        return false
+      }
+    }
+>>>>>>> Stashed changes
 
 
 
     //============================== Load Spaces ==================================
     function loadSpaces() {
       //Delete all the bookings currently loadded 
-      refreash()
-      //Loop through the array and load all the bookings in there
+      refresh()
+      //Loop through the array and load all the newly added bookings in there
       array.forEach(booking => {
         // Number to be used as index for class "spaces", i.e spaces[timeVariable],...
         // ...starts @ arrival time and incremented by 24 to go to the next lane.
-        let timeVariable = booking.time 
+        let timeVariable = booking.time
         // the lane number of the booking
+<<<<<<< Updated upstream
         let lane_no = 0;
         // while there is still a abooking in the position; go to the next lane
         while (spaces[timeVariable].innerHTML != ``) {
+=======
+        let lane_no = 0; // default starts from beginning
+        // while there is a booking in the current position || there isn't space for the duration under
+        while (checkUnder(timeVariable, booking.duration)) {
+>>>>>>> Stashed changes
           //increment to go to the next lane
           timeVariable += 24;
           //update lane number to the next lane
-          lane_no++;
+          lane_no++; //check max 10
         }
         // add booking
+<<<<<<< Updated upstream
         addBooking(booking, timeVariable, lane_no);
+=======
+        for (let i = 0; i < booking.duration; i++) {
+          addBooking(booking, timeVariable + i, lane_no);
+        }
+>>>>>>> Stashed changes
       })
     }
     //============================== Fake Arrays/Functions ==================================
@@ -202,7 +258,7 @@
     ]
     // fake functions that load fake arrays to be deleted when back-end is done 
     function loadSU() {
-      refreash()
+      refresh()
       arraySU.forEach(element => {
         let timeVariable = element.time // Number to be used as index for class "spaces", i.e spaces[timeVariable]
         let lane_no = 0;
@@ -214,7 +270,7 @@
       })
     }
     function loadArrayUniversityVillage() {
-      refreash()
+      refresh()
       arrayUniversityVillage.forEach(element => {
         let timeVariable = element.time // Number to be used as index for class "spaces", i.e spaces[timeVariable]
         let lane_no = 0;
