@@ -56,5 +56,5 @@ export function remove_reservation(space,cur_resrv){
    if(match === -1) return util.Result(util.ERR,'reservation does not exist',false);
    
    delete space.reservations[match];
-   return util.Result(util.RES_OK,'resevations was removed',true);
+   return util.Result(util.RES_OK,'reservation was removed',true);
 }
