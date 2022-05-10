@@ -30,7 +30,7 @@ export function is_valid(res_arr, new_resrv) {
 			return util.Result(TIME_COLL, "space already booked", false);
 		}
 	}
-   return util.Result(RES_OK, "resvation made successfully", true);
+   return util.Result(RES_OK, "reservation made successfully", true);
 }
 
 export function deserialise(str){

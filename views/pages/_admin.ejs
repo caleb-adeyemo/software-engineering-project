@@ -96,6 +96,8 @@
       new Booking("Uche3", "07934877339", "Uche3@gmail.com", 4,2),
       new Booking("test", "07934877339", "Uche3@gmail.com", 4,0),
       new Booking("test5", "07934877339", "Uche3@gmail.com", 6,2),
+
+
     ]
     //============================== Create INFO ==================================
 
@@ -116,12 +118,12 @@
     //Get submit button
     let submitButton = document.getElementById("submit");
     //hide extra form input
-    form.elements.store.style.visibility = "hidden" 
+    form.elements.store.style.visibility = "hidden";
     //============================== Get DOM elements ==================================
 
 
 
-    
+  
 
     //============================== Add booking ==================================
     function addBooking(obj, timeVariable, addLaneNumber) {
@@ -139,7 +141,8 @@
 
 
     //============================== Refresh all Booings  ==================================
-    function refreash() {
+    // clears all previous info
+    function refresh() {
       spaces.forEach(space => {
         space.innerHTML = "";
         space.style.backgroundColor = "rgb(214, 214, 214)";
@@ -163,25 +166,27 @@ for(let i = 0; i < duration; i++){
     //============================== Load Spaces ==================================
     function loadSpaces() {
       //Delete all the bookings currently loadded 
-      refreash()
-      //Loop through the array and load all the bookings in there
+      refresh()
+      //Loop through the array and load all the newly added bookings in there
       array.forEach(booking => {
         // Number to be used as index for class "spaces", i.e spaces[timeVariable],...
         // ...starts @ arrival time and incremented by 24 to go to the next lane.
-        let timeVariable = booking.time 
+        let timeVariable = booking.time
         // the lane number of the booking
-        let lane_no = 0;
+
         // while there is a abooking in the current position || there isn't space for the duration under
         while (checkUnder(timeVariable, booking.duration)) {
+
           //increment to go to the next lane
           timeVariable += 24;
           //update lane number to the next lane
-          lane_no++;
+          lane_no++; //check max 10
         }
         // add booking
         for(let i = 0; i < booking.duration; i++){
         addBooking(booking, timeVariable + i, lane_no);
         }
+
       })
     }
     //============================== Fake Arrays/Functions ==================================
@@ -212,7 +217,7 @@ for(let i = 0; i < duration; i++){
     ]
     // fake functions that load fake arrays to be deleted when back-end is done 
     function loadSU() {
-      refreash()
+      refresh()
       arraySU.forEach(element => {
         let timeVariable = element.time // Number to be used as index for class "spaces", i.e spaces[timeVariable]
         let lane_no = 0;
@@ -224,7 +229,7 @@ for(let i = 0; i < duration; i++){
       })
     }
     function loadArrayUniversityVillage() {
-      refreash()
+      refresh()
       arrayUniversityVillage.forEach(element => {
         let timeVariable = element.time // Number to be used as index for class "spaces", i.e spaces[timeVariable]
         let lane_no = 0;
