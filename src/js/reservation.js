@@ -38,3 +38,17 @@ export function deserialise(str){
    let new_time = TM.time(tmp_date,str.time.duration); 
    return reservation(new_time,str.user,str.number_plate); 
 }
+
+// collect useful data about a reservation into a flat object
+export function summary(resrv){
+   return {
+      username: resrv.user.username, 
+      name: resrv.user.name,
+      email: resrv.user.email,
+      number_plate: resrv.number_plate,
+      start_date: resrv.time.start.getTime(),
+      dur_hours: resrv.time.duration.hr,
+      dur_minutes: resrv.time.duration.min
+   };
+}
+

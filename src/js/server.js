@@ -1,6 +1,7 @@
 import *  as util from './dbms.js';
 import * as USR from './user.js';
 import * as SPACE from './space.js';
+import * as RESRV from './reservation.js';
 
 const LIBRARY = 'LIBRARY';
 const SU = 'SU';
@@ -45,6 +46,7 @@ export function init_server_queries(){
    return query_map;
 }
 
+//maps a list of spaces into reservations that pass a predicate
 export function get_reservations(spaces_list,predicate){
    let resrv_list = spaces_list.map(space => space.reservations);
    let result = [];
@@ -56,6 +58,25 @@ export function get_reservations(spaces_list,predicate){
       }
    }
    return result.flat();
+}
+
+export function get_reservations_map(spaces_list,predicate){
+   let pair_array = {};
+   spaces_list.forEach(
+      space =>{
+         let match_arr = space.reservations.filter(predicate);
+         pair_array[space.key()] = match_arr;
+      }
+   );
+   return pair_array;
+}
+
+export function reservation_map_to_summary_map(resrv_map){
+   let sum_map = {};
+   for (const [key,value] of Object.entries(resrv_map)){
+      sum_map[key] = value.map( val => RESRV.summary(val));
+   }
+   return sum_map;   
 }
 
 export function find_user_by_email(table,email){
