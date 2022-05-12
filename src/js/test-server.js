@@ -58,5 +58,90 @@ function test(){
    console.log(sum_obj);
 }
 
+function test_route(){
+   const query_lot = 'LIBRARY';
+
+   const d0 = new Date("March 2,2022 10:20");
+   const d1 = new Date("May 2,2022 10:20");
+   const d2 = new Date("April 3,2022 09:10");
+
+   const one_hr = TM.duration(1,0);
+   const two_hr = TM.duration(2,0);
+
+   const t0 = TM.time(d0,one_hr);
+   const t1 = TM.time(d1,one_hr);
+   const t2 = TM.time(d2,two_hr);
+
+   const u0 = USR.User("send","help","synoptic@gmail.com");
+
+
+   const re0 = RESRV.reservation(
+      t0,
+      u0,
+      "payn3"
+   );
+
+   const re1 = RESRV.reservation(
+      t1,
+      u0,
+      "js is suffering"
+   );
+   const re2 = RESRV.reservation(
+      t2,
+      u0,
+      "stare into the abyss long enough ..."
+   );
+   let space_db = SERVER.init_server_db();
+   let test_lot = space_db.get(query_lot);
+   SPACE.add_reservation(test_lot[0],re0);  
+   SPACE.add_reservation(test_lot[1],re1);  
+   SPACE.add_reservation(test_lot[2],re2);  
+   console.log("==========TEST ROUTE=========");
+   let start = new Date("January 2,2022 10:20");
+   let end   = new Date("June 2,2022 10:20");
+   let req = {};
+
+   req.LOT = 'LIBRARY';
+   req.START = start.getTime();
+   req.END = end.getTime();
+   req.KEYS = ["A0","A1","A2"];
+   let summary = SERVER.post_reservations(req,space_db);
+
+   assert(summary.A0,"captures all reservations within time period");
+   assert(summary.A1,"captures all reservations within time period");
+   assert(summary.A2,"captures all reservations within time period");
+   console.log("=====SUMMARIES=====");
+   console.log(summary);
+
+   let exc1_date = new Date("May 1,2022 09:30");
+   req.END = exc1_date.getTime();
+   summary = SERVER.post_reservations(req,space_db);
+   let exists = Boolean(summary.A1);
+
+   assert(summary.A0,"captures only the reservations within time period");
+   assert(summary.A2,"captures only the reservations within time period");
+   assert.deepEqual(exists,false,"dont capture reservations out of time period");
+  
+   req.END = null;
+   summary = SERVER.post_reservations(req,space_db);
+   let exists_a0 = Boolean(summary.A0);
+   let exists_a1 = Boolean(summary.A1);
+   let exists_a2 = Boolean(summary.A2);
+   assert.deepEqual(exists_a0,false,"no false positives, db contains no dates that start on january");
+   assert.deepEqual(exists_a1,false,"no false positives, db contains no dates that start on january");
+   assert.deepEqual(exists_a2,false,"no false positives, db contains no dates that start on january");
+
+
+   let should_exist = d1; 
+   req.START = should_exist;
+   summary = SERVER.post_reservations(req,space_db);
+   
+   exists_a0 = Boolean(summary.A0);
+   exists_a2 = Boolean(summary.A2);
+   assert(summary.A1,"should capture start dates that match");
+   assert.deepEqual(exists_a0,false,"should only capture resevations that start on the same date");
+   assert.deepEqual(exists_a2,false,"should only capture resevations that start on the same date");
+}
 test();
+test_route();
 console.log("=====ALL TESTS PASSED======");

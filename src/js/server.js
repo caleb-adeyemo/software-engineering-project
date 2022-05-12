@@ -14,27 +14,35 @@ const SAINSBURY = 'SAINSBURY';
 
 export function init_server_db(){
    let lot_map = new Map();
-   lot_map.put(LIBRARY,SPACE.init_lot(1,10));
-   lot_map.put(SU,SPACE.init_lot(1,10));
-   lot_map.put(VILLAGE,SPACE.init_lot(1,10));
-   lot_map.put(SPORTSPARK,SPACE.init_lot(1,10));
-   lot_map.put(NEW_SCI,SPACE.init_lot(1,10));
-   lot_map.put(INTO,SPACE.init_lot(1,10));
-   lot_map.put(SAINSBURY,SPACE.init_lot(1,10));
+   lot_map.set(LIBRARY,SPACE.init_lot(1,10));
+   lot_map.set(SU,SPACE.init_lot(1,10));
+   lot_map.set(VILLAGE,SPACE.init_lot(1,10));
+   lot_map.set(SPORTSPARK,SPACE.init_lot(1,10));
+   lot_map.set(NEW_SCI,SPACE.init_lot(1,10));
+   lot_map.set(INTO,SPACE.init_lot(1,10));
+   lot_map.set(SAINSBURY,SPACE.init_lot(1,10));
    
    return lot_map; 
 }
+
 function filter_year(resrv_list,year){
    return resrv_list.filter(res => res.time.start.getYear() === year);
 }
+
 function filter_month(resrv_list,month){
    return resrv_list.filter(res => res.time.start.getMonth() === month);
 }
+
 function filter_day(resrv_list,day){
    return resrv_list.filter(res => res.time.start.getDay() === day);
 }
+
 function filter_hour(resrv_list,hr){
    return resrv_list.filter(res => res.time.start.getHours() === hr);
+}
+
+function filter_spaces_by_keys(space_list,keys){
+   return space_list.filter(space => keys.includes(space.key()));
 }
 
 export function init_server_queries(){
@@ -74,7 +82,15 @@ export function get_reservations_map(spaces_list,predicate){
 export function reservation_map_to_summary_map(resrv_map){
    let sum_map = {};
    for (const [key,value] of Object.entries(resrv_map)){
-      sum_map[key] = value.map( val => RESRV.summary(val));
+      //sum_map[key] = value.map( val => RESRV.summary(val));
+      if(!value) continue;
+      if(value.length < 1) continue;
+      if(sum_map[key]){
+         let new_vals = value.map(val => RESRV.summary(val));
+         new_vals.forEach( val => sum_map[key].push(val));
+      }else{
+         sum_map[key] = value.map(val => RESRV.summary(val));
+      }
    }
    return sum_map;   
 }
@@ -126,6 +142,59 @@ export function handle_signup(table,username,name,email,password){
 // add new time slot reservation to server
 export function handle_reservation_request(space,new_resrv){
    return SPACE.add_reservation(space,new_resrv);
+}
+
+function post_start_date(spaces,start){
+   let date = new Date();
+   date.setTime(start);
+   let query = (resrv) => resrv.time.start.getTime() === date.getTime(); 
+   let matches = get_reservations_map(spaces,query);
+   return reservation_map_to_summary_map(matches); 
+}
+
+function post_end_date(spaces,end){
+   let date = new Date();
+   date.setTime(end);
+   let query = (resrv) => resrv.time.end().getTime() === date.getTime();
+   let matches = get_reservations_map(spaces,query);
+   return reservation_map_to_summary_map(matches); 
+}
+
+function post_period(spaces,start,end){
+   let end_date = new Date();
+   end_date.setTime(end);
+
+   let start_date = new Date();
+   start_date.setTime(start);
+
+   let query = (resrv) =>{
+      let temp_start = resrv.time.start;
+      let temp_end = resrv.time.end();
+      let start_in_range = temp_start >= start_date && temp_start < end_date;
+      let end_in_range = temp_end <= end_date && temp_start > start_date;
+      return (start_in_range && end_in_range);
+   };
+   let matches = get_reservations_map(spaces,query);
+   return reservation_map_to_summary_map(matches);
+}
+
+export function post_reservations(req,db){
+   let space_list = db.get(req.LOT); 
+   let filtered_set = filter_spaces_by_keys(space_list,req.KEYS);
+   let responce;
+   if(req.START && req.END){
+      responce = post_period(filtered_set,req.START,req.END);
+      return responce;
+   }
+   if(req.START){
+      responce = post_start_date(filtered_set,req.START);
+      return responce;
+   }
+   if(req.END){
+      responce = post_end_date(filtered_set,req.END);
+      return responce;
+   }
+   return null;
 }
 
 export function remove_reservation(space,cur_resrv){
