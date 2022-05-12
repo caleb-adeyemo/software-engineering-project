@@ -87,17 +87,15 @@
       new Booking("Jass", "07934877339", "Jass@gmail.com", 6, 9),
       new Booking("Lewis", "07934877339", "Lewis@gmail.com", 6, 10),
       new Booking("Harpreet", "07934877339", "Harpreet@gmail.com", 21, 3),
-      new Booking("Lucas", "07934877339", "Lucas@gmail.com", 10, 0),
+      new Booking("Lucas", "07934877339", "Lucas@gmail.com", 10, 4),
       new Booking("Alice", "07934877339", "Alice@gmail.com", 3, 5),
       new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6, 7),
       new Booking("Uche1", "07934877339", "Uche@gmail.com", 3, 3),
-      new Booking("Uche", "07934877339", "Uche@gmail.com", 23, 0),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 23, 2),
       new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23, 5),
       new Booking("Uche3", "07934877339", "Uche3@gmail.com", 4, 2),
-      new Booking("test", "07934877339", "Uche3@gmail.com", 4, 0),
+      new Booking("test", "07934877339", "Uche3@gmail.com", 4, 3),
       new Booking("test5", "07934877339", "Uche3@gmail.com", 6, 2),
-
-
     ]
     //============================== Create INFO ==================================
 
@@ -118,8 +116,7 @@
     //Get submit button
     let submitButton = document.getElementById("submit");
     //hide extra form input
-
-    // form.elements.store.style.visibility = "hidden";
+    form.elements.store.style.visibility = "hidden";
 
     //============================== Get DOM elements ==================================
 
@@ -147,7 +144,7 @@
         spaces[timeVariable + i].style.borderBottom = "none";
       }
       // //add border to the last field
-      spaces[timeVariable + (duration-1)].style.borderBottom = "1px solid black";
+      spaces[timeVariable + (duration - 1)].style.borderBottom = "1px solid black";
 
     }
     //============================== Add booking ==================================
@@ -207,35 +204,39 @@
           //update lane number to the next lane
           lane_no++; //check max 10
         }
-        // add booking
-        addBooking(booking, timeVariable, lane_no, booking.duration);
+        // Stop over night parking
+        // if (booking.time + booking.duration <= 24) {
+          // add booking
+          addBooking(booking, timeVariable, lane_no, booking.duration);
+        // }
+
       })
     }
     //============================== Fake Arrays/Functions ==================================
     let arraySU = [
-      new Booking("SU Caleb", "07534877339", "calebadeyemo2@gmail.com", 3,2),
-      new Booking("SU Styles", "07534877339", "sytles@gmail.com", 3,2),
-      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6,5),
-      new Booking("Uche", "07934877339", "Uche@gmail.com", 4,6),
-      new Booking("Uche", "07934877339", "Uche@gmail.com", 23,0),
-      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23,5),
-      new Booking("Uche3", "07934877339", "Uche3@gmail.com", 4,7),
-      new Booking("test", "07934877339", "Uche3@gmail.com", 4,4),
-      new Booking("test5", "07934877339", "Uche3@gmail.com", 6,8),
+      new Booking("SU Caleb", "07534877339", "calebadeyemo2@gmail.com", 3, 2),
+      new Booking("SU Styles", "07534877339", "sytles@gmail.com", 3, 2),
+      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6, 5),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 4, 6),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 23, 0),
+      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23, 5),
+      new Booking("Uche3", "07934877339", "Uche3@gmail.com", 4, 7),
+      new Booking("test", "07934877339", "Uche3@gmail.com", 4, 4),
+      new Booking("test5", "07934877339", "Uche3@gmail.com", 6, 8),
     ]
 
     let arrayUniversityVillage = [
-      new Booking("SU Caleb", "07534877339", "calebadeyemo2@gmail.com", 3,5),
-      new Booking("SU Styles", "07534877339", "sytles@gmail.com", 14,2),
-      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6,3),
-      new Booking("Uche", "07934877339", "Uche@gmail.com", 23,7),
-      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23,3),
-      new Booking("test", "07934877339", "Uche3@gmail.com", 4,1),
-      new Booking("test5", "07934877339", "Uche3@gmail.com", 6,0),
-      new Booking("Chidz", "07934877339", "Chidz@gmail.com", 4,3),
-      new Booking("Caleb", "07934877339", "Caleb@gmail.com", 10,5),
-      new Booking("Oba", "07934877339", "Oba@gmail.com", 4,10),
-      new Booking("Karan", "07934877339", "Karan@gmail.com", 6,3),
+      new Booking("SU Caleb", "07534877339", "calebadeyemo2@gmail.com", 3, 5),
+      new Booking("SU Styles", "07534877339", "sytles@gmail.com", 14, 2),
+      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6, 3),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 23, 7),
+      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23, 3),
+      new Booking("test", "07934877339", "Uche3@gmail.com", 4, 1),
+      new Booking("test5", "07934877339", "Uche3@gmail.com", 6, 0),
+      new Booking("Chidz", "07934877339", "Chidz@gmail.com", 4, 3),
+      new Booking("Caleb", "07934877339", "Caleb@gmail.com", 10, 5),
+      new Booking("Oba", "07934877339", "Oba@gmail.com", 4, 10),
+      new Booking("Karan", "07934877339", "Karan@gmail.com", 6, 3),
     ]
     // fake functions that load fake arrays to be deleted when back-end is done 
     function loadSU() {
@@ -312,6 +313,8 @@
         for (let i = 0; i < data.active_lot; i++) {
           timeVariable += 24;
         }
+        console.log(spaces[timeVariable+1].childNodes[1].innerHTML)
+
         const check = checkUnder(timeVariable, JSON.parse(data.store).duration)
         if (check == false) {
           //Create new booking Object to be added to table
@@ -322,7 +325,7 @@
           //Delete previous booking
           deleteBooking(arrival, laneNumber, JSON.parse(data.store).duration)
         }
-        else{
+        else {
           console.log("no space")
         }
 
@@ -348,11 +351,11 @@
       }
       for (let i = 0; i < duration; i++) {
         spaces[timeVariable + i].style.backgroundColor = "rgb(214, 214, 214)";
-      spaces[timeVariable + i].innerHTML = ""
-      // //add border to the fields
-      spaces[timeVariable + i].style.border = "1px solid black";
+        spaces[timeVariable + i].innerHTML = ""
+        // //add border to the fields
+        spaces[timeVariable + i].style.border = "1px solid black";
       }
-      
+
     }
     //============================== Delete bookings ==================================
 
