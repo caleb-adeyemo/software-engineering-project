@@ -1,0 +1,108 @@
+body {
+    //background: linear-gradient(to right, #f05462, white);
+    overflow: hidden;
+}
+
+.container {
+    background: white;
+    width: 800px;
+    height: 450px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 10%;
+    box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.leftbar {
+    float: left;
+    top: -5%;
+    left: 5%;
+    position: absolute;
+    width: 16%;
+    height: 110%;
+    background: lightyellow;
+    box-shadow: 3px 3px 10px rgba(120, 120, 120, 0.5);
+    border: 0.2rem solid white;
+}
+
+nav a {
+    list-style: none;
+    padding: 35px;
+    color: white;
+    font-size: 1.1em;
+    display: block;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+    // color: pink;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+nav a:first-child {
+    margin-top: 7px;
+}
+
+
+/*nav a.active {
+    color: pink;
+}*/
+
+.rightbar {
+    width: 60%;
+    margin-left: 25%;
+}
+
+.tabShow {
+    transition: all 0.5s ease-in;
+    width: 80%;
+}
+
+h1 {
+    color: black;
+    font-size: 1.2rem;
+    margin-top: 40px;
+    margin-bottom: 35px;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    margin-left: -2px;
+    margin-top: 18px;
+    position: fixed;
+}
+
+.input,
+p {
+    border: 0;
+    border-bottom: 1px solid black;
+    width: 80%;
+    font-size: .7em;
+    padding: 7px 0;
+    color: grey;
+    outline: none;
+}
+
+span {
+    font-size: 0.7em;
+    //color: red;
+}
+
+.btn {
+    text-transform: uppercase;
+    font-size: 15px;
+    border: 0;
+    color: white;
+    background: royalblue;
+    padding: 7px 15px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .2);
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.tabShow {
+    display: none;
+}

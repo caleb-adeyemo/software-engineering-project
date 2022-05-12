@@ -51,41 +51,59 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script>
+
+
+
     //============================== Create Booking Object ==================================
     class Booking {
-      constructor(name, phoneNumber, email, time) {
+      constructor(name, phoneNumber, email, time, duration) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.time = time;
+        this.laneNumber = 0;
+        this.duration = duration;
       }
     }
     //============================== Create Booking Object ==================================
 
 
+
+
+
+
     //============================== Create INFO ==================================
+    //Array of bookings. Note: this will be supplied by the back end server
     let array = [
-      new Booking("caleb test var", "07534877339", "calebadeyemo2@gmail.com", 4),
-      new Booking("caleb test var2", "07534877339", "calebadeyemo2@gmail.com", 4),
-      new Booking("Rosette", "07934877339", "Rosette@gmail.com", 4),
-      new Booking("kieran", "07934877339", "kieran@gmail.com", 6),
-      new Booking("Chidz", "07934877339", "Chidz@gmail.com", 4),
-      new Booking("Caleb", "07934877339", "Caleb@gmail.com", 10),
-      new Booking("Rose", "07934877339", "Rose@gmail.com", 10),
-      new Booking("Oba", "07934877339", "Oba@gmail.com", 4),
-      new Booking("Karan", "07934877339", "Karan@gmail.com", 6),
-      new Booking("Jass", "07934877339", "Jass@gmail.com", 6),
-      new Booking("Lewis", "07934877339", "Lewis@gmail.com", 6),
-      new Booking("Harpreet", "07934877339", "Harpreet@gmail.com", 4),
-      new Booking("Lucas", "07934877339", "Lucas@gmail.com", 10),
-      new Booking("Alice", "07934877339", "Alice@gmail.com", 4),
-      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6),
-      new Booking("Uche", "07934877339", "Uche@gmail.com", 4),
-      new Booking("Uche", "07934877339", "Uche@gmail.com", 23),
-      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23),
-      new Booking("Uche3", "07934877339", "Uche3@gmail.com", 28),
+      new Booking("caleb ", "07534877339", "calebadeyemo2@gmail.com", 0, 2),
+      new Booking("caleb var", "07534877339", "calebadeyemo2@gmail.com", 0, 2),
+      new Booking("Rosette", "07934877339", "Rosette@gmail.com", 1, 2),
+      new Booking("kieran", "07934877339", "kieran@gmail.com", 6, 3),
+      new Booking("Chidz", "07934877339", "Chidz@gmail.com", 3, 4),
+      new Booking("Caleb", "07934877339", "Caleb@gmail.com", 10, 5),
+      new Booking("Rose", "07934877339", "Rose@gmail.com", 10, 6),
+      new Booking("Oba", "07934877339", "Oba@gmail.com", 3, 7),
+      new Booking("Karan", "07934877339", "Karan@gmail.com", 6, 8),
+      new Booking("Jass", "07934877339", "Jass@gmail.com", 6, 9),
+      new Booking("Lewis", "07934877339", "Lewis@gmail.com", 6, 10),
+      new Booking("Harpreet", "07934877339", "Harpreet@gmail.com", 21, 3),
+      new Booking("Lucas", "07934877339", "Lucas@gmail.com", 10, 0),
+      new Booking("Alice", "07934877339", "Alice@gmail.com", 3, 5),
+      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6, 7),
+      new Booking("Uche1", "07934877339", "Uche@gmail.com", 3, 3),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 23, 0),
+      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23, 5),
+      new Booking("Uche3", "07934877339", "Uche3@gmail.com", 4, 2),
+      new Booking("test", "07934877339", "Uche3@gmail.com", 4, 0),
+      new Booking("test5", "07934877339", "Uche3@gmail.com", 6, 2),
+
+
     ]
     //============================== Create INFO ==================================
+
+
+
+
 
     //============================== Get DOM elements ==================================
     //Get spaces
@@ -97,31 +115,250 @@
     //Get Form
     let form = document.getElementById("info_block");
     let radio = document.getElementsByClassName("radio");
+    //Get submit button
+    let submitButton = document.getElementById("submit");
+    //hide extra form input
+
+    // form.elements.store.style.visibility = "hidden";
 
     //============================== Get DOM elements ==================================
 
-    //============================== function to add booking ==================================
-    function addBooking(obj, timeVariable){
-      //append div to space 
-      spaces[timeVariable].innerHTML = `<div class="booking" id="${obj.time}">${JSON.stringify(obj)}</div>`;
 
+
+
+
+    //============================== Add booking ==================================
+    function addBooking(obj, timeVariable, addLaneNumber, duration) {
+      obj.laneNumber = addLaneNumber;
+      obj.duration = duration;
+      //append first div with the name of the booking
+      spaces[timeVariable].innerHTML = `<div>${obj.name}</div><div class="booking" id="${obj.time}">${JSON.stringify(obj)}</div>`;
       //change color of field
       spaces[timeVariable].style.backgroundColor = 'lightblue';
+      //remove border bellow first field
+      spaces[timeVariable].style.borderBottom = "none";
+      for (let i = 1; i < duration; i++) {
+        //append div to space 
+        spaces[timeVariable + i].innerHTML = `<div></div><div class="booking" id="${obj.time}">${JSON.stringify(obj)}</div>`;
+        //change color of field
+        spaces[timeVariable + i].style.backgroundColor = 'lightblue';
+        //remove border arround fields
+        spaces[timeVariable + i].style.borderTop = "none";
+        spaces[timeVariable + i].style.borderBottom = "none";
+      }
+      // //add border to the last field
+      spaces[timeVariable + (duration-1)].style.borderBottom = "1px solid black";
+
     }
-    //============================== function to add booking ==================================
+    //============================== Add booking ==================================
 
 
-    //============================== Load objects into correct spaces ==================================
-    array.forEach(element => {
-      let timeVariable = element.time // Number to be used as index for class "spaces", i.e spaces[timeVariable]
 
-      while(spaces[timeVariable].innerHTML != ``){
+
+
+    //============================== Refresh all Booings  ==================================
+    // clears all previous info
+    function refresh() {
+      spaces.forEach(space => {
+        space.innerHTML = "";
+        space.style.backgroundColor = "rgb(214, 214, 214)";
+        space.style.border = "1px solid black";
+      })
+    }
+    //============================== Refresh all Booings  ==================================
+
+    //============================== Check for no colisions  =======================
+    function checkUnder(timeVariable, duration) {
+      let int = 0;
+      //loop the number of durations 
+      for (let i = 0; i < duration; i++) {
+        // check to see if space is empty
+        if (spaces[timeVariable + i].innerHTML == ``) {
+          //increment int
+          int++
+        }
+      }
+      if (int == duration) {
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
+    //============================== Check for no colisions  ======================
+
+
+
+    //============================== Load Spaces ==================================
+    function loadSpaces() {
+      //Delete all the bookings currently loadded 
+      refresh()
+      //Loop through the array and load all the newly added bookings in there
+      array.forEach(booking => {
+        // Number to be used as index for class "spaces", i.e spaces[timeVariable],...
+        // ...starts @ arrival time and incremented by 24 to go to the next lane.
+        let timeVariable = booking.time
+        // the lane number of the booking
+        let lane_no = 0
+        // while there is a abooking in the current position || there isn't space for the duration under
+        while (checkUnder(timeVariable, booking.duration)) {
+          //increment to go to the next lane
+          timeVariable += 24;
+          //update lane number to the next lane
+          lane_no++; //check max 10
+        }
+        // add booking
+        addBooking(booking, timeVariable, lane_no, booking.duration);
+      })
+    }
+    //============================== Fake Arrays/Functions ==================================
+    let arraySU = [
+      new Booking("SU Caleb", "07534877339", "calebadeyemo2@gmail.com", 3,2),
+      new Booking("SU Styles", "07534877339", "sytles@gmail.com", 3,2),
+      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6,5),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 4,6),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 23,0),
+      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23,5),
+      new Booking("Uche3", "07934877339", "Uche3@gmail.com", 4,7),
+      new Booking("test", "07934877339", "Uche3@gmail.com", 4,4),
+      new Booking("test5", "07934877339", "Uche3@gmail.com", 6,8),
+    ]
+
+    let arrayUniversityVillage = [
+      new Booking("SU Caleb", "07534877339", "calebadeyemo2@gmail.com", 3,5),
+      new Booking("SU Styles", "07534877339", "sytles@gmail.com", 14,2),
+      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6,3),
+      new Booking("Uche", "07934877339", "Uche@gmail.com", 23,7),
+      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23,3),
+      new Booking("test", "07934877339", "Uche3@gmail.com", 4,1),
+      new Booking("test5", "07934877339", "Uche3@gmail.com", 6,0),
+      new Booking("Chidz", "07934877339", "Chidz@gmail.com", 4,3),
+      new Booking("Caleb", "07934877339", "Caleb@gmail.com", 10,5),
+      new Booking("Oba", "07934877339", "Oba@gmail.com", 4,10),
+      new Booking("Karan", "07934877339", "Karan@gmail.com", 6,3),
+    ]
+    // fake functions that load fake arrays to be deleted when back-end is done 
+    function loadSU() {
+      //Delete all the bookings currently loadded 
+      refresh()
+      //Loop through the array and load all the newly added bookings in there
+      arraySU.forEach(booking => {
+        // Number to be used as index for class "spaces", i.e spaces[timeVariable],...
+        // ...starts @ arrival time and incremented by 24 to go to the next lane.
+        let timeVariable = booking.time
+        // the lane number of the booking
+        let lane_no = 0
+        // while there is a abooking in the current position || there isn't space for the duration under
+        while (checkUnder(timeVariable, booking.duration)) {
+          //increment to go to the next lane
+          timeVariable += 24;
+          //update lane number to the next lane
+          lane_no++; //check max 10
+        }
+        // add booking
+        addBooking(booking, timeVariable, lane_no, booking.duration);
+
+
+      })
+    }
+    function loadArrayUniversityVillage() {
+      //Delete all the bookings currently loadded 
+      refresh()
+      //Loop through the array and load all the newly added bookings in there
+      arrayUniversityVillage.forEach(booking => {
+        // Number to be used as index for class "spaces", i.e spaces[timeVariable],...
+        // ...starts @ arrival time and incremented by 24 to go to the next lane.
+        let timeVariable = booking.time
+        // the lane number of the booking
+        let lane_no = 0
+        // while there is a abooking in the current position || there isn't space for the duration under
+        while (checkUnder(timeVariable, booking.duration)) {
+          //increment to go to the next lane
+          timeVariable += 24;
+          //update lane number to the next lane
+          lane_no++; //check max 10
+        }
+        // add booking
+        addBooking(booking, timeVariable, lane_no, booking.duration);
+
+
+      })
+    }
+    //============================== Fake Arrays/Functions ==================================
+    // Call loadSpaces Function by default when web page loads
+    loadSpaces()
+    //============================== Load Spaces ==================================
+
+
+
+
+
+
+
+
+    //============================== Move Bookings ==================================
+    function moveBooking() {
+      document.querySelector('form').addEventListener('submit', (e) => {
+        //stop form from reloading the page
+        e.preventDefault();
+        e.stopImmediatePropagation()
+        //Get form information and put into an Object
+        const data = Object.fromEntries(new FormData(e.target).entries());
+        // put info form object into variables
+        let timeVariable = parseInt(data.arrival);
+        let arrival = JSON.parse(data.store).time;
+        let laneNumber = JSON.parse(data.store).laneNumber;
+        //increment by 24 to go to next lane; do this how many time the lane number specified is
+        for (let i = 0; i < data.active_lot; i++) {
+          timeVariable += 24;
+        }
+        const check = checkUnder(timeVariable, JSON.parse(data.store).duration)
+        if (check == false) {
+          //Create new booking Object to be added to table
+          let booking = new Booking(data.name, data.phoneNumber, data.email, data.arrival)
+
+          //Add booking        
+          addBooking(booking, timeVariable, data.active_lot, JSON.parse(data.store).duration);
+          //Delete previous booking
+          deleteBooking(arrival, laneNumber, JSON.parse(data.store).duration)
+        }
+        else{
+          console.log("no space")
+        }
+
+        //Reset the form inputs to be empty
+        form.reset()
+      });
+    }
+    //============================== Move Bookings ==================================
+
+
+
+
+
+
+
+
+    //============================== Delete bookings ==================================
+    function deleteBooking(time, laneNumber, duration) {
+      let timeVariable = parseInt(time);
+      // go to the lane where the bookng is 
+      for (let i = 0; i < laneNumber; i++) {
         timeVariable += 24;
       }
-      addBooking(element, timeVariable);
+      for (let i = 0; i < duration; i++) {
+        spaces[timeVariable + i].style.backgroundColor = "rgb(214, 214, 214)";
+      spaces[timeVariable + i].innerHTML = ""
+      // //add border to the fields
+      spaces[timeVariable + i].style.border = "1px solid black";
+      }
+      
+    }
+    //============================== Delete bookings ==================================
 
-    })
-    //============================== Load objects into correct spaces ==================================
+
+
+
 
 
 
@@ -129,25 +366,53 @@
     spaces.forEach(space => {
       space.addEventListener('click', event => {
         if (space.firstChild != null) { //If booking space is not empty
-          let obj = JSON.parse(space.firstChild.innerHTML);
+          let obj = JSON.parse(space.childNodes[1].innerHTML);
+          // console.log(obj)
           form.elements.name.value = obj.name;
           form.elements.phoneNumber.value = obj.phoneNumber;
-          form.elements.email.value = obj.email + " " + obj.time;
-          radio.checked = true;
+          form.elements.email.value = obj.email;
+          form.elements.arrival.value = obj.time;
+          radio[obj.laneNumber].checked = true;
+          form.elements.store.value = JSON.stringify(obj);
         }
         else { //Display nothing if space is empty 
           form.elements.name.value = "";
           form.elements.phoneNumber.value = ``;
           form.elements.email.value = "";
-
+          form.elements.arrival.value = null;
+          $('.radio').prop('checked', false)
+          form.elements.store.value = "";
         }
       })
     })
-    console.log()
     //============================== Display info to info screen ==================================
 
 
 
+
+
+
+
+
+    //============================== Display Drop-down Links ==================================
+    function displayLinks() {
+      //Get drop-down links
+      let links = document.getElementById("myDropdown").classList.toggle("show");
+      // Close the dropdown menu if the user clicks outside of it
+      window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+    }
+    //============================== Display Drop-down Links ==================================
   </script>
 </body>
 

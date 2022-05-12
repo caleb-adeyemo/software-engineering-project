@@ -1,5 +1,87 @@
 <section>
-  <div>
-    <h1>user account</h1>
-  </div>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Account</title>
+
+        <style>
+
+        </style>
+
+        <body>
+            <div class="container">
+                <div class="leftbar">
+                    <nav>
+                        <a onclick="tabs(0)" class="tab" active>
+                            <i class="profile"></i>
+                            <h2>Profile</h2>
+                        </a>
+                        <a onclick="tabs(1)" class="tab">
+                            <i class="booking"></i>
+                            <h2>Booking</h2>
+                        </a>
+                        <a onclick="tabs(2)" class="tab">
+                            <i class="payment"></i>
+                            <h2>Payment</h2>
+                        </a>
+                        <a onclick="tabs(3)" class="tab">
+                            <i class="Logout"></i>
+                            <h2>LogOut</h2>
+                        </a>
+                    </nav>
+                </div>
+                <div class="rightbar">
+                    <div class="profile tabShow">
+                        <h1>User Profile</h1>
+                        <h2>Full Name</h2>
+                        <input type="text" class="input" value="Jun Tai">
+                        <h2>Phone Number</h2>
+                        <input type="text" class="input" value="1234567">
+                        <h2>Email Address</h2>
+                        <input type="text" class="input" value="tai@gmail.com">
+                        <h2>Password</h2>
+                        <input type="password" class="input" value="ihateyou">
+                        <button class="btn">Update</button>
+                    </div>
+                    <div class="booking tabShow">
+                        <h1>Booking Detail</h1>
+                        <h2>Booking Number</h2>
+                        <input type="text" class="input" value="001">
+                        <h2>Destination</h2>
+                        <input type="text" class="input" value="Library">
+                        <h2>Parking Number</h2>
+                        <input type="text" class="input" value="10">
+                        <h2>Date</h2>
+                        <input type="text" class="input" value="12/6/2022">
+                        <h2>Time</h2>
+                        <input type="text" class="input" value="12:00pm">
+                        <h2>Duration</h2>
+                        <input type="text" class="input" value="2 hours">
+                        <h2>Car Number</h2>
+                        <input type="text" class="input" value="ABC123">
+                    </div>
+                    <div class="payment tabShow">
+                        <h1>Payment Info</h1>
+                        <h2>Payment Method</h2>
+                        <input type="text" class="input" value="MasterCard - xxxx xxxx xxxx xxxx>">
+                        <h2>Full Name</h2>
+                        <input type="text" class="input" value="Tai">
+                        <h2>Expiry date</h2>
+                        <input type="text" class="input" value="10/26">
+                        <h2>CVV</h2>
+                        <input type="text" class="input" value="123">
+                        <button class="btn">Update</button>
+                    </div>
+                    <div class="signout tabShow">
+                        <h1>Sign Out</h1>
+                    </div>
+
+
+                </div>
+            </div>
+        </body>
+
+
 </section>

@@ -1,7 +1,7 @@
 import * as fs from 'fs'; 
 
 export const OK   = Symbol("query was successful");
-export const ERR  = Symbol("query result is erronous,maybe null");
+export const ERR  = Symbol("query result is erronous, maybe null");
 export const NONE = Symbol("query result is empty");
 export function Result(code,msg,unwrap){
    return {code:code,msg:msg,unwrap:unwrap};

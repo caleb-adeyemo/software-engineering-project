@@ -1,37 +1,34 @@
 <section>
+
   <body>
     <div class="container-signup">
       <form class="form" id="createAccount" method="POST" action="/signup">
         <h1 class="form_title">Create Account</h1>
         <div class="form_message form_message-error"></div>
         <div class="form_input-group">
-          <input type="text" class="form_input" name="username" autofocus placeholder="Username">
+          <input type="text" class="form_input" name="name" required autofocus placeholder="Name">
           <div class="form_input-error-message"></div>
         </div>
         <div class="form_input-group">
-          <input type="text" class="form_input" name="name" autofocus placeholder="Name">
+          <input type="email" class="form_input" name="email" required autofocus placeholder="Email">
           <div class="form_input-error-message"></div>
         </div>
         <div class="form_input-group">
-          <input type="email" class="form_input" name="email" autofocus placeholder="Email">
+          <input type="password" class="form_input" name="password" required autofocus placeholder="Password">
           <div class="form_input-error-message"></div>
         </div>
         <div class="form_input-group">
-          <input type="password" class="form_input" name="password" autofocus placeholder="Password">
-          <div class="form_input-error-message"></div>
-        </div>
-        <div class="form_input-group">
-          <input type="password" class="form_input" name="confirm password" autofocus placeholder="Confirm Password">
+          <input type="password" class="form_input" name="confirm password" required autofocus placeholder="Confirm Password">
           <div class="form_input-error-message"></div>
         </div>
         <button class="form_button" type="submit">Continue</button>
         <p class="or">OR</p>
-        <button class="guest_button" type="button">Login as a guest</button>
+        <button class="form_button" type="button">Continue as guest</button>
         <p class="form_text">
-          <a class="form_link" href="./" id="linkLogin">Already have an account? Sign in</a>
+          <a class="form_link" href="/login" id="linkLogin">Already have an account? Sign in</a>
         </p>
       </form>
     </div>
+    <a class="back-link" href="./">---Back</a>
   </body>
 </section>
-
