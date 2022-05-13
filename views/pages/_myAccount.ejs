@@ -50,7 +50,7 @@
         const tab = document.querySelectorAll(".tabShow");
 
         function tabs(panelIndex) {
-            tab.forRach(function(node) {
+            tab.forEach(function(node) {
                 node.style.display = "none"
             });
             tab[panelIndex].style.display = "block";
