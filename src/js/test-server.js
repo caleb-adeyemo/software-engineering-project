@@ -3,6 +3,7 @@ import * as TM from './time.js';
 import * as USR from './user.js';
 import * as RESRV from './reservation.js';
 import * as SERVER from './server.js';
+import * as UTIL from './dbms.js';
 import {strict as assert} from 'assert';
 
 function test(){
@@ -185,7 +186,34 @@ function test_patch(){
    console.log(summary);
 
 }
+
+function test_spacedb_ser(){
+   const one_hr = TM.duration(1,0);
+   const d0 = new Date("March 2,2022 10:20");
+   const t0 = TM.time(d0,one_hr);
+   const u0 = USR.User("send","help","synoptic@gmail.com");
+   const re0 = RESRV.reservation(
+      t0,
+      u0,
+      "payn3"
+   );
+   let space_db = SERVER.init_server_db();
+   let spaces = space_db.get('LIBRARY');
+   SPACE.add_reservation(spaces[0],re0);
+   let space_ser = UTIL.serialise_space_db(space_db);
+   UTIL.save_space_db('spaces.json',space_ser);
+
+   let db_file = UTIL.load_space_db('spaces.json');
+   let deserialied_db = UTIL.deserialise_space_db(db_file); 
+   //console.log(deserialied_db);
+   console.log("saved item");
+   console.log(
+      deserialied_db.get('LIBRARY')[0]
+   ); 
+
+}
 test();
 test_route();
 test_patch();
+test_spacedb_ser();
 console.log("=====ALL TESTS PASSED======");

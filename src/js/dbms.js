@@ -97,6 +97,30 @@ export function load_from_file(path){
    const data = fs.readFileSync(path,'utf8'); 
    return Result(OK,'file exists',deserialise(path,data));
 }
-export function save_space_db(space_db){
-   //for(const [key,value]  
+
+export function serialise_space_db(space_db){
+   let file = {};
+   space_db.forEach((value,key) =>{
+      console.log(key);
+      file[key] = value;
+   });   
+
+   return JSON.stringify(file,null,3);
+}
+export function deserialise_space_db(space_db_file){
+   let data = JSON.parse(space_db_file);
+   let db = new Map();
+   for(const [key,value] of Object.entries(data)){
+      db.set(key,value);
+   }
+   return db;
+}
+export function save_space_db(path,serialised_space_db){
+   fs.writeFileSync(path,serialised_space_db); 
+}
+export function load_space_db(path){
+   if(!fs.existsSync(path)){
+      return null;
+   }
+   return fs.readFileSync(path);
 }
