@@ -1,56 +1,61 @@
-.heading {
-  margin: 3rem auto;
-  font-size: $font-xlg;
-  color: $darkBlue;
-  text-align: center;
-  text-decoration: underline;
+.login-heading {
+    margin: 3rem auto;
+    font-size: $font-xlg;
+    color: $darkBlue;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 3rem;
+    color: white;
 }
 
 .form {
-  width: 22rem;
-  padding: 3rem;
-  margin: auto;
-  background-color: $darkBlue;
-  text-align: center;
-  border: 4px solid $yellow;
-  border-radius: 1rem;
+    width: 30rem;
+    padding: 3rem;
+    margin: auto;
+    background-color: $darkBlue;
+    text-align: center;
+    border: 4px solid $yellow;
+    border-radius: 1rem;
 }
 
 .form input {
-  border: 2px solid white;
-  background: none;
-  display: block;
-  margin: 1em auto;
-  text-align: center;
-  padding: 0.875rem 0.625rem;
-  width: 14rem;
-  border-radius: 2rem;
-  outline: none;
-  color: white;
-  transition: 0.25s;
+    border: 2px solid white;
+    background: none;
+    display: block;
+    margin: 1em auto;
+    text-align: center;
+    padding: 0.875rem 0.625rem;
+    width: 14rem;
+    border-radius: 2rem;
+    outline: none;
+    color: white;
+    transition: 0.25s;
+    font-size: 20px;
 }
 
 .form input:focus {
-  width: 16rem;
-  border-color: $yellow;
+    width: 16rem;
+    border-color: $yellow;
 }
 
 .form input[type="submit"] {
-  color: $yellow;
-  text-align: center;
-  border: 2px solid white;
-  background: none;
-  display: block;
-  margin: 1em auto;
-  padding: 0.875rem 3rem;
-  border-radius: 2rem;
-  outline: none;
-  transition: 0.25s;
+    color: $yellow;
+    text-align: center;
+    border: 2px solid white;
+    background: none;
+    display: block;
+    margin: 1em auto;
+    padding: 0.875rem 3rem;
+    border-radius: 2rem;
+    outline: none;
+    transition: 0.25s;
 }
 
 .form input[type="submit"]:hover {
-  color: white;
-  border: 2px solid $yellow;
-  background-color: $yellow;
-  cursor: pointer;
+    color: white;
+    border: 2px solid $yellow;
+    background-color: $yellow;
+    cursor: pointer;
 }

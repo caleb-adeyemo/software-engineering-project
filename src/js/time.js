@@ -37,7 +37,13 @@ export function time(_start, _dur) {
             && duration.min === other.duration.min;
       }
 
-
-	return { start: start, duration: _dur, overlap: overlap ,equals: equals};
+      function end(){
+         let end_date = new Date();
+         end_date.setTime(start.getTime());
+         end_date.setHours(start.getHours() + _dur.hr);
+         end_date.setMinutes(start.getMinutes() + _dur.min);
+         return end_date;
+      }
+	return { start: start,end: end, duration: _dur, overlap: overlap ,equals: equals};
 }
 

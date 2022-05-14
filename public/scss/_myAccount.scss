@@ -1,0 +1,133 @@
+.user-container {
+    background: lightyellow;
+    width: 800px;
+    height: 550px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 5%;
+    box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.leftbar {
+    float: left;
+    top: -5%;
+    left: 5%;
+    position: absolute;
+    width: 20%;
+    height: 110%;
+    background: #003049;
+    box-shadow: 3px 3px 10px rgba(120, 120, 120, 0.5);
+    border: 0.2rem solid white;
+    text-align: center;
+}
+
+.leftbar h2 {
+    list-style: none;
+    padding: 10px;
+    color: white;
+    font-size: 25px;
+    display: block;
+    transition: all 0.1s ease-in-out;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 25%;
+    margin-bottom: 25%;
+    text-transform: uppercase;
+}
+
+.leftbar h2:hover {
+    color: #FCBF49;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.leftbar h2:first-child {
+    margin-top: 10px;
+}
+
+.rightbar {
+    width: 60%;
+    margin-left: 35%;
+}
+
+.tab {
+    transition: all 0.3s ease-in;
+}
+
+.tabShow h1 {
+    color: black;
+    font-size: 40px;
+    margin-top: 45px;
+    margin-bottom: 10px;
+}
+
+.tabShow h3 {
+    color: #777;
+    text-transform: uppercase;
+    font-size: 10px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    margin-left: 2px;
+    letter-spacing: 1px;
+}
+
+.rightbar .input {
+    border: 0;
+    border-bottom: 1.5px solid #003049;
+    width: 90%;
+    font-size: 15px;
+    padding: 7px;
+    color: black;
+    outline: none;
+    background: lightyellow;
+    font-weight: bold;
+}
+
+span {
+    font-size: 0.7em;
+    color: blue;
+}
+
+.update-btn {
+    text-transform: uppercase;
+    font-size: 18px;
+    border: 0;
+    color: white;
+    background: #003049;
+    padding: 10px 15px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .2);
+    margin-top: 20px;
+    width: 30%;
+    font-weight: bold;
+}
+
+.update-btn:hover {
+    color: white;
+    border: 0;
+    background-color: #FCBF49;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    text-transform: uppercase;
+    font-size: 18px;
+    border: 0;
+    color: white;
+    background: #003049;
+    padding: 10px 15px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .2);
+    margin-top: 20px;
+    width: 50%;
+    font-weight: bold;
+}
+
+.cancel-btn:hover {
+    color: white;
+    border: 0;
+    background-color: #FCBF49;
+    cursor: pointer;
+}
+
+.tabShow {
+    display: none;
+}

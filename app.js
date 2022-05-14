@@ -13,6 +13,7 @@ const port = process.env.PORT || 8000;
 let urlEncodedParser = bodyParser.urlencoded({extended: false});
 const USER_TABLE_PATH = 'users.json';
 let user_table = null;
+let space_db = server.init_server_db();
 
 // initialise databases
 let result = util.load_from_file(USER_TABLE_PATH);
@@ -72,6 +73,11 @@ app.post('/signup',urlEncodedParser,(req,res)=>{
       req.body.password
    );
    res.send(result.msg);
+});
+
+app.post('/admin',urlEncodedParser,(req,res)=>{
+   let result = server.post_reservations(req,space_db);
+   res.send(JSON.Stringify(result));
 });
 
 // Listen on port 8000
