@@ -140,8 +140,25 @@ export function handle_signup(table,username,name,email,password){
 }
 
 // add new time slot reservation to server
-export function handle_reservation_request(space,new_resrv){
-   return SPACE.add_reservation(space,new_resrv);
+export function patch_space_db_with_new_reservation(space_db,req){
+   let space = space_db.get(req.LOT);
+   let resrv_obj = RESRV.from_summary(req);
+   let result;
+   for(let i = 0; i < space.length; i++){
+      result = SPACE.add_reservation(space[i],resrv_obj);
+
+      if(result.code === RESRV.RES_OK){
+         let new_resrv = result.unwrap;
+         result.unwrap = {};
+         result.unwrap.KEY = space[i].key();
+         result.unwrap.LOT = req.LOT; 
+         result.unwrap.SUMMARY = RESRV.summary(new_resrv);
+         return result;
+      }
+
+   }
+
+   return result;
 }
 
 function post_start_date(spaces,start){
