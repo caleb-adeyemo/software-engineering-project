@@ -4,6 +4,8 @@ import expressLayouts  from 'express-ejs-layouts';
 import bodyParser from 'body-parser';
 import {dirname} from 'path';
 import {fileURLToPath} from 'url';
+import process from 'node:process';
+
 import * as util from './src/js/dbms.js';
 import * as server from './src/js/server.js';
 import * as RESRV from './src/js/reservation.js';
@@ -102,5 +104,24 @@ app.patch('/admin',urlEncodedParser,(req,res)=>{
 });
 // Listen on port 8000
 const app_server = app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
+function save_state_before_exit(){
+   console.log("==== saving data before exit ===");
+   let db_data = util.serialise_space_db(space_db);
+   util.save_space_db(SPACE_DB_PATH,db_data);
 
+   let user_data = user_table.serialise();
+   user_table.save_to_file(user_data);
+   process.exit();
+}
+process.stdin.resume();
+process.on('SIGINT',(_code) =>{
+   console.log("before sigint");
+   console.log(_code);
+   save_state_before_exit();
+});
+process.on('beforeExit',(_code) =>{
+   console.log("on before exit");
+   console.log(_code);
+   save_state_before_exit();
+});
 // npm start
