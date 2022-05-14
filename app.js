@@ -6,6 +6,7 @@ import {dirname} from 'path';
 import {fileURLToPath} from 'url';
 import * as util from './src/js/dbms.js';
 import * as server from './src/js/server.js';
+import * as RESRV from './src/js/reservation.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -80,6 +81,18 @@ app.post('/admin',urlEncodedParser,(req,res)=>{
    res.send(JSON.Stringify(result));
 });
 
+app.patch('/admin',urlEncodedParser,(req,res)=>{
+   let result = server.patch_space_db_with_new_reservation(space_db,req);
+   if(result.code === RESRV.RES_OK){
+      res.send(JSON.Stringify(result.unwrap));
+       
+   }else{
+      let err = {};
+      err.KEY = null;
+      err.msg = result.msg;
+      res.send(JSON.Stringify(err));
+   }
+});
 // Listen on port 8000
 const app_server = app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
 

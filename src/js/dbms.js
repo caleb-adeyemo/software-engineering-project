@@ -97,4 +97,6 @@ export function load_from_file(path){
    const data = fs.readFileSync(path,'utf8'); 
    return Result(OK,'file exists',deserialise(path,data));
 }
-
+export function save_space_db(space_db){
+   //for(const [key,value]  
+}

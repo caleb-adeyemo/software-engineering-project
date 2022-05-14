@@ -18,12 +18,9 @@ export function time(_start, _dur) {
 
 	// checks to see if the time periods overlaps
          function overlap(t1) {
-		console.log("t0: " + JSON.stringify(start));
-		console.log("t1: " + JSON.stringify(t1));
 		start.setHours(start.getHours() + _dur.hr);
 		start.setMinutes(start.getMinutes() + _dur.min);
 		let res = start >= t1.start;
-		console.log("t0 > t1: " + res + "\n");
 		//reset start
 		start.setHours(start.getHours() - _dur.hr);
 		start.setMinutes(start.getMinutes() - _dur.min);
