@@ -13,8 +13,9 @@ const app = express();
 const port = process.env.PORT || 8000;
 let urlEncodedParser = bodyParser.urlencoded({extended: false});
 const USER_TABLE_PATH = 'users.json';
+const SPACE_DB_PATH = 'spaces.json';
 let user_table = null;
-let space_db = server.init_server_db();
+let space_db = null;
 
 // initialise databases
 let result = util.load_from_file(USER_TABLE_PATH);
@@ -25,6 +26,12 @@ if(result.code === util.OK){
    user_table = util.Table(USER_TABLE_PATH);
 }
 
+let space_db_file = util.load_space_db(SPACE_DB_PATH);
+if(!space_db_file){
+   space_db = server.init_server_db();
+}else{
+   space_db = util.deserialise_space_db(space_db_file);
+}
 // Static Files
 app.use(express.static("public"));
 app.use("/js", express.static(__dirname + "src/js"));
