@@ -51,6 +51,7 @@ export function add_reservation(space,new_resrv){
 
    if(result.code === reservations.RES_OK){
       space.reservations.push(new_resrv);
+      result.unwrap = new_resrv;
    }
    return result; 
 }

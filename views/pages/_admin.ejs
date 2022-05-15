@@ -68,9 +68,52 @@
     //============================== Create Booking Object ==================================
 
 
+function request() {
+      let start = new Date("January 2, 1900, 10:00");
+      let end = new Date("January 2, 2024, 10:00");
+
+
+      let fakeObj = {
+         LOT: "LIBRARY",
+         KEYS: ["A0"],
+         START: start.getTime(),
+         END: end.getTime()
+      }
+
+     const xhttp = new XMLHttpRequest();
+
+     xhttp.open("POST", "/admin", true);
+
+     xhttp.setRequestHeader("Accept", "application/json");
+     xhttp.setRequestHeader('Content-type', 'application/json');
+
+     xhttp.onload = function () {
+       console.log(this.responseText);
+       console.log(this.status);
+     }
+     
+     xhttp.send(JSON.stringify(fakeObj));
 
 
 
+
+
+      /*var data = new FormData();
+      data.append('user', 'person');
+      data.append('pwd', 'password');
+      data.append('organization', 'place');
+      data.append('requiredkey', 'key');
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'somewhere', true);
+      xhr.onload = function () {
+        // do something to response
+        console.log(this.responseText);
+      };
+      xhttp.send(data);*/
+    }
+
+    request();
 
     //============================== Create INFO ==================================
     //Array of bookings. Note: this will be supplied by the back end server
