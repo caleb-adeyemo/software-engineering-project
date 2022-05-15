@@ -94,8 +94,8 @@ app.post('/admin',jsonParser,(req,res)=>{
    res.send(JSON.stringify(result));
 });
 
-app.patch('/admin',urlEncodedParser,(req,res)=>{
-   let result = server.patch_space_db_with_new_reservation(space_db,req);
+app.patch('/admin',jsonParser,(req,res)=>{
+   let result = server.patch_space_db_with_new_reservation(space_db,req.body);
    if(result.code === RESRV.RES_OK){
       res.send(JSON.Stringify(result.unwrap));
        

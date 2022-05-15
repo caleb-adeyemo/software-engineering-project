@@ -65,48 +65,7 @@
     }
     //============================== Create Booking Object ==================================
 
-    function request() {
-      let start = new Date("January 2, 1900, 10:00");
-      let end = new Date("January 2, 2024, 10:00");
-
-      let fakeObj = {
-        LOT: "LIBRARY",
-        KEYS: ["A0"],
-        START: start.getTime(),
-        END: end.getTime()
-      }
-
-      const xhttp = new XMLHttpRequest();
-
-      xhttp.open("POST", "/admin", true);
-
-      xhttp.setRequestHeader("Accept", "application/json");
-      xhttp.setRequestHeader('Content-type', 'application/json');
-
-      xhttp.onload = function () {
-        console.log(this.responseText);
-        console.log(this.status);
-      }
-
-      xhttp.send(JSON.stringify(fakeObj));
-
-      /*var data = new FormData();
-      data.append('user', 'person');
-      data.append('pwd', 'password');
-      data.append('organization', 'place');
-      data.append('requiredkey', 'key');
-
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'somewhere', true);
-      xhr.onload = function () {
-        // do something to response
-        console.log(this.responseText);
-      };
-      xhttp.send(data);*/
-    }
-
-    request();
-
+    
     //============================== Create INFO ==================================
     //Array of bookings. Note: this will be supplied by the back end server
     let array = [
@@ -143,23 +102,28 @@
       xhttp.open("POST", "/admin", true);
 
       xhttp.setRequestHeader("Accept", "application/json");
-      xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xhttp.setRequestHeader('Content-type', 'application/json');
 
       xhttp.onload = function () {
-        // console.log(this.responseText);
-        // console.log(this.status);
+         console.log(this.responseText);
+         console.log(this.status);
+      }
+
+      let start = new Date("January 2, 1900, 10:00");
+      let end = new Date("January 2, 2024, 10:00");
+
+      let req = {
+         LOT: "LIBRARY",
+         KEYS: ["A0","A1","A2","A3","A4","A5","A6","A7","A8","A9"],
+         START: start.getTime(),
+         END: end.getTime()
       }
 
       // Request data to send 
-      let _destination = destination
-      let _Keys = ["A0", "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9",]
-      let _start = new Date("06/12/2001").getTime;
-      let _end = new Date("06/12/2001").getTime;
 
-      xhttp.send(`LOT=${_destination}&KEYS=${_Keys}&START=${""}&END=${""}`);
+      xhttp.send(JSON.stringify(req));
     }
     //============================== Create Request ==================================
-
 
 
     //============================== Get DOM elements ==================================
@@ -180,7 +144,6 @@
     const Library = "LIBRARY"
     const SU = "SU"
     //============================== Get DOM elements ==================================
-
 
 
     //============================== Add booking ==================================
@@ -207,9 +170,6 @@
 
     }
     //============================== Add booking ==================================
-
-
-
 
 
     //============================== Refresh all Booings  ==================================
@@ -243,10 +203,9 @@
     }
     //============================== Check for no colisions  ======================
 
-
-
     //Set destination to be the library by defult 
     let destination = null
+    
     //============================== Load Spaces ==================================
     function loadSpaces() {
       destination = Library
@@ -326,8 +285,6 @@
         }
         // add booking
         addBooking(booking, timeVariable, lane_no, booking.duration);
-
-
       })
     }
     function loadArrayUniversityVillage() {
@@ -349,20 +306,14 @@
         }
         // add booking
         addBooking(booking, timeVariable, lane_no, booking.duration);
-
-
       })
     }
     //============================== Fake Arrays/Functions ==================================
+    
     // Call loadSpaces Function by default when web page loads
     loadSpaces()
+    
     //============================== Load Spaces ==================================
-
-
-
-
-
-
 
 
     //============================== Move Bookings ==================================
@@ -405,9 +356,6 @@
     //============================== Move Bookings ==================================
 
 
-
-
-
     //============================== Delete bookings ==================================
     function deleteBooking(time, laneNumber, duration) {
       let timeVariable = parseInt(time);
@@ -424,9 +372,6 @@
 
     }
     //============================== Delete bookings ==================================
-
-
-
 
 
     //============================== Display info to info screen ==================================
@@ -453,7 +398,6 @@
       })
     })
     //============================== Display info to info screen ==================================
-
 
 
     //============================== Display Drop-down Links ==================================
