@@ -9,7 +9,6 @@
 }
 
 .form-button:focus {
-    width: 16rem;
     border-color: #FCBF49;
 }
 
@@ -35,12 +34,19 @@
 
 hr {
     margin-top: 30px;
-    width: 100%;
+    width: 30%;
     background-color: rgb(174, 164, 164);
     text-align: center;
 }
+.divider {
+    display: inline-block;
+    border-bottom: white 1px solid;
+    width: 20%;
+    margin: 5px;
+  }
 
 .or {
+    display: inline-block;
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 2px;
     width: 50px;
@@ -53,9 +59,12 @@ hr {
     font-size: 20px;
 }
 
-.back-link {
-    margin-top: 1rem;
-    font-size: font-med;
-    position: relative;
-    left: 1rem;
+.centre-text{
+    text-align: center;
+    color:white;
+}
+
+.error{
+    color: red;
+    font-size: 1;
 }

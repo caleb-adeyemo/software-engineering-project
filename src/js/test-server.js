@@ -199,7 +199,13 @@ function test_patch(){
    console.log("==========user filter==========");
    let user_reservations = SERVER.post_user_reservations(space_db,req_2.email);
    assert.deepEqual(Object.keys(user_reservations.LIBRARY).length,2); 
-   console.log(user_reservations);
+   console.log(user_reservations.LIBRARY);
+
+   assert.deepEqual(SERVER.user_has_reservations(user_reservations),true,"user has reservations sanity check");
+
+   let fail_email = 'wish-away-the-nightmare@gmail.com';
+   user_reservations = SERVER.post_user_reservations(space_db,fail_email); 
+   assert.deepEqual(SERVER.user_has_reservations(user_reservations),false,"only matching reservations return");
    
 }
 

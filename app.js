@@ -87,6 +87,16 @@ app.post('/signup',urlEncodedParser,(req,res)=>{
    res.send(result.msg);
 });
 
+app.post('/myAccount',jsonParser,(req,res)=>{
+   let result = server.post_user_reservations(req.body.email); 
+   if(server.user_has_reservations(result)){
+      res.send(JSON.stringify(result));
+   }else{
+      let null_obj = {};
+      res.send(JSON.stringify(null_obj));
+   }
+});
+
 app.post('/admin',jsonParser,(req,res)=>{
    //console.log(req);
    console.log(req.body);
