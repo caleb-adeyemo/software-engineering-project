@@ -13,7 +13,8 @@ import * as RESRV from './src/js/reservation.js';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = process.env.PORT || 8000;
-let urlEncodedParser = bodyParser.urlencoded({extended: false});
+let urlEncodedParser = bodyParser.urlencoded({extended: true});
+let jsonParser = bodyParser.json();
 const USER_TABLE_PATH = 'users.json';
 const SPACE_DB_PATH = 'spaces.json';
 let user_table = null;
@@ -43,7 +44,8 @@ app.use('/img', express.static(__dirname + 'src/img'))
 app.use(expressLayouts);
 app.set("layout", "./pages/_landing");
 app.set("view engine", "ejs");
-
+app.use(urlEncodedParser);
+app.use(jsonParser);
 // Navigation | Route
 app.get("", (req, res) => {
 	res.render("landing", { title: "MySpace - Home" });
@@ -85,9 +87,11 @@ app.post('/signup',urlEncodedParser,(req,res)=>{
    res.send(result.msg);
 });
 
-app.post('/admin',urlEncodedParser,(req,res)=>{
-   let result = server.post_reservations(req,space_db);
-   res.send(JSON.Stringify(result));
+app.post('/admin',jsonParser,(req,res)=>{
+   //console.log(req);
+   console.log(req.body);
+   let result = server.post_reservations(req.body,space_db);
+   res.send(JSON.stringify(result));
 });
 
 app.patch('/admin',urlEncodedParser,(req,res)=>{
