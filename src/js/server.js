@@ -211,7 +211,6 @@ export function post_user_reservations(space_db,email){
 }
 
 export function user_has_reservations(user_reservations){
-   console.log(Object.values(user_reservations));
    let total_length =   Object.values(user_reservations)
                         .map( object => Object.values(object).length)
                         .reduce((a,b) => a + b);
