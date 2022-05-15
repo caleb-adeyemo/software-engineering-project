@@ -3,6 +3,7 @@ import * as TM from './time.js';
 import * as USR from './user.js';
 import * as RESRV from './reservation.js';
 import * as SERVER from './server.js';
+import * as UTIL from './dbms.js';
 import {strict as assert} from 'assert';
 
 function test(){
@@ -142,6 +143,77 @@ function test_route(){
    assert.deepEqual(exists_a0,false,"should only capture resevations that start on the same date");
    assert.deepEqual(exists_a2,false,"should only capture resevations that start on the same date");
 }
+function test_patch(){
+   console.log("===========TEST PATCH ADMIN REQUEST============");
+   let space_db = SERVER.init_server_db();
+   let time = new Date('September 11, 2023 4:20');
+   let req = {};
+   req.LOT = 'LIBRARY';
+   req.username = 'cultist';
+   req.name = 'Aeira';
+   req.email = 'fear-is-the-mind-killer@dune.com';
+   req.number_plate = 'PYTH0N ENJOY3R';
+   req.start_date = time.getTime();
+   req.dur_hours = 1;
+   req.dur_minutes = 0;
+
+   let result = SERVER.patch_space_db_with_new_reservation(space_db,req);
+   console.log(result.unwrap);
+
+   // sanity checks
+   assert.deepEqual(result.unwrap.KEY,'A0','first open space should be given');
+   assert.deepEqual(result.unwrap.LOT,req.LOT,'lot must match the lot given in request');
+   let summary = result.unwrap.SUMMARY;
+   assert.deepEqual(summary.email,req.email,'summary is constructed correctly');
+   assert.deepEqual(summary.name,req.name,'summary is constructed correctly');
+   assert.deepEqual(summary.number_plate,req.number_plate,'summary is constructed correctly');
+   assert.deepEqual(summary.start_date,req.start_date,'summary is constructed correctly');
+   assert.deepEqual(summary.dur_hours,req.dur_hours,'summary is constructed correctly');
+   assert.deepEqual(summary.dur_minutes,req.dur_minutes,'summary is constructed correctly');
+
+   //test for responce of a rejected reservation
+   SERVER.patch_space_db_with_new_reservation(space_db,req);
+   SERVER.patch_space_db_with_new_reservation(space_db,req);
+   SERVER.patch_space_db_with_new_reservation(space_db,req);
+   SERVER.patch_space_db_with_new_reservation(space_db,req);
+   SERVER.patch_space_db_with_new_reservation(space_db,req);
+   SERVER.patch_space_db_with_new_reservation(space_db,req);
+   SERVER.patch_space_db_with_new_reservation(space_db,req);
+   SERVER.patch_space_db_with_new_reservation(space_db,req);
+   summary = SERVER.patch_space_db_with_new_reservation(space_db,req);
+   console.log(summary);
+   summary = SERVER.patch_space_db_with_new_reservation(space_db,req);
+   console.log(summary);
+
+}
+
+function test_spacedb_ser(){
+   const one_hr = TM.duration(1,0);
+   const d0 = new Date("March 2,2022 10:20");
+   const t0 = TM.time(d0,one_hr);
+   const u0 = USR.User("send","help","synoptic@gmail.com");
+   const re0 = RESRV.reservation(
+      t0,
+      u0,
+      "payn3"
+   );
+   let space_db = SERVER.init_server_db();
+   let spaces = space_db.get('LIBRARY');
+   SPACE.add_reservation(spaces[0],re0);
+   let space_ser = UTIL.serialise_space_db(space_db);
+   UTIL.save_space_db('spaces.json',space_ser);
+
+   let db_file = UTIL.load_space_db('spaces.json');
+   let deserialied_db = UTIL.deserialise_space_db(db_file); 
+   //console.log(deserialied_db);
+   console.log("saved item");
+   console.log(
+      deserialied_db.get('LIBRARY')[0]
+   ); 
+
+}
 test();
 test_route();
+test_patch();
+test_spacedb_ser();
 console.log("=====ALL TESTS PASSED======");

@@ -68,9 +68,52 @@
     //============================== Create Booking Object ==================================
 
 
+function request() {
+      let start = new Date("January 2, 1900, 10:00");
+      let end = new Date("January 2, 2024, 10:00");
+
+
+      let fakeObj = {
+         LOT: "LIBRARY",
+         KEYS: ["A0"],
+         START: start.getTime(),
+         END: end.getTime()
+      }
+
+     const xhttp = new XMLHttpRequest();
+
+     xhttp.open("POST", "/admin", true);
+
+     xhttp.setRequestHeader("Accept", "application/json");
+     xhttp.setRequestHeader('Content-type', 'application/json');
+
+     xhttp.onload = function () {
+       console.log(this.responseText);
+       console.log(this.status);
+     }
+     
+     xhttp.send(JSON.stringify(fakeObj));
 
 
 
+
+
+      /*var data = new FormData();
+      data.append('user', 'person');
+      data.append('pwd', 'password');
+      data.append('organization', 'place');
+      data.append('requiredkey', 'key');
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'somewhere', true);
+      xhr.onload = function () {
+        // do something to response
+        console.log(this.responseText);
+      };
+      xhttp.send(data);*/
+    }
+
+    request();
 
     //============================== Create INFO ==================================
     //Array of bookings. Note: this will be supplied by the back end server
@@ -99,7 +142,31 @@
     ]
     //============================== Create INFO ==================================
 
+    //============================== Create Request ==================================
 
+    function request(destination) {
+
+      const xhttp = new XMLHttpRequest();
+
+      xhttp.open("POST", "/admin", true);
+
+      xhttp.setRequestHeader("Accept", "application/json");
+      xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+      xhttp.onload = function () {
+        // console.log(this.responseText);
+        // console.log(this.status);
+      }
+
+      // Request data to send 
+      let _destination = destination
+      let _Keys = ["A0","A1","A2","A3","A4","A5","A6","A7","A8","A9",]
+      let _start = new Date("06/12/2001").getTime;
+      let _end = new Date("06/12/2001").getTime;
+
+      xhttp.send(`LOT=${_destination}&KEYS=${_Keys}&START=${""}&END=${""}`);
+    }
+    //============================== Create Request ==================================
 
 
 
@@ -117,7 +184,9 @@
     let submitButton = document.getElementById("submit");
     //hide extra form input
     form.elements.store.style.visibility = "hidden";
-
+    //Get location 
+    const Library = "LIBRARY"
+    const SU = "SU"
     //============================== Get DOM elements ==================================
 
 
@@ -183,11 +252,15 @@
       }
     }
     //============================== Check for no colisions  ======================
-
-
-
+    
+    
+    
+    //Set destination to be the library by defult 
+    let destination = null
     //============================== Load Spaces ==================================
     function loadSpaces() {
+      destination = Library
+      request(destination)
       //Delete all the bookings currently loadded 
       refresh()
       //Loop through the array and load all the newly added bookings in there
@@ -206,8 +279,8 @@
         }
         // Stop over night parking
         // if (booking.time + booking.duration <= 24) {
-          // add booking
-          addBooking(booking, timeVariable, lane_no, booking.duration);
+        // add booking
+        addBooking(booking, timeVariable, lane_no, booking.duration);
         // }
 
       })
@@ -240,6 +313,11 @@
     ]
     // fake functions that load fake arrays to be deleted when back-end is done 
     function loadSU() {
+      //Set destination to be the SU
+      destination = SU
+
+      request(destination)
+
       //Delete all the bookings currently loadded 
       refresh()
       //Loop through the array and load all the newly added bookings in there
@@ -300,9 +378,6 @@
     //============================== Move Bookings ==================================
     function moveBooking() {
       document.querySelector('form').addEventListener('submit', (e) => {
-        //stop form from reloading the page
-        e.preventDefault();
-        e.stopImmediatePropagation()
         //Get form information and put into an Object
         const data = Object.fromEntries(new FormData(e.target).entries());
         // put info form object into variables
@@ -313,7 +388,7 @@
         for (let i = 0; i < data.active_lot; i++) {
           timeVariable += 24;
         }
-        console.log(spaces[timeVariable+1].childNodes[1].innerHTML)
+        // console.log(spaces[timeVariable + 1].childNodes[1].innerHTML)
 
         const check = checkUnder(timeVariable, JSON.parse(data.store).duration)
         if (check == false) {
@@ -328,6 +403,10 @@
         else {
           console.log("no space")
         }
+
+        //stop form from reloading the page
+        e.preventDefault();
+        e.stopImmediatePropagation()
 
         //Reset the form inputs to be empty
         form.reset()
