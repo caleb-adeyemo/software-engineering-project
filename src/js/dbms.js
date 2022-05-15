@@ -1,4 +1,8 @@
 import * as fs from 'fs'; 
+import * as SPACE from './space.js'; 
+import * as RESRV from './reservation.js';
+import * as TM from './time.js';
+import * as USER from './user.js';
 
 export const OK   = Symbol("query was successful");
 export const ERR  = Symbol("query result is erronous, maybe null");
@@ -102,6 +106,7 @@ export function serialise_space_db(space_db){
    let file = {};
    space_db.forEach((value,key) =>{
       console.log(key);
+      let ser_arr = value.map(val => val.serialise());
       file[key] = value;
    });   
 
@@ -111,7 +116,36 @@ export function deserialise_space_db(space_db_file){
    let data = JSON.parse(space_db_file);
    let db = new Map();
    for(const [key,value] of Object.entries(data)){
-      db.set(key,value);
+      let new_lot = [];
+      value.forEach(
+         space_ser => {
+            //console.log(space_ser.reservations);
+            let new_space = SPACE.space(space_ser.level,space_ser.bay);
+            for(let i = 0; i < space_ser.reservations.length; i++){
+
+               let time = new Date(space_ser.reservations[i].time.start);
+               let duration = TM.duration(
+                  space_ser.reservations[i].time.duration.hr,
+                  space_ser.reservations[i].time.duration.min
+               );
+               let new_time = TM.time(time,duration);
+               let new_user = USER.User(
+                  space_ser.reservations[i].user.username,
+                  space_ser.reservations[i].user.name,
+                  space_ser.reservations[i].user.email,
+                  space_ser.reservations[i].user.password
+               );
+               let new_resrv = RESRV.reservation(
+                  new_time,
+                  new_user,
+                  space_ser.reservations[i].number_plate
+               );
+               SPACE.add_reservation(new_space,new_resrv);
+            }
+            new_lot.push(new_space);
+         }
+      );
+      db.set(key,new_lot);
    }
    return db;
 }
