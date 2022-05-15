@@ -93,7 +93,7 @@ app.post('/myAccount',jsonParser,(req,res)=>{
       res.send(JSON.stringify(result));
    }else{
       let null_obj = {};
-      res.send(null_obj);
+      res.send(JSON.stringify(null_obj));
    }
 });
 
