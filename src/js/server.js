@@ -210,6 +210,14 @@ export function post_user_reservations(space_db,email){
    return result;
 }
 
+export function user_has_reservations(user_reservations){
+   let total_length =   Object.values(user_reservations)
+                        .map( object => Object.values(object).length)
+                        .reduce((a,b) => a + b);
+
+   return Boolean(total_length > 0);
+}
+
 export function post_reservations(req,db){
    let space_list = db.get(req.LOT); 
    let filtered_set = filter_spaces_by_keys(space_list,req.KEYS);

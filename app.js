@@ -87,6 +87,16 @@ app.post('/signup',urlEncodedParser,(req,res)=>{
    res.send(result.msg);
 });
 
+app.post('/myAccount',jsonParser,(req,res)=>{
+   let result = server.post_user_reservations(req.body.email); 
+   if(server.user_has_reservations(result)){
+      res.send(JSON.stringify(result));
+   }else{
+      let null_obj = {};
+      res.send(JSON.stringify(null_obj));
+   }
+});
+
 app.post('/admin',jsonParser,(req,res)=>{
    //console.log(req);
    console.log(req.body);
@@ -97,13 +107,13 @@ app.post('/admin',jsonParser,(req,res)=>{
 app.patch('/admin',jsonParser,(req,res)=>{
    let result = server.patch_space_db_with_new_reservation(space_db,req.body);
    if(result.code === RESRV.RES_OK){
-      res.send(JSON.Stringify(result.unwrap));
+      res.send(JSON.stringify(result.unwrap));
        
    }else{
       let err = {};
       err.KEY = null;
       err.msg = result.msg;
-      res.send(JSON.Stringify(err));
+      res.send(JSON.stringify(err));
    }
 });
 // Listen on port 8000
