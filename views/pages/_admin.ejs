@@ -50,13 +50,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+  
   <script>
-
-
-
     //============================== Create Booking Object ==================================
     class Booking {
-      constructor(name, phoneNumber, email, time, duration) {
+      constructor (name, phoneNumber, email, time, duration) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -67,9 +65,7 @@
     }
     //============================== Create Booking Object ==================================
 
-
-
-
+    
     //============================== Create INFO ==================================
     //Array of bookings. Note: this will be supplied by the back end server
     let array = [
@@ -125,11 +121,9 @@
 
       // Request data to send 
 
-
       xhttp.send(JSON.stringify(req));
     }
     //============================== Create Request ==================================
-
 
 
     //============================== Get DOM elements ==================================
@@ -150,9 +144,6 @@
     const Library = "LIBRARY"
     const SU = "SU"
     //============================== Get DOM elements ==================================
-
-
-
 
 
     //============================== Add booking ==================================
@@ -179,9 +170,6 @@
 
     }
     //============================== Add booking ==================================
-
-
-
 
 
     //============================== Refresh all Booings  ==================================
@@ -214,11 +202,10 @@
       }
     }
     //============================== Check for no colisions  ======================
-    
-    
-    
+
     //Set destination to be the library by defult 
     let destination = null
+    
     //============================== Load Spaces ==================================
     function loadSpaces() {
       destination = Library
@@ -298,8 +285,6 @@
         }
         // add booking
         addBooking(booking, timeVariable, lane_no, booking.duration);
-
-
       })
     }
     function loadArrayUniversityVillage() {
@@ -321,20 +306,14 @@
         }
         // add booking
         addBooking(booking, timeVariable, lane_no, booking.duration);
-
-
       })
     }
     //============================== Fake Arrays/Functions ==================================
+    
     // Call loadSpaces Function by default when web page loads
     loadSpaces()
+    
     //============================== Load Spaces ==================================
-
-
-
-
-
-
 
 
     //============================== Move Bookings ==================================
@@ -377,12 +356,6 @@
     //============================== Move Bookings ==================================
 
 
-
-
-
-
-
-
     //============================== Delete bookings ==================================
     function deleteBooking(time, laneNumber, duration) {
       let timeVariable = parseInt(time);
@@ -399,11 +372,6 @@
 
     }
     //============================== Delete bookings ==================================
-
-
-
-
-
 
 
     //============================== Display info to info screen ==================================
@@ -430,12 +398,6 @@
       })
     })
     //============================== Display info to info screen ==================================
-
-
-
-
-
-
 
 
     //============================== Display Drop-down Links ==================================
