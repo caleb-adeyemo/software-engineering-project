@@ -1,5 +1,5 @@
 // imports
-import express from 'express';
+import express, { json } from 'express';
 import expressLayouts  from 'express-ejs-layouts';
 import bodyParser from 'body-parser';
 import {dirname} from 'path';
@@ -60,7 +60,7 @@ app.get('/myAccount', (req, res) => {
   res.render('myAccount', { layout: './pages/_myAccount', title: 'My Account' })
 });
 app.get('/admin', (req, res) => {
-   res.render('admin', { layout: './pages/_admin', title: 'Admin' })
+   res.render('admin', { layout: './pages/_admin', title: 'Admin' })   
  });
 
 app.post('/login',urlEncodedParser,(req,res)=>{
