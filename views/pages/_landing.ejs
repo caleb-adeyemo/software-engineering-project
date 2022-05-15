@@ -29,7 +29,7 @@
           <a class="nav-item nav-link" href="/login">Login</a>
           <a class="nav-item nav-link" href="/signup">Sign Up</a>
           <a class="nav-item nav-link" href="/myAccount">My Account</a>
-          <a class="nav-item nav-link"  href="/admin">Admin</a>
+          <a class="nav-item nav-link" href="/admin">Admin</a>
         </div>
       </div>
       </div>
@@ -38,7 +38,6 @@
   <main>
     <%- body %>
   </main>
-
   <!-- optional and required tags -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -50,19 +49,59 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 
+  <script>
+    var destination = document.getElementById("dest-select");
+    var arrivalDate = document.getElementById("arriveDate");
+    var arrivalTime = document.getElementById("arrive-time");
+    var duration = document.getElementById("duration-select");
+    var submitForm = document.getElementById("land-form");
 
-    <!-- <script>
+    var pickDest = document.getElementsByClassName("pickDest");
+    var pickTime = document.getElementsByClassName("pickTime");
+    var pickDuration = document.getElementsByClassName("pickDuration");
 
-      let xhr = new XMLHttpRequest();
+    submitForm.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-      xhr.open("POST", "/landing", true);
+      let lot = pickDest[destination.selectedIndex].value;
+      let arriveTime = pickTime[arrivalTime.selectedIndex].value;
+      let date = new Date(arrivalDate.value); // format date object
+      date.setHours(arriveTime);
+      let startDate = date.getTime();
+      let dur = parseInt(pickDuration[duration.selectedIndex].value);
 
-      xhr.setRequestHeader("Accept", "application/json");
-      xhr.setRequestHeader('Content-type', 'application/json');
+      //Get form information from form and put into an object
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      var name = data.name;
+      var email = data.email;
 
+      let objReturn = {
+        LOT: lot,
+        name: name,
+        email: email,
+        start_date: startDate,
+        dur_hours: dur,
+        dur_minutes: 0
+      }
 
+      console.log(objReturn);
 
-    </script> -->
+      const xhttp = new XMLHttpRequest();
+
+      xhttp.open("PATCH", "/admin", true);
+
+      xhttp.setRequestHeader("Accept", "application/json");
+      xhttp.setRequestHeader('Content-type', 'application/json');
+
+      xhttp.onload = function () {
+        console.log(this.responseText);
+        console.log(this.status);
+      }
+
+       // Request data to send 
+       xhttp.send(JSON.stringify(objReturn));
+    });
+  </script>
 </body>
 
 </html>

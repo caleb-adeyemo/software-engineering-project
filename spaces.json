@@ -3,17 +3,62 @@
       {
          "level": "A",
          "bay": "0",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-14T23:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "Carine Loo",
+                  "email": "carineloo@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
          "bay": "1",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-14T23:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "Carine Loo",
+                  "email": "carineloo@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
          "bay": "2",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-14T23:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "Carine Loo",
+                  "email": "carineloo@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
@@ -107,7 +152,22 @@
       {
          "level": "A",
          "bay": "0",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-15T03:00:00.000Z",
+                  "duration": {
+                     "hr": 8,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "Carine ",
+                  "email": "carineloo@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",

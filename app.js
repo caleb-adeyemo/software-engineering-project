@@ -97,13 +97,13 @@ app.post('/admin',jsonParser,(req,res)=>{
 app.patch('/admin',jsonParser,(req,res)=>{
    let result = server.patch_space_db_with_new_reservation(space_db,req.body);
    if(result.code === RESRV.RES_OK){
-      res.send(JSON.Stringify(result.unwrap));
+      res.send(JSON.stringify(result.unwrap));
        
    }else{
       let err = {};
       err.KEY = null;
       err.msg = result.msg;
-      res.send(JSON.Stringify(err));
+      res.send(JSON.stringify(err));
    }
 });
 // Listen on port 8000
