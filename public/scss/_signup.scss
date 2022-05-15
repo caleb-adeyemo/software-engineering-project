@@ -25,6 +25,44 @@
     transition: 0.25s;
 }
 
+.SignUpSelected-button {
+    font-size: 40px;
+    color: #FCBF49;
+    background: #003049;
+    border-top: 4px solid #d62828;
+    border-right: 4px solid #d62828;
+    border-bottom: 4px solid #003049;
+    border-left: 4px solid #d62828;
+    border-radius: 11px 0px 0px 0px;
+    width: 51%;
+    height: 100px;
+    margin: -4px -4px;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.LoginNoSelect-button {
+    font-size: 40px;
+    color: #FCBF49;
+    background: $darkBlue;
+    border-top: 4px solid #003049;
+    border-right: 4px solid #003049;
+    border-bottom: 4px solid #d62828;
+    border-left: 2px solid #d62828;
+    border-radius: 0px 11px 0px 0px;
+    width: 51%;
+    height: 100px;
+    margin: -4px -4px;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    float: right;
+    margin-bottom: 20px;
+}
+
+
+
 .form-button:hover {
     color: white;
     border: 2px solid #FCBF49;
@@ -38,12 +76,13 @@ hr {
     background-color: rgb(174, 164, 164);
     text-align: center;
 }
+
 .divider {
     display: inline-block;
     border-bottom: white 1px solid;
-    width: 20%;
+    width: 40%;
     margin: 5px;
-  }
+}
 
 .or {
     display: inline-block;
@@ -59,12 +98,12 @@ hr {
     font-size: 20px;
 }
 
-.centre-text{
+.centre-text {
     text-align: center;
-    color:white;
+    color: white;
 }
 
-.error{
+.error {
     color: red;
     font-size: 1;
 }

@@ -1,8 +1,6 @@
 .login-heading {
-    margin: 3rem auto;
-    font-size: $font-xlg;
-    color: $darkBlue;
-    text-align: center;
+    margin: 1.5rem 0;
+    padding: 2rem 1rem;
 }
 
 .login-title {
@@ -12,11 +10,12 @@
 
 .form {
     width: 30rem;
-    padding: 3rem;
+    padding: 0px;
+    padding-bottom: 20px;
     margin: auto;
     background-color: $darkBlue;
     text-align: center;
-    border: 4px solid $yellow;
+    border: 4px solid #d62828;
     border-radius: 1rem;
 }
 
@@ -58,4 +57,40 @@
     border: 2px solid $yellow;
     background-color: $yellow;
     cursor: pointer;
+}
+
+.LoginSelected-button {
+    font-size: 40px;
+    color: #FCBF49;
+    background: $darkBlue;
+    border-top: 4px solid #d62828;
+    border-right: 4px solid #d62828;
+    border-bottom: 4px solid #003049;
+    border-left: 2px solid #d62828;
+    border-radius: 0px 11px 0px 0px;
+    width: 51%;
+    height: 100px;
+    margin: -4px -4px;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.SignUpNoSelect-button {
+    font-size: 40px;
+    color: #FCBF49;
+    background: $darkBlue;
+    border-top: 4px solid #003049;
+    border-right: 4px solid #d62828;
+    border-bottom: 4px solid #d62828;
+    border-left: 4px solid #003049;
+    border-radius: 11px 0px 0px 0px;
+    width: 51%;
+    height: 100px;
+    margin: -4px -4px;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    float: left;
+    margin-bottom: 20px;
 }
