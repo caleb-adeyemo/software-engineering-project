@@ -49,5 +49,32 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+  
+  <script>
+    $(document).ready(function(){
+      $("#createAccount").submit(function(){
+        var password = $("#password1").val();
+        var confirmpassword = $("#password2").val();
+        if (password.length > 5)
+        {
+          $("#error").text("");
+          if (password == confirmpassword)
+          {
+            $("#error").text("");
+            return true;
+          }
+          else 
+          {
+            $("#error").text("Passwords are not the same");
+            return false;
+          }
+        }
+        else {
+          $("#error").text("Password is not long enough");
+          return false;
+        }
+      })
+    })
+    </script>
 </body>
 </html>

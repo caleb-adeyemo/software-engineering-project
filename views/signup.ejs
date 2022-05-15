@@ -14,16 +14,16 @@
                     <div class="form-input-error-message"></div>
                 </div>
                 <div class="form-input-group">
-                    <input type="password" class="form-input" name="password" required autofocus placeholder="Password">
+                    <input type="password" class="form-input" name="password" id="password1" required autofocus placeholder="Password">
                     <div class="form-input-error-message"></div>
                 </div>
                 <div class="form-input-group">
-                    <input type="password" class="form-input" name="confirm password" required autofocus placeholder="Confirm Password">
-                    <div class="form-input-error-message"></div>
+                    <input type="password" class="form-input" name="confirm password" id="password2" required autofocus placeholder="Confirm Password">
+                    <div class="error" id="error" placeholder="no errors"></div>
                 </div>
                 <button class="form-button" type="submit">Continue</button>
                 <hr>
-                <p class="or">OR</p>
+                <p class="or" id="error">OR</p>
                 <button class="form-button" type="button"><a href="/.">Continue as guest</a></button>
             </form>
             <p class="form-text"></p>
