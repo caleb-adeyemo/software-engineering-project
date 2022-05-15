@@ -155,9 +155,7 @@ export function patch_space_db_with_new_reservation(space_db,req){
          result.unwrap.SUMMARY = RESRV.summary(new_resrv);
          return result;
       }
-
    }
-
    return result;
 }
 

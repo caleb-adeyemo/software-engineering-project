@@ -5,98 +5,96 @@
 </section>
 
 <section>
-  <div class="container">
+  <div class="container" id="top-form">
     <div class="row landing-selection">
       <div class="col-sm destination">
         <label id="dest-title" for="dest-select">Destination:</label>
         <select name="destination" id="dest-select">
-          <option value="">--Please choose an option--</option>
-          <option value="library">Library</option>
-          <option value="su">Student Union</option>
-          <option value="village">University Village</option>
-          <option value="sportspark">Sportspark</option>
-          <option value="sci">New Science Building</option>
-          <option value="into">INTO Building</option>
-          <option value="sainsbury">Sainsbury Centre</option>
+          <option class="pickDest" value="LIBRARY">Library</option>
+          <option class="pickDest" value="SU">Student Union</option>
+          <option class="pickDest" value="VILLAGE">University Village</option>
+          <option class="pickDest" value="SPORTSPARK">Sportspark</option>
+          <option class="pickDest" value="NEW_SCI">New Science Building</option>
+          <option class="pickDest" value="INTO">INTO Building</option>
+          <option class="pickDest" value="SAINSBURY">Sainsbury Centre</option>
         </select>
       </div>
       <div class="arrival col-sm">
-        <p for="start">Arrival Date:</p>
-        <input type="date" id="start" name="arrival-start" max="2032-12-31">
+        <p for="arriveDate">Arrival Date:</p>
+        <input type="date" id="arriveDate" name="arrival-start" max="2032-12-31">
         <!-- set minimum date to current day -->
         <script>
-          document.getElementById('start').value = new Date().toISOString().substring(0, 10);
-          document.getElementById('start').min = new Date().toISOString().substring(0, 10);
+          document.getElementById('arriveDate').value = new Date().toISOString().substring(0, 10);
+          document.getElementById('arriveDate').min = new Date().toISOString().substring(0, 10);
         </script>
       </div>
-      <div class="arrival col-sm" id="arrive-date">
+      <div class="col-sm">
         <label id="time-title" for="arrive-time">Arrival Time:</label>
-        <select name="destination" id="arrive-time">
-          <option value="">--Please choose an option--</option>
-          <option value="0">12am</option>
-          <option value="1">1am</option>
-          <option value="2">2am</option>
-          <option value="3">3am</option>
-          <option value="4">4am</option>
-          <option value="5">5am</option>
-          <option value="6">6am</option>
-          <option value="7">7am</option>
-          <option value="8">8am</option>
-          <option value="9">9am</option>
-          <option value="10">10am</option>
-          <option value="11">11am</option>
-          <option value="12">12pm</option>
-          <option value="13">1pm</option>
-          <option value="14">2pm</option>
-          <option value="15">3pm</option>
-          <option value="16">4pm</option>
-          <option value="17">5pm</option>
-          <option value="18">6pm</option>
-          <option value="19">7pm</option>
-          <option value="20">8pm</option>
-          <option value="21">9pm</option>
-          <option value="22">10pm</option>
-          <option value="23">11pm</option>
+        <select name="arrivalTime" id="arrive-time">
+          <option class="pickTime" value="0">12am</option>
+          <option class="pickTime" value="1">1am</option>
+          <option class="pickTime" value="2">2am</option>
+          <option class="pickTime" value="3">3am</option>
+          <option class="pickTime" value="4">4am</option>
+          <option class="pickTime" value="5">5am</option>
+          <option class="pickTime" value="6">6am</option>
+          <option class="pickTime" value="7">7am</option>
+          <option class="pickTime" value="8">8am</option>
+          <option class="pickTime" value="9">9am</option>
+          <option class="pickTime" value="10">10am</option>
+          <option class="pickTime" value="11">11am</option>
+          <option class="pickTime" value="12">12pm</option>
+          <option class="pickTime" value="13">1pm</option>
+          <option class="pickTime" value="14">2pm</option>
+          <option class="pickTime" value="15">3pm</option>
+          <option class="pickTime" value="16">4pm</option>
+          <option class="pickTime" value="17">5pm</option>
+          <option class="pickTime" value="18">6pm</option>
+          <option class="pickTime" value="19">7pm</option>
+          <option class="pickTime" value="20">8pm</option>
+          <option class="pickTime" value="21">9pm</option>
+          <option class="pickTime" value="22">10pm</option>
+          <option class="pickTime" value="23">11pm</option>
         </select>
       </div>
-      <div class="col-sm" id="arrive-time">
+      <div class="col-sm">
         <div class="duration">
           <label id="duration-title" for="duration-select">Duration:</label><br>
-          <select name="destination" id="duration-select">
-            <option value="1">--1hr minimum--</option>
-            <option value="2">2 hours</option>
-            <option value="3">3 hours</option>
-            <option value="4">4 hours</option>
-            <option value="5">5 hours</option>
-            <option value="6">6 hours</option>
-            <option value="7">7 hours</option>
-            <option value="8">8 hours</option>
-            <option value="9">9 hours</option>
-            <option value="10">10 hours</option>
-            <option value="11">11 hours</option>
-            <option value="12">12 hours</option>
-            <option value="13">13 hours</option>
-            <option value="14">14 hours</option>
-            <option value="15">15 hours</option>
-            <option value="16">16 hours</option>
-            <option value="17">17 hours</option>
-            <option value="18">18 hours</option>
-            <option value="19">19 hours</option>
-            <option value="20">20 hours</option>
-            <option value="21">21 hours</option>
-            <option value="22">22 hours</option>
-            <option value="23">23 hours</option>
-            <option value="24">24 hours</option>
+          <select name="durationSelect" id="duration-select">
+            <option class="pickDuration" value="1">--1hr minimum--</option>
+            <option class="pickDuration" value="2">2 hours</option>
+            <option class="pickDuration" value="3">3 hours</option>
+            <option class="pickDuration" value="4">4 hours</option>
+            <option class="pickDuration" value="5">5 hours</option>
+            <option class="pickDuration" value="6">6 hours</option>
+            <option class="pickDuration" value="7">7 hours</option>
+            <option class="pickDuration" value="8">8 hours</option>
+            <option class="pickDuration" value="9">9 hours</option>
+            <option class="pickDuration" value="10">10 hours</option>
+            <option class="pickDuration" value="11">11 hours</option>
+            <option class="pickDuration" value="12">12 hours</option>
+            <option class="pickDuration" value="13">13 hours</option>
+            <option class="pickDuration" value="14">14 hours</option>
+            <option class="pickDuration" value="15">15 hours</option>
+            <option class="pickDuration" value="16">16 hours</option>
+            <option class="pickDuration" value="17">17 hours</option>
+            <option class="pickDuration" value="18">18 hours</option>
+            <option class="pickDuration" value="19">19 hours</option>
+            <option class="pickDuration" value="20">20 hours</option>
+            <option class="pickDuration" value="21">21 hours</option>
+            <option class="pickDuration" value="22">22 hours</option>
+            <option class="pickDuration" value="23">23 hours</option>
+            <option class="pickDuration" value="24">24 hours</option>
           </select>
         </div>
       </div>
     </div>
     <div class="landing-submit">
-      <form class ="landing-form" method="POST" action="/login">
+      <form class="landing-form" id="land-form">
         <input type="text" name="name" required placeholder="Name:">
         <input type="email" name="email" placeholder="Email: " required>
-        <input type="password" name="password" placeholder="Password: " required>
-        <input type="submit" name="submit" value="Submit">
+        <!-- <input type="password" name="password" placeholder="Password: " required> -->
+        <input id="landing-submit" type="submit" name="submit" value="Submit">
       </form>
     </div>
   </div>
