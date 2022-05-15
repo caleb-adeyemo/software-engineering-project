@@ -13,8 +13,8 @@
                   }
                },
                "user": {
-                  "name": "Carine Loo",
-                  "email": "carineloo@gmail.com",
+                  "name": "Caleb Adeyemo",
+                  "email": "ygb19mzu@uea.ac.uk",
                   "password": null
                }
             }
@@ -23,42 +23,12 @@
       {
          "level": "A",
          "bay": "1",
-         "reservations": [
-            {
-               "time": {
-                  "start": "2022-05-14T23:00:00.000Z",
-                  "duration": {
-                     "hr": 1,
-                     "min": 0
-                  }
-               },
-               "user": {
-                  "name": "Carine Loo",
-                  "email": "carineloo@gmail.com",
-                  "password": null
-               }
-            }
-         ]
+         "reservations": []
       },
       {
          "level": "A",
          "bay": "2",
-         "reservations": [
-            {
-               "time": {
-                  "start": "2022-05-14T23:00:00.000Z",
-                  "duration": {
-                     "hr": 1,
-                     "min": 0
-                  }
-               },
-               "user": {
-                  "name": "Carine Loo",
-                  "email": "carineloo@gmail.com",
-                  "password": null
-               }
-            }
-         ]
+         "reservations": []
       },
       {
          "level": "A",
@@ -155,15 +125,29 @@
          "reservations": [
             {
                "time": {
-                  "start": "2022-05-15T03:00:00.000Z",
+                  "start": "2022-05-16T23:00:00.000Z",
                   "duration": {
-                     "hr": 8,
+                     "hr": 1,
                      "min": 0
                   }
                },
                "user": {
-                  "name": "Carine ",
-                  "email": "carineloo@gmail.com",
+                  "name": "caleb adeyemo",
+                  "email": "oldercalebadeyemo2@gmail.com",
+                  "password": null
+               }
+            },
+            {
+               "time": {
+                  "start": "2022-05-18T01:00:00.000Z",
+                  "duration": {
+                     "hr": 3,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "Bot",
+                  "email": "tadeyemo511@gmail.com",
                   "password": null
                }
             }
@@ -271,7 +255,36 @@
       {
          "level": "A",
          "bay": "0",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-14T23:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "caleb adeyemo",
+                  "email": "ygb19mzu@uea.ac.uk",
+                  "password": null
+               }
+            },
+            {
+               "time": {
+                  "start": "2022-05-16T23:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "Bot",
+                  "email": "tadeyemo511@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",

@@ -54,7 +54,7 @@
   <script>
     //============================== Create Booking Object ==================================
     class Booking {
-      constructor (name, phoneNumber, email, time, duration) {
+      constructor(name, phoneNumber, email, time, duration) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -91,38 +91,6 @@
       new Booking("test", "07934877339", "Uche3@gmail.com", 4, 3),
       new Booking("test5", "07934877339", "Uche3@gmail.com", 6, 2),
     ]
-    //============================== Create INFO ==================================
-
-    //============================== Create Request ==================================
-
-    function request(destination) {
-
-      const xhttp = new XMLHttpRequest();
-
-      xhttp.open("POST", "/admin", true);
-
-      xhttp.setRequestHeader("Accept", "application/json");
-      xhttp.setRequestHeader('Content-type', 'application/json');
-
-      xhttp.onload = function () {
-        console.log(this.responseText);
-        console.log(this.status);
-      }
-
-      let start = new Date("January 2, 1900, 10:00");
-      let end = new Date("January 2, 2024, 10:00");
-
-      let req = {
-        LOT: "LIBRARY",
-        KEYS: ["A0", "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9"],
-        START: start.getTime(),
-        END: end.getTime()
-      }
-
-      // Request data to send 
-      xhttp.send(JSON.stringify(req));
-    }
-    //============================== Create Request ==================================
 
 
     //============================== Get DOM elements ==================================
@@ -139,10 +107,6 @@
     let submitButton = document.getElementById("submit");
     //hide extra form input
     form.elements.store.style.visibility = "hidden";
-    //Get location 
-    const Library = "LIBRARY"
-    const SU = "SU"
-    //============================== Get DOM elements ==================================
 
 
     //============================== Add booking ==================================
@@ -168,7 +132,6 @@
       spaces[timeVariable + (duration - 1)].style.borderBottom = "1px solid black";
 
     }
-    //============================== Add booking ==================================
 
 
     //============================== Refresh all Booings  ==================================
@@ -180,7 +143,6 @@
         space.style.border = "1px solid black";
       })
     }
-    //============================== Refresh all Booings  ==================================
 
     //============================== Check for no colisions  =======================
     function checkUnder(timeVariable, duration) {
@@ -200,24 +162,59 @@
         return true;
       }
     }
-    //============================== Check for no colisions  ======================
 
-    //Set destination to be the library by defult 
-    let destination = null
 
     //============================== Load Spaces ==================================
     function loadSpaces() {
-      destination = Library
-      request(destination)
+      let dest = document.getElementById("myDropdown");
+      let pickDest = document.getElementsByClassName("pickDest");
+
+      let lot = pickDest[dest.selectedIndex].value;
+
+      //============================== Create Request ==================================
+      const xhttp = new XMLHttpRequest();
+
+      xhttp.open("POST", "/admin", true);
+
+      xhttp.setRequestHeader("Accept", "application/json");
+      xhttp.setRequestHeader('Content-type', 'application/json');
+
+      xhttp.onload = function () {
+        console.log(this.responseText);
+      }
+    var arrivalDate = document.getElementById("arriveDate");
+
+      let startDate = new Date(arrivalDate.value); // format date object
+      startDate.setHours(0);
+      let start = startDate.getTime()
+
+      let endDate = new Date(arrivalDate.value); // format date object
+      endDate.setHours(23);
+      let end  = endDate.getTime()
+
+      let req = {
+        LOT: lot,
+        KEYS: ["A0", "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9"],
+        START: start,
+        END: end
+      }
+
+      // Request data to send 
+      xhttp.send(JSON.stringify(req));
+      //============================== Create Request ==================================
+
       //Delete all the bookings currently loadded 
       refresh()
+
       //Loop through the array and load all the newly added bookings in there
       array.forEach(booking => {
         // Number to be used as index for class "spaces", i.e spaces[timeVariable],...
         // ...starts @ arrival time and incremented by 24 to go to the next lane.
         let timeVariable = booking.time
+
         // the lane number of the booking
         let lane_no = 0
+
         // while there is a abooking in the current position || there isn't space for the duration under
         while (checkUnder(timeVariable, booking.duration)) {
           //increment to go to the next lane
@@ -225,94 +222,12 @@
           //update lane number to the next lane
           lane_no++; //check max 10
         }
-        // Stop over night parking
-        // if (booking.time + booking.duration <= 24) {
-        // add booking
-        addBooking(booking, timeVariable, lane_no, booking.duration);
-        // }
 
-      })
-    }
-    //============================== Fake Arrays/Functions ==================================
-    let arraySU = [
-      new Booking("SU Caleb", "07534877339", "calebadeyemo2@gmail.com", 3, 2),
-      new Booking("SU Styles", "07534877339", "sytles@gmail.com", 3, 2),
-      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6, 5),
-      new Booking("Uche", "07934877339", "Uche@gmail.com", 4, 6),
-      new Booking("Uche", "07934877339", "Uche@gmail.com", 23, 0),
-      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23, 5),
-      new Booking("Uche3", "07934877339", "Uche3@gmail.com", 4, 7),
-      new Booking("test", "07934877339", "Uche3@gmail.com", 4, 4),
-      new Booking("test5", "07934877339", "Uche3@gmail.com", 6, 8),
-    ]
-
-    let arrayUniversityVillage = [
-      new Booking("SU Caleb", "07534877339", "calebadeyemo2@gmail.com", 3, 5),
-      new Booking("SU Styles", "07534877339", "sytles@gmail.com", 14, 2),
-      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6, 3),
-      new Booking("Uche", "07934877339", "Uche@gmail.com", 23, 7),
-      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23, 3),
-      new Booking("test", "07934877339", "Uche3@gmail.com", 4, 1),
-      new Booking("test5", "07934877339", "Uche3@gmail.com", 6, 0),
-      new Booking("Chidz", "07934877339", "Chidz@gmail.com", 4, 3),
-      new Booking("Caleb", "07934877339", "Caleb@gmail.com", 10, 5),
-      new Booking("Oba", "07934877339", "Oba@gmail.com", 4, 10),
-      new Booking("Karan", "07934877339", "Karan@gmail.com", 6, 3),
-    ]
-    // fake functions that load fake arrays to be deleted when back-end is done 
-    function loadSU() {
-      //Set destination to be the SU
-      destination = SU
-
-      request(destination)
-
-      //Delete all the bookings currently loadded 
-      refresh()
-      //Loop through the array and load all the newly added bookings in there
-      arraySU.forEach(booking => {
-        // Number to be used as index for class "spaces", i.e spaces[timeVariable],...
-        // ...starts @ arrival time and incremented by 24 to go to the next lane.
-        let timeVariable = booking.time
-        // the lane number of the booking
-        let lane_no = 0
-        // while there is a abooking in the current position || there isn't space for the duration under
-        while (checkUnder(timeVariable, booking.duration)) {
-          //increment to go to the next lane
-          timeVariable += 24;
-          //update lane number to the next lane
-          lane_no++; //check max 10
-        }
         // add booking
         addBooking(booking, timeVariable, lane_no, booking.duration);
       })
     }
-    function loadArrayUniversityVillage() {
-      //Delete all the bookings currently loadded 
-      refresh()
-      //Loop through the array and load all the newly added bookings in there
-      arrayUniversityVillage.forEach(booking => {
-        // Number to be used as index for class "spaces", i.e spaces[timeVariable],...
-        // ...starts @ arrival time and incremented by 24 to go to the next lane.
-        let timeVariable = booking.time
-        // the lane number of the booking
-        let lane_no = 0
-        // while there is a abooking in the current position || there isn't space for the duration under
-        while (checkUnder(timeVariable, booking.duration)) {
-          //increment to go to the next lane
-          timeVariable += 24;
-          //update lane number to the next lane
-          lane_no++; //check max 10
-        }
-        // add booking
-        addBooking(booking, timeVariable, lane_no, booking.duration);
-      })
-    }
-    //============================== Fake Arrays/Functions ==================================
-
-    // Call loadSpaces Function by default when web page loads
     loadSpaces()
-
-    //============================== Load Spaces ==================================
 
 
     //============================== Move Bookings ==================================
@@ -344,6 +259,9 @@
           console.log("no space")
         }
 
+        //Call loadSpaces()
+        loadSpaces()
+
         //stop form from reloading the page
         e.preventDefault();
         e.stopImmediatePropagation()
@@ -352,7 +270,6 @@
         form.reset()
       });
     }
-    //============================== Move Bookings ==================================
 
 
     //============================== Delete bookings ==================================
@@ -370,7 +287,6 @@
       }
 
     }
-    //============================== Delete bookings ==================================
 
 
     //============================== Display info to info screen ==================================
@@ -396,7 +312,6 @@
         }
       })
     })
-    //============================== Display info to info screen ==================================
 
 
     //============================== Display Drop-down Links ==================================
@@ -417,7 +332,6 @@
         }
       }
     }
-    //============================== Display Drop-down Links ==================================
   </script>
 </body>
 
