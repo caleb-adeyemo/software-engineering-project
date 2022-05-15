@@ -1,5 +1,5 @@
 // imports
-import express from 'express';
+import express, { json } from 'express';
 import expressLayouts  from 'express-ejs-layouts';
 import bodyParser from 'body-parser';
 import {dirname} from 'path';
@@ -10,7 +10,7 @@ import * as server from './src/js/server.js';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = process.env.PORT || 8000;
-let urlEncodedParser = bodyParser.urlencoded({extended: false});
+let urlEncodedParser = bodyParser.urlencoded({extended: true});
 const USER_TABLE_PATH = 'users.json';
 let user_table = null;
 let space_db = server.init_server_db();
@@ -48,7 +48,7 @@ app.get('/myAccount', (req, res) => {
   res.render('myAccount', { layout: './pages/_myAccount', title: 'My Account' })
 });
 app.get('/admin', (req, res) => {
-   res.render('admin', { layout: './pages/_admin', title: 'Admin' })
+   res.render('admin', { layout: './pages/_admin', title: 'Admin' })   
  });
 
 app.post('/login',urlEncodedParser,(req,res)=>{
@@ -75,9 +75,16 @@ app.post('/signup',urlEncodedParser,(req,res)=>{
    res.send(result.msg);
 });
 
-app.post('/admin',urlEncodedParser,(req,res)=>{
-   let result = server.post_reservations(req,space_db);
-   res.send(JSON.Stringify(result));
+app.post('/admin', urlEncodedParser,(req,res)=>{
+   // let result = server.post_reservations(req,space_db);
+   console.log(req.body)
+   // console.log(req.param)
+
+   // let testObj = {
+   //    name: "caleb"
+   // }
+
+   res.send();
 });
 
 // Listen on port 8000
