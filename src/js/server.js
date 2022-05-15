@@ -195,6 +195,21 @@ function post_period(spaces,start,end){
    return reservation_map_to_summary_map(matches);
 }
 
+function collect_user_reservation(space_list,email){
+   let query = (resrv) => resrv.user.email === email;
+   let matches = get_reservations_map(space_list,query);
+   return reservation_map_to_summary_map(matches);
+}
+
+export function post_user_reservations(space_db,email){
+   let result = {};
+   for(const [key,value] of space_db.entries()){
+      let filtered_set = collect_user_reservation(value,email);
+      result[key]  = filtered_set;
+   }
+   return result;
+}
+
 export function post_reservations(req,db){
    let space_list = db.get(req.LOT); 
    let filtered_set = filter_spaces_by_keys(space_list,req.KEYS);

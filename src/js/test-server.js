@@ -156,7 +156,17 @@ function test_patch(){
    req.start_date = time.getTime();
    req.dur_hours = 1;
    req.dur_minutes = 0;
-
+   
+   let req_2 = {};
+  req_2.LOT = 'LIBRARY';
+  req_2.username = 'cultist';
+  req_2.name = 'Aeira';
+  req_2.email = 'something-else@dune.com';
+  req_2.number_plate = 'PYTH0N ENJOY3R';
+  req_2.start_date = time.getTime();
+  req_2.dur_hours = 1;
+  req_2.dur_minutes = 0;
+   
    let result = SERVER.patch_space_db_with_new_reservation(space_db,req);
    console.log(result.unwrap);
 
@@ -173,8 +183,8 @@ function test_patch(){
 
    //test for responce of a rejected reservation
    SERVER.patch_space_db_with_new_reservation(space_db,req);
-   SERVER.patch_space_db_with_new_reservation(space_db,req);
-   SERVER.patch_space_db_with_new_reservation(space_db,req);
+   SERVER.patch_space_db_with_new_reservation(space_db,req_2);
+   SERVER.patch_space_db_with_new_reservation(space_db,req_2);
    SERVER.patch_space_db_with_new_reservation(space_db,req);
    SERVER.patch_space_db_with_new_reservation(space_db,req);
    SERVER.patch_space_db_with_new_reservation(space_db,req);
@@ -185,9 +195,16 @@ function test_patch(){
    summary = SERVER.patch_space_db_with_new_reservation(space_db,req);
    console.log(summary);
 
+   //test user filter
+   console.log("==========user filter==========");
+   let user_reservations = SERVER.post_user_reservations(space_db,req_2.email);
+   assert.deepEqual(Object.keys(user_reservations.LIBRARY).length,2); 
+   console.log(user_reservations);
+   
 }
 
 function test_spacedb_ser(){
+   console.log("=====SPACEDB SERIALISATION=========");
    const one_hr = TM.duration(1,0);
    const d0 = new Date("March 2,2022 10:20");
    const t0 = TM.time(d0,one_hr);
