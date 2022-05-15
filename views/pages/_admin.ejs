@@ -50,13 +50,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+  
   <script>
-
-
-
     //============================== Create Booking Object ==================================
     class Booking {
-      constructor(name, phoneNumber, email, time, duration) {
+      constructor (name, phoneNumber, email, time, duration) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -67,36 +65,30 @@
     }
     //============================== Create Booking Object ==================================
 
-
-function request() {
+    function request() {
       let start = new Date("January 2, 1900, 10:00");
       let end = new Date("January 2, 2024, 10:00");
 
-
       let fakeObj = {
-         LOT: "LIBRARY",
-         KEYS: ["A0"],
-         START: start.getTime(),
-         END: end.getTime()
+        LOT: "LIBRARY",
+        KEYS: ["A0"],
+        START: start.getTime(),
+        END: end.getTime()
       }
 
-     const xhttp = new XMLHttpRequest();
+      const xhttp = new XMLHttpRequest();
 
-     xhttp.open("POST", "/admin", true);
+      xhttp.open("POST", "/admin", true);
 
-     xhttp.setRequestHeader("Accept", "application/json");
-     xhttp.setRequestHeader('Content-type', 'application/json');
+      xhttp.setRequestHeader("Accept", "application/json");
+      xhttp.setRequestHeader('Content-type', 'application/json');
 
-     xhttp.onload = function () {
-       console.log(this.responseText);
-       console.log(this.status);
-     }
-     
-     xhttp.send(JSON.stringify(fakeObj));
+      xhttp.onload = function () {
+        console.log(this.responseText);
+        console.log(this.status);
+      }
 
-
-
-
+      xhttp.send(JSON.stringify(fakeObj));
 
       /*var data = new FormData();
       data.append('user', 'person');
@@ -160,7 +152,7 @@ function request() {
 
       // Request data to send 
       let _destination = destination
-      let _Keys = ["A0","A1","A2","A3","A4","A5","A6","A7","A8","A9",]
+      let _Keys = ["A0", "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9",]
       let _start = new Date("06/12/2001").getTime;
       let _end = new Date("06/12/2001").getTime;
 
@@ -188,8 +180,6 @@ function request() {
     const Library = "LIBRARY"
     const SU = "SU"
     //============================== Get DOM elements ==================================
-
-
 
 
 
@@ -252,9 +242,9 @@ function request() {
       }
     }
     //============================== Check for no colisions  ======================
-    
-    
-    
+
+
+
     //Set destination to be the library by defult 
     let destination = null
     //============================== Load Spaces ==================================
@@ -418,9 +408,6 @@ function request() {
 
 
 
-
-
-
     //============================== Delete bookings ==================================
     function deleteBooking(time, laneNumber, duration) {
       let timeVariable = parseInt(time);
@@ -437,8 +424,6 @@ function request() {
 
     }
     //============================== Delete bookings ==================================
-
-
 
 
 
@@ -468,11 +453,6 @@ function request() {
       })
     })
     //============================== Display info to info screen ==================================
-
-
-
-
-
 
 
 

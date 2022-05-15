@@ -1,0 +1,366 @@
+{
+   "LIBRARY": [
+      {
+         "level": "A",
+         "bay": "0",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "1",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "2",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "3",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "4",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "5",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "6",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "7",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "8",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "9",
+         "reservations": []
+      }
+   ],
+   "SU": [
+      {
+         "level": "A",
+         "bay": "0",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "1",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "2",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "3",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "4",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "5",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "6",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "7",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "8",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "9",
+         "reservations": []
+      }
+   ],
+   "VILLAGE": [
+      {
+         "level": "A",
+         "bay": "0",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "1",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "2",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "3",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "4",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "5",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "6",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "7",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "8",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "9",
+         "reservations": []
+      }
+   ],
+   "SPORTSPARK": [
+      {
+         "level": "A",
+         "bay": "0",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "1",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "2",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "3",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "4",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "5",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "6",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "7",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "8",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "9",
+         "reservations": []
+      }
+   ],
+   "NEW_SCI": [
+      {
+         "level": "A",
+         "bay": "0",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "1",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "2",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "3",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "4",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "5",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "6",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "7",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "8",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "9",
+         "reservations": []
+      }
+   ],
+   "INTO": [
+      {
+         "level": "A",
+         "bay": "0",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "1",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "2",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "3",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "4",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "5",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "6",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "7",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "8",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "9",
+         "reservations": []
+      }
+   ],
+   "SAINSBURY": [
+      {
+         "level": "A",
+         "bay": "0",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "1",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "2",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "3",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "4",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "5",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "6",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "7",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "8",
+         "reservations": []
+      },
+      {
+         "level": "A",
+         "bay": "9",
+         "reservations": []
+      }
+   ]
+}
