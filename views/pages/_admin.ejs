@@ -70,26 +70,9 @@
     //Array of bookings. Note: this will be supplied by the back end server
     let array = [
       new Booking("caleb ", "07534877339", "calebadeyemo2@gmail.com", 0, 2),
-      new Booking("caleb var", "07534877339", "calebadeyemo2@gmail.com", 0, 2),
-      new Booking("Rosette", "07934877339", "Rosette@gmail.com", 1, 2),
-      new Booking("kieran", "07934877339", "kieran@gmail.com", 6, 3),
-      new Booking("Chidz", "07934877339", "Chidz@gmail.com", 3, 4),
-      new Booking("Caleb", "07934877339", "Caleb@gmail.com", 10, 5),
-      new Booking("Rose", "07934877339", "Rose@gmail.com", 10, 6),
-      new Booking("Oba", "07934877339", "Oba@gmail.com", 3, 7),
-      new Booking("Karan", "07934877339", "Karan@gmail.com", 6, 8),
-      new Booking("Jass", "07934877339", "Jass@gmail.com", 6, 9),
-      new Booking("Lewis", "07934877339", "Lewis@gmail.com", 6, 10),
-      new Booking("Harpreet", "07934877339", "Harpreet@gmail.com", 21, 3),
-      new Booking("Lucas", "07934877339", "Lucas@gmail.com", 10, 4),
-      new Booking("Alice", "07934877339", "Alice@gmail.com", 3, 5),
-      new Booking("Koyin", "07934877339", "Koyin@gmail.com", 6, 7),
-      new Booking("Uche1", "07934877339", "Uche@gmail.com", 3, 3),
-      new Booking("Uche", "07934877339", "Uche@gmail.com", 23, 2),
-      new Booking("Uche2", "07934877339", "Uche2@gmail.com", 23, 5),
-      new Booking("Uche3", "07934877339", "Uche3@gmail.com", 4, 2),
-      new Booking("test", "07934877339", "Uche3@gmail.com", 4, 3),
-      new Booking("test5", "07934877339", "Uche3@gmail.com", 6, 2),
+      {name: 'caleb adeyemo', email: 'tadeyemo511@gmail.com', phoneNumber: 1652756400000, duration: 6, time: 5, laneNumber:0},
+      {name: 'caleb', email: 'tadeyemo511@gmail.com', phoneNumber: 1652756400000, duration: 6, time: 5, laneNumber:0}
+
     ]
 
 
@@ -168,7 +151,7 @@
     }
 
     //============================== Check for no collisions  ======================
-
+    let newarray = []
 
     //============================== Load Spaces ==================================
     function loadSpaces() {
@@ -176,8 +159,6 @@
       let pickDest = document.getElementsByClassName("pickDest");
 
       let lot = pickDest[dest.selectedIndex].value;
-      console.log("lot");
-      console.log(lot);
       //============================== Create Request ==================================
       const xhttp = new XMLHttpRequest();
 
@@ -187,18 +168,29 @@
       xhttp.setRequestHeader('Content-type', 'application/json');
 
       xhttp.onload = function () {
-        console.log("....")
-        console.log(this.responseText);
+        let res = JSON.parse(this.responseText) 
+
+        let dateObj = new Date()
+
+        for (const [key, value] of Object.entries(res)) {
+      // constructor(name, phoneNumber, email, time, duration) {
+        value.forEach(function(x){
+          dateObj.setTime(x.start_date)
+          let data = new Booking(x.name, 00000, x.email, dateObj.getHours() ,x.dur_hours)
+          newarray.push(data)
+        })
+        }
+
       }
-    var arrivalDate = document.getElementById("arriveDate");
+      var arrivalDate = document.getElementById("arriveDate");
 
       let startDate = new Date(arrivalDate.value); // format date object
-      startDate.setHours(0,0,0);
+      startDate.setHours(0, 0, 0);
       let start = startDate.getTime()
 
       let endDate = new Date(arrivalDate.value); // format date object
       endDate.setHours(startDate.getHours() + 23);
-      let end  = endDate.getTime()
+      let end = endDate.getTime()
 
       let req = {
         LOT: lot,
@@ -206,8 +198,6 @@
         START: start,
         END: end
       }
-      console.log("request");
-      console.log(req);
       // Request data to send 
       xhttp.send(JSON.stringify(req));
       //============================== Create Request ==================================
@@ -215,8 +205,10 @@
       //Delete all the bookings currently loadded 
       refresh()
 
+
       //Loop through the array and load all the newly added bookings in there
-      array.forEach(booking => {
+      newarray.forEach(booking => {
+        console.log(booking)
         // Number to be used as index for class "spaces", i.e spaces[timeVariable],...
         // ...starts @ arrival time and incremented by 24 to go to the next lane.
         let timeVariable = booking.time
@@ -236,7 +228,6 @@
         addBooking(booking, timeVariable, lane_no, booking.duration);
       })
     }
-    loadSpaces()
 
 
     //============================== Move Bookings ==================================
@@ -267,9 +258,6 @@
         else {
           console.log("no space")
         }
-
-        //Call loadSpaces()
-        loadSpaces()
 
         //stop form from reloading the page
         e.preventDefault();

@@ -17,6 +17,20 @@
                   "email": "ygb19mzu@uea.ac.uk",
                   "password": null
                }
+            },
+            {
+               "time": {
+                  "start": "2022-05-15T23:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "IOT (presentation)",
+                  "email": "oldercalebadeyemo2@gmail.com",
+                  "password": null
+               }
             }
          ]
       },
@@ -283,23 +297,96 @@
                   "email": "tadeyemo511@gmail.com",
                   "password": null
                }
+            },
+            {
+               "time": {
+                  "start": "2022-05-17T03:00:00.000Z",
+                  "duration": {
+                     "hr": 6,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "caleb adeyemo",
+                  "email": "tadeyemo511@gmail.com",
+                  "password": null
+               }
             }
          ]
       },
       {
          "level": "A",
          "bay": "1",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-17T05:00:00.000Z",
+                  "duration": {
+                     "hr": 6,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "caleb folakunmi adeyemo",
+                  "email": "tadeyemo511@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
          "bay": "2",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-17T00:00:00.000Z",
+                  "duration": {
+                     "hr": 14,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "IOT (presentation)",
+                  "email": "oldercalebadeyemo2@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
          "bay": "3",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-15T23:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "caleb adeyemo",
+                  "email": "oldercalebadeyemo2@gmail.com",
+                  "password": null
+               }
+            },
+            {
+               "time": {
+                  "start": "2022-05-17T05:00:00.000Z",
+                  "duration": {
+                     "hr": 9,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "caleb folakunmi adeyemo",
+                  "email": "calebadeyemo2@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
