@@ -54,7 +54,7 @@
   <script>
     //============================== Create Booking Object ==================================
     class Booking {
-      constructor (name, phoneNumber, email, time, duration) {
+      constructor(name, phoneNumber, email, time, duration) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -171,7 +171,7 @@
     //============================== Add booking ==================================
 
 
-    //============================== Refresh all Booings  ==================================
+    //============================== Refresh all Bookings  ==================================
     // clears all previous info
     function refresh() {
       spaces.forEach(space => {
@@ -180,9 +180,9 @@
         space.style.border = "1px solid black";
       })
     }
-    //============================== Refresh all Booings  ==================================
+    //============================== Refresh all Bookings  ==================================
 
-    //============================== Check for no colisions  =======================
+    //============================== Check for no collisions  =======================
     function checkUnder(timeVariable, duration) {
       let int = 0;
       //loop the number of durations 
@@ -194,13 +194,15 @@
         }
       }
       if (int == duration) {
+        $("#error").text("");
         return false;
       }
       else {
+        $("#error").text("That space is not empty");
         return true;
       }
     }
-    //============================== Check for no colisions  ======================
+    //============================== Check for no collisions  ======================
 
     //Set destination to be the library by defult 
     let destination = null
