@@ -395,6 +395,7 @@ input::-webkit-inner-spin-button {
 
 #dateToggle {
   background-color: #003049;
+  border-radius: 2px;
   color: white;
   margin: 1rem;
   padding: 1rem;
