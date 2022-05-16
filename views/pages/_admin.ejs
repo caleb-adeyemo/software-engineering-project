@@ -263,9 +263,11 @@
           addBooking(booking, timeVariable, data.active_lot, JSON.parse(data.store).duration);
           //Delete previous booking
           deleteBooking(arrival, laneNumber, JSON.parse(data.store).duration)
+          $("#error").text("");
         }
         else {
           console.log("no space")
+          $("#error").text("no space");
         }
 
         //Call loadSpaces()
