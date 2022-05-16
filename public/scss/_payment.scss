@@ -1,0 +1,70 @@
+.card {
+	width: 60rem;
+  margin: 4rem auto;
+  background: white;
+  position: center;
+  align-self: center;
+  border-radius: 1rem;
+  box-shadow: 3px 3px 20px #0000008c;
+  display:flex;
+  flex-direction: row;
+}
+
+.leftside {
+	background: $darkBlue;
+	width: 20rem;
+	display: inline-flex;
+  align-items: center;
+  justify-content: center;
+	border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.rightside {
+	width: 35rem;
+	border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: 2rem 3rem;
+}
+
+.inputbox {
+  color: #615a5a;
+	width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+  outline: none;
+}
+
+.cardDets {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.expiry {
+  padding-right: 1rem;
+}
+
+.inputCVV {
+  padding:0 1rem;
+}
+
+.button {
+  background: linear-gradient(150deg, $lightYellow 0%, $darkBlue 100%);
+  padding: 15px;
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  margin-top: 1rem;
+  width: 100%;
+  letter-spacing: 0.1rem;
+  outline: none;
+}
+
+.button:hover {
+	transform: scale(1.05) translateY(-3px);
+  box-shadow: 3px 3px 6px #38373785;
+}
+
