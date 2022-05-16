@@ -68,12 +68,12 @@
 
     //============================== Create INFO ==================================
     //Array of bookings. Note: this will be supplied by the back end server
-    let array = [
-      new Booking("caleb ", "07534877339", "calebadeyemo2@gmail.com", 0, 2),
-      {name: 'caleb adeyemo', email: 'tadeyemo511@gmail.com', phoneNumber: 1652756400000, duration: 6, time: 5, laneNumber:0},
-      {name: 'caleb', email: 'tadeyemo511@gmail.com', phoneNumber: 1652756400000, duration: 6, time: 5, laneNumber:0}
+    // let array = [
+    //   new Booking("caleb ", "07534877339", "calebadeyemo2@gmail.com", 0, 2),
+    //   {name: 'caleb adeyemo', email: 'tadeyemo511@gmail.com', phoneNumber: 1652756400000, duration: 6, time: 5, laneNumber:0},
+    //   {name: 'caleb', email: 'tadeyemo511@gmail.com', phoneNumber: 1652756400000, duration: 6, time: 5, laneNumber:0}
 
-    ]
+    // ]
 
 
     //============================== Get DOM elements ==================================
@@ -178,6 +178,7 @@
           dateObj.setTime(x.start_date)
           let data = new Booking(x.name, 00000, x.email, dateObj.getHours() ,x.dur_hours)
           newarray.push(data)
+          test()
         })
         }
 
@@ -202,13 +203,14 @@
       xhttp.send(JSON.stringify(req));
       //============================== Create Request ==================================
 
+      
+
+    }
+    function test(){
       //Delete all the bookings currently loadded 
       refresh()
-
-
       //Loop through the array and load all the newly added bookings in there
       newarray.forEach(booking => {
-        console.log(booking)
         // Number to be used as index for class "spaces", i.e spaces[timeVariable],...
         // ...starts @ arrival time and incremented by 24 to go to the next lane.
         let timeVariable = booking.time
