@@ -62,6 +62,9 @@ app.get('/myAccount', (req, res) => {
 app.get('/admin', (req, res) => {
    res.render('admin', { layout: './pages/_admin', title: 'Admin' })   
  });
+app.get('/payment', (req, res) => {
+  res.render('payment', { layout: './pages/_payment', title: 'Make Payment' })   
+});
 
 app.post('/login',urlEncodedParser,(req,res)=>{
    console.log("--email--");

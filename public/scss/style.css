@@ -54,11 +54,15 @@ header {
   animation: 0.75s ease-in-out 0s slideDrop;
 }
 
-#dest-title, .arrival p, #time-title, #duration-title {
+#dest-title,
+.arrival p,
+#time-title,
+#duration-title {
   margin-bottom: 0;
 }
 
-select, #arriveDate {
+select,
+#arriveDate {
   font-size: 1.125rem;
   padding: 3.8px 0 3.8px 0;
   width: 100%;
@@ -203,7 +207,6 @@ select, #arriveDate {
 }
 
 .form-button:focus {
-  width: 16rem;
   border-color: #FCBF49;
 }
 
@@ -228,12 +231,20 @@ select, #arriveDate {
 
 hr {
   margin-top: 30px;
-  width: 100%;
+  width: 30%;
   background-color: #aea4a4;
   text-align: center;
 }
 
+.divider {
+  display: inline-block;
+  border-bottom: white 1px solid;
+  width: 20%;
+  margin: 5px;
+}
+
 .or {
+  display: inline-block;
   background-color: rgba(255, 255, 255, 0.85);
   border-radius: 2px;
   width: 50px;
@@ -246,11 +257,14 @@ hr {
   font-size: 20px;
 }
 
-.back-link {
-  margin-top: 1rem;
-  font-size: font-med;
-  position: relative;
-  left: 1rem;
+.centre-text {
+  text-align: center;
+  color: white;
+}
+
+.error {
+  color: red;
+  font-size: 1;
 }
 
 #timeLine {
@@ -380,7 +394,9 @@ input::-webkit-inner-spin-button {
 }
 
 #dateToggle {
-  background-color: lightblue;
+  background-color: #003049;
+  color: white;
+  margin: 1rem;
   padding: 1rem;
   display: flex;
   justify-content: space-around;
@@ -430,11 +446,12 @@ input::-webkit-inner-spin-button {
 
 .user-container {
   background: lightyellow;
-  width: 800px;
-  height: 550px;
+  width: 45rem;
+  height: 46rem;
+  padding-top: 1rem;
   margin: 0 auto;
   position: relative;
-  margin-top: 5%;
+  margin-top: 4rem;
   box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -452,23 +469,20 @@ input::-webkit-inner-spin-button {
 }
 
 .leftbar h2 {
-  list-style: none;
-  padding: 10px;
   color: white;
   font-size: 25px;
-  display: block;
-  transition: all 0.1s ease-in-out;
-  text-transform: uppercase;
+  list-style: none;
   text-align: center;
+  padding: 0.5rem;
   margin-top: 25%;
   margin-bottom: 25%;
+  display: block;
   text-transform: uppercase;
 }
 
 .leftbar h2:hover {
   color: #FCBF49;
   cursor: pointer;
-  transform: scale(1.2);
 }
 
 .leftbar h2:first-child {
@@ -560,5 +574,75 @@ span {
 
 .tabShow {
   display: none;
+}
+
+.card {
+  width: 60rem;
+  margin: 4rem auto;
+  background: white;
+  position: center;
+  align-self: center;
+  border-radius: 1rem;
+  box-shadow: 3px 3px 20px #0000008c;
+  display: flex;
+  flex-direction: row;
+}
+
+.leftside {
+  background: #003049;
+  width: 20rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.rightside {
+  width: 35rem;
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: 2rem 3rem;
+}
+
+.inputbox {
+  color: #615a5a;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+  outline: none;
+}
+
+.cardDets {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.expiry {
+  padding-right: 1rem;
+}
+
+.inputCVV {
+  padding: 0 1rem;
+}
+
+.button {
+  background: linear-gradient(150deg, #EAE2B7 0%, #003049 100%);
+  padding: 15px;
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  margin-top: 1rem;
+  width: 100%;
+  letter-spacing: 0.1rem;
+  outline: none;
+}
+
+.button:hover {
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 3px 3px 6px #38373785;
 }
 /*# sourceMappingURL=style.css.map */

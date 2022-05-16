@@ -134,7 +134,7 @@
     }
 
 
-    //============================== Refresh all Booings  ==================================
+    //============================== Refresh all Bookings  ==================================
     // clears all previous info
     function refresh() {
       spaces.forEach(space => {
@@ -144,7 +144,9 @@
       })
     }
 
-    //============================== Check for no colisions  =======================
+    //============================== Refresh all Bookings  ==================================
+
+    //============================== Check for no collisions  =======================
     function checkUnder(timeVariable, duration) {
       let int = 0;
       //loop the number of durations 
@@ -156,12 +158,16 @@
         }
       }
       if (int == duration) {
+        $("#error").text("");
         return false;
       }
       else {
+        $("#error").text("That space is not empty");
         return true;
       }
     }
+
+    //============================== Check for no collisions  ======================
 
 
     //============================== Load Spaces ==================================
