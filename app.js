@@ -74,7 +74,9 @@ app.post('/login',urlEncodedParser,(req,res)=>{
    let result = server.handle_login(user_table,req.body.email,req.body.password); 
    res.send(result.msg);
 });
-
+app.post('/',urlEncodedParser,(req,res)=>{
+  res.render('payment', { layout: './pages/_payment', title: 'Make Payment' })   
+});
 app.post('/signup',urlEncodedParser,(req,res)=>{
    console.log("--email--");
    console.log(req.body.email); 

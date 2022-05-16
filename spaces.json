@@ -31,38 +31,212 @@
                   "email": "oldercalebadeyemo2@gmail.com",
                   "password": null
                }
+            },
+            {
+               "time": {
+                  "start": "2022-05-16T02:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "qeojfnjwef",
+                  "email": "oldercalebadeyemo2@gmail.com",
+                  "password": null
+               }
+            },
+            {
+               "time": {
+                  "start": "2022-06-12T03:00:00.000Z",
+                  "duration": {
+                     "hr": 5,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "test",
+                  "email": "oldercalebadeyemo2@gmail.com",
+                  "password": null
+               }
             }
          ]
       },
       {
          "level": "A",
          "bay": "1",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-15T23:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "Bot",
+                  "email": "oldercalebadeyemo2@gmail.com",
+                  "password": null
+               }
+            },
+            {
+               "time": {
+                  "start": "2022-05-16T10:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "caleb adeyemo",
+                  "email": "oldercalebadeyemo2@gmail.com",
+                  "password": null
+               }
+            },
+            {
+               "time": {
+                  "start": "2022-05-16T12:00:00.000Z",
+                  "duration": {
+                     "hr": 5,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "demo",
+                  "email": "tadeyemo511@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
          "bay": "2",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-15T23:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "newbot",
+                  "email": "tadeyemo511@gmail.com",
+                  "password": null
+               }
+            },
+            {
+               "time": {
+                  "start": "2022-05-16T05:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "new test",
+                  "email": "oldercalebadeyemo2@gmail.com",
+                  "password": null
+               }
+            },
+            {
+               "time": {
+                  "start": "2022-05-16T08:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "second test",
+                  "email": "calebadeyemo2@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
          "bay": "3",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-15T23:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "bhivbsfiv",
+                  "email": "calebadeyemo2@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
          "bay": "4",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-15T23:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "dvonSD{v",
+                  "email": "calebadeyemo2@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
          "bay": "5",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-15T23:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "IOT (presentation)",
+                  "email": "oldercalebadeyemo2@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
          "bay": "6",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-05-15T23:00:00.000Z",
+                  "duration": {
+                     "hr": 1,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "IOT (presentation)",
+                  "email": "calebadeyemo2@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
@@ -217,12 +391,42 @@
       {
          "level": "A",
          "bay": "0",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-06-12T11:00:00.000Z",
+                  "duration": {
+                     "hr": 4,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "Caleb ",
+                  "email": "caleb@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
          "bay": "1",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-06-12T11:00:00.000Z",
+                  "duration": {
+                     "hr": 4,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "Caleb ",
+                  "email": "caleb@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
@@ -475,7 +679,22 @@
       {
          "level": "A",
          "bay": "0",
-         "reservations": []
+         "reservations": [
+            {
+               "time": {
+                  "start": "2022-06-12T11:00:00.000Z",
+                  "duration": {
+                     "hr": 4,
+                     "min": 0
+                  }
+               },
+               "user": {
+                  "name": "Caleb",
+                  "email": "Caleb@gmail.com",
+                  "password": null
+               }
+            }
+         ]
       },
       {
          "level": "A",
