@@ -5,20 +5,26 @@
 </section>
 <div id="dateToggle">
   <div>
-    <button onclick="displayLinks()" class="dropbtn">Destination</button>
-    <div id="myDropdown" class="dropdown-content">
-      <a href="#" onclick="loadSpaces()">Library</a>
-      <a href="#" onclick="loadSU()">Student Union</a>
-      <a href="#" onclick="loadArrayUniversityVillage()">University Village</a>
-      <a href="#">Sportspark</a>
-      <a href="#">New Science Building</a>
-      <a href="#">INTO Building</a>
-      <a href="#">Sainsbury Centre</a>
-    </div>
+    <label class="dropbtn" for="myDropdown">Destination</label>
+    <select id="myDropdown" name="destination">
+      <option class="pickDest" value="LIBRARY">Library</option>
+      <option class="pickDest" value="SU">Student Union</option>
+      <option class="pickDest" value="VILLAGE">University Village</option>
+      <option class="pickDest" value="SPORTSPARK">Sportspark</option>
+      <option class="pickDest" value="NEW_SCI">New Science Building</option>
+      <option class="pickDest" value="INTO">INTO Building</option>
+      <option class="pickDest" value="SAINSBURY">Sainsbury Centre</option>
+    </select>
   </div>
   <div>
-    <p>Date</p>
+    <p class="dropbtn" for="arriveDate">Arrival Date:</p>
+        <input type="date" id="arriveDate" name="arrival-start" max="2032-12-31">
   </div>
+  <!-- set minimum date to current day -->
+  <script>
+    document.getElementById('arriveDate').value = new Date().toISOString().substring(0, 10);
+    document.getElementById('arriveDate').min = new Date().toISOString().substring(0, 10);
+  </script>
 </div>
 <section>
   <div class="wrapper">

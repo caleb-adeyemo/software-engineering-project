@@ -181,15 +181,40 @@ function post_period(spaces,start,end){
 
    let start_date = new Date();
    start_date.setTime(start);
-
+   console.log(start_date);
+   console.log(
+      start_date.getHours() 
+      + ":" 
+      + start_date.getDate() 
+      + ":"
+      + start_date.getMonth()
+      + ":"
+      + start_date.getFullYear()
+   );
+   console.log(
+      end_date.getHours() 
+      + ":" 
+      + end_date.getDate() 
+      + ":"
+      + end_date.getMonth()
+      + ":"
+      + end_date.getFullYear()
+   );
    let query = (resrv) =>{
       let temp_start = resrv.time.start;
       let temp_end = resrv.time.end();
+         
       let start_in_range = temp_start >= start_date && temp_start < end_date;
-      let end_in_range = temp_end <= end_date && temp_start > start_date;
+      console.log(temp_start + " < " + end_date);
+      let end_in_range = temp_end <= end_date && temp_end > start_date;
+      console.log(temp_end + " > " + start_date);
+      //console.log(start_in_range);
+      //console.log(end_in_range);
       return (start_in_range && end_in_range);
    };
    let matches = get_reservations_map(spaces,query);
+   //console.log("matches");
+   //console.log(matches);
    return reservation_map_to_summary_map(matches);
 }
 
@@ -219,8 +244,11 @@ export function user_has_reservations(user_reservations){
 export function post_reservations(req,db){
    let space_list = db.get(req.LOT); 
    let filtered_set = filter_spaces_by_keys(space_list,req.KEYS);
-   let responce;
+   console.log("filtered");
+   console.log(filtered_set);
+   let responce = {};
    if(req.START && req.END){
+      let start = new Date();
       responce = post_period(filtered_set,req.START,req.END);
       return responce;
    }

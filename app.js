@@ -101,7 +101,6 @@ app.post('/myAccount',jsonParser,(req,res)=>{
 });
 
 app.post('/admin',jsonParser,(req,res)=>{
-   //console.log(req);
    console.log(req.body);
    let result = server.post_reservations(req.body,space_db);
    res.send(JSON.stringify(result));
@@ -109,6 +108,9 @@ app.post('/admin',jsonParser,(req,res)=>{
 
 app.patch('/admin',jsonParser,(req,res)=>{
    let result = server.patch_space_db_with_new_reservation(space_db,req.body);
+   let start = new Date();
+   start.setTime(req.body.start_date);
+   console.log(start.getDate());
    if(result.code === RESRV.RES_OK){
       res.send(JSON.stringify(result.unwrap));
        
