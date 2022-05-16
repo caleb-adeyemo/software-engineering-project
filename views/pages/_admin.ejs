@@ -170,7 +170,8 @@
       let pickDest = document.getElementsByClassName("pickDest");
 
       let lot = pickDest[dest.selectedIndex].value;
-
+      console.log("lot");
+      console.log(lot);
       //============================== Create Request ==================================
       const xhttp = new XMLHttpRequest();
 
@@ -185,11 +186,11 @@
     var arrivalDate = document.getElementById("arriveDate");
 
       let startDate = new Date(arrivalDate.value); // format date object
-      startDate.setHours(0);
+      startDate.setHours(0,0,0);
       let start = startDate.getTime()
 
       let endDate = new Date(arrivalDate.value); // format date object
-      endDate.setHours(23);
+      endDate.setHours(startDate.getHours() + 23);
       let end  = endDate.getTime()
 
       let req = {
@@ -198,7 +199,8 @@
         START: start,
         END: end
       }
-
+      console.log("request");
+      console.log(req);
       // Request data to send 
       xhttp.send(JSON.stringify(req));
       //============================== Create Request ==================================
