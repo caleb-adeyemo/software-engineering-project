@@ -30,11 +30,15 @@
   animation: 0.75s ease-in-out 0s slideDrop;
 }
 
-#dest-title, .arrival p, #time-title, #duration-title{
+#dest-title,
+.arrival p,
+#time-title,
+#duration-title {
   margin-bottom: 0;
 }
 
-select, #arriveDate {
+select,
+#arriveDate {
   font-size: $font-med;
   padding: 3.8px 0 3.8px 0;
   width: 100%;

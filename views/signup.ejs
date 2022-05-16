@@ -1,34 +1,37 @@
 <section>
 
-    <body>
-        <div class="container-signup">
-            <form class="form" id="createAccount" method="POST" action="/signup">
-                <h1 class="form-title">Create Account</h1>
-                <div class="form-message form-message-error"></div>
-                <div class="form-input-group">
-                    <input type="text" class="form-input" name="name" required autofocus placeholder="Name">
-                    <div class="form-input-error-message"></div>
-                </div>
-                <div class="form_input-group">
-                    <input type="email" class="form-input" name="email" required autofocus placeholder="Email">
-                    <div class="form-input-error-message"></div>
-                </div>
-                <div class="form-input-group">
-                    <input type="password" class="form-input" name="password" id="password1" required autofocus placeholder="Password">
-                    <div class="form-input-error-message"></div>
-                </div>
-                <div class="form-input-group">
-                    <input type="password" class="form-input" name="confirm password" id="password2" required autofocus placeholder="Confirm Password">
-                    <div class="error" id="error" placeholder="no errors"></div>
-                </div>
-                <button class="form-button" type="submit">Continue</button>
-                <div class="divider"></div>
-                    <p class="or">OR</p>
-                <div class="divider"></div>
-                <button class=form-button onclick="document.location='/.'">Continue As Guest</button>
-            </form>
-            <p class="centre-text"></p>
-            <p class="form-link">Already have an account?<br><a href="/login" id="linkLogin">----------Sign in----------</a></p>
+  <body>
+    <div class="container-signup">
+      <form class="form" id="createAccount" method="POST" action="/signup">
+        <h1 class="form-title">Create Account</h1>
+        <div class="form-message form-message-error"></div>
+        <div class="form-input-group">
+          <input type="text" class="form-input" name="name" required autofocus placeholder="Name">
+          <div class="form-input-error-message"></div>
         </div>
-    </body>
+        <div class="form_input-group">
+          <input type="email" class="form-input" name="email" required autofocus placeholder="Email">
+          <div class="form-input-error-message"></div>
+        </div>
+        <div class="form-input-group">
+          <input type="password" class="form-input" name="password" id="password1" required autofocus
+            placeholder="Password">
+          <div class="form-input-error-message"></div>
+        </div>
+        <div class="form-input-group">
+          <input type="password" class="form-input" name="confirm password" id="password2" required autofocus
+            placeholder="Confirm Password">
+          <div class="error" id="error" placeholder="no errors"></div>
+        </div>
+        <button class="form-button" type="submit">Continue</button>
+        <div class="divider"></div>
+        <p class="or">OR</p>
+        <div class="divider"></div>
+        <button class=form-button onclick="document.location='/.'">Continue As Guest</button>
+      </form>
+      <p class="centre-text"></p>
+      <p class="form-link">Already have an account?<br><a href="/login" id="linkLogin">----------Sign in----------</a>
+      </p>
+    </div>
+  </body>
 </section>
